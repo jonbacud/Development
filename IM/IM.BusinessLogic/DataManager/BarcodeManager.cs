@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BLToolkit.Data;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
 
@@ -22,24 +23,43 @@ namespace IM.BusinessLogic.DataManager
             get; set;
         }
 
-        public void Save(Barcode model)
+        public void Save(Barcode barcode)
         {
-            throw new NotImplementedException();
+            using (DbManager db = new DbManager() )
+            {
+                if (barcode.Id>0)
+                {
+                    Accessor.Query.Update(db, barcode);
+                }
+                else
+                {
+                    Accessor.Query.Insert(db, barcode);
+                }
+            }
         }
 
-        public void Save(List<Barcode> collection)
+        public void Save(List<Barcode> barcodes)
         {
-            throw new NotImplementedException();
+            foreach (var barcode in barcodes)
+            {
+                Save(barcode);
+            }
         }
 
-        public void Delete(Barcode model)
+        public void Delete(Barcode barcode)
         {
-            throw new NotImplementedException();
+            using (DbManager db = new DbManager())
+            {
+                Accessor.Query.Delete(db, barcode);
+            }
         }
 
-        public void Delete(List<Barcode> collection)
+        public void Delete(List<Barcode> barcodes)
         {
-            throw new NotImplementedException();
+            foreach (var barcode in barcodes)
+            {
+                Delete(barcode);
+            }
         }
 
         public List<Barcode> FetchAll()
@@ -49,7 +69,7 @@ namespace IM.BusinessLogic.DataManager
 
         public Barcode FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Barcode>(key) ?? new Barcode();
         }
     }
 }
