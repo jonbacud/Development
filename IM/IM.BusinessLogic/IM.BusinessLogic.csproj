@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E5124EA-EC8E-46D6-AFDF-F5D7CECA80B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IM.BusinessLogic</RootNamespace>
+    <AssemblyName>IM.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BLToolkit.4">
+      <HintPath>..\packages\BLToolkit.4.3.0\lib\net40\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\AccessorBase.cs" />
+    <Compile Include="DataAccess\CategoryAccessor.cs" />
+    <Compile Include="DataAccess\DepartmentAccessor.cs" />
+    <Compile Include="DataAccess\IssuanceAccessor.cs" />
+    <Compile Include="DataAccess\IssuanceDetailAccessor.cs" />
+    <Compile Include="DataAccess\ItemAccessor.cs" />
+    <Compile Include="DataAccess\ItemClassificationAccessor.cs" />
+    <Compile Include="DataAccess\ItemTypeAccessor.cs" />
+    <Compile Include="DataAccess\LocationAccessor.cs" />
+    <Compile Include="DataAccess\RackAccessor.cs" />
+    <Compile Include="DataAccess\RequisitionAccessor.cs" />
+    <Compile Include="DataAccess\ShelveAccessor.cs" />
+    <Compile Include="DataAccess\SupplierAccessor.cs" />
+    <Compile Include="DataAccess\UnitAccessor.cs" />
+    <Compile Include="DataManager\CategoryManager.cs" />
+    <Compile Include="DataManager\DepartmentManager.cs" />
+    <Compile Include="DataManager\IBaseManager.cs" />
+    <Compile Include="DataManager\IssuanceDetailManager.cs" />
+    <Compile Include="DataManager\IssuanceManager.cs" />
+    <Compile Include="DataManager\ItemClassificationManager.cs" />
+    <Compile Include="DataManager\ItemManager.cs" />
+    <Compile Include="DataManager\ItemTypeManager.cs" />
+    <Compile Include="DataManager\LocationManager.cs" />
+    <Compile Include="DataManager\RackManager.cs" />
+    <Compile Include="DataManager\RequisitionManager.cs" />
+    <Compile Include="DataManager\ShelveManager.cs" />
+    <Compile Include="DataManager\SupplierManager.cs" />
+    <Compile Include="DataManager\UnitManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IM.Models\IM.Models.csproj">
+      <Project>{1dc06ff2-09b9-42c0-94c6-4b77a24c6053}</Project>
+      <Name>IM.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

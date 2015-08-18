@@ -1,0 +1,77 @@
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Web.Dashboard.dll.config
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Web.Dashboard.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Web.Dashboard.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\EntityFramework.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\EntityFramework.SqlServer.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Microsoft.Web.Infrastructure.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\System.Web.Providers.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\EntityFramework.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\EntityFramework.SqlServer.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\System.Web.Providers.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\obj\Debug\Web.Dashboard.csprojResolveAssemblyReference.cache
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\obj\Debug\Web.Dashboard.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\obj\Debug\Web.Dashboard.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\BLToolkit.4.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\IM.BusinessLogic.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\IM.Models.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\IM.BusinessLogic.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\IM.Models.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\Web.Dashboard\bin\AjaxControlToolkit.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Web.Dashboard.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Web.Dashboard.pdb
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\AjaxControlToolkit.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\BLToolkit.4.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\EntityFramework.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\EntityFramework.SqlServer.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\IM.BusinessLogic.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\IM.Models.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.Web.Infrastructure.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Net.Http.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Web.Providers.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\IM.BusinessLogic.pdb
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\IM.Models.pdb
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Net.Http.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\EntityFramework.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\EntityFramework.SqlServer.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\System.Web.Providers.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml
+Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.csprojResolveAssemblyReference.cache
+Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.dll
+Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.pdb

@@ -1,0 +1,16 @@
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\bin\Debug\BLToolkit.4.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\bin\Debug\IM.Models.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.BusinessLogic\bin\Debug\IM.Models.pdb
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.dll
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.pdb
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\bin\Debug\BLToolkit.4.dll
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\bin\Debug\IM.Models.dll
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\bin\Debug\IM.Models.pdb
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
+Z:\pita\Sir jonathan\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb

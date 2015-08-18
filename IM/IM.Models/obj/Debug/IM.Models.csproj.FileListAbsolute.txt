@@ -1,0 +1,10 @@
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.Models\bin\Debug\IM.Models.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.Models\bin\Debug\IM.Models.pdb
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.Models\bin\Debug\BLToolkit.4.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.Models\obj\Debug\IM.Models.dll
+c:\users\dennis\documents\visual studio 2013\Projects\IM\IM.Models\obj\Debug\IM.Models.pdb
+Z:\pita\Sir jonathan\IM\IM.Models\bin\Debug\IM.Models.dll
+Z:\pita\Sir jonathan\IM\IM.Models\bin\Debug\IM.Models.pdb
+Z:\pita\Sir jonathan\IM\IM.Models\bin\Debug\BLToolkit.4.dll
+Z:\pita\Sir jonathan\IM\IM.Models\obj\Debug\IM.Models.dll
+Z:\pita\Sir jonathan\IM\IM.Models\obj\Debug\IM.Models.pdb
