@@ -82,7 +82,7 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
-                                <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable" 
+                                <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
                                     AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333">
@@ -97,14 +97,14 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False" 
+                                        <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="department_id"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Description" SortExpression="department_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_type" HeaderText="Type" SortExpression="department_type"></asp:BoundField>
                                         <asp:BoundField DataField="department_code" HeaderText="Code" SortExpression="department_code"></asp:BoundField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" 
+                                                <asp:HyperLink ID="HyperLink1" runat="server"
                                                     NavigateUrl='<%# "~/DepartmentEntry.aspx?mode=0&id="+Eval("department_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
@@ -128,13 +128,13 @@
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSourceDepartments" runat="server"
-                                    ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" 
+                                    ConnectionString="<%$ ConnectionStrings:IMConnectionString %>"
                                     SelectCommand="SELECT * FROM [ref_department] order by department_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
 
                     </div>
-                 </ContentTemplate>
+                </ContentTemplate>
             </asp:UpdatePanel>
         </div>
     </div>
