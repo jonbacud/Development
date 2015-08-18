@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\AccessorBase.cs" />
+    <Compile Include="DataAccess\BarcodeAccessor.cs" />
     <Compile Include="DataAccess\CategoryAccessor.cs" />
     <Compile Include="DataAccess\DepartmentAccessor.cs" />
     <Compile Include="DataAccess\IssuanceAccessor.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="DataAccess\ShelveAccessor.cs" />
     <Compile Include="DataAccess\SupplierAccessor.cs" />
     <Compile Include="DataAccess\UnitAccessor.cs" />
+    <Compile Include="DataManager\BarcodeManager.cs" />
     <Compile Include="DataManager\CategoryManager.cs" />
     <Compile Include="DataManager\DepartmentManager.cs" />
     <Compile Include="DataManager\IBaseManager.cs" />

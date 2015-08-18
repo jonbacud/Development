@@ -195,6 +195,7 @@
     <Content Include="css\metro-rtl.css" />
     <Content Include="css\metro-schemes.css" />
     <Content Include="css\metro.css" />
+    <Content Include="Default.aspx" />
     <Content Include="DepartmentManagementPanel.aspx" />
     <Content Include="fonts\metro.svg" />
     <Content Include="Images\accent.png" />
@@ -210,7 +211,6 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ItemClassificationPanel.aspx" />

@@ -13,7 +13,13 @@ namespace Web.Dashboard.Items
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                var barcodeManager = new BarcodeManager();
+                var barcode = barcodeManager.FetchAll().FirstOrDefault();
+                if (barcode != null)
+                    txtBarCode.Text = (long.Parse(barcode.Code)+1).ToString();
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
