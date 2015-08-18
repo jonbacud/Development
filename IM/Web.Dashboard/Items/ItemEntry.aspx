@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemEntry.aspx.cs" Inherits="Web.Dashboard.Items.ItemEntry" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemEntry.aspx.cs" 
+    Inherits="Web.Dashboard.Items.ItemEntry" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -70,14 +70,14 @@
                         <label>Item Code</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtItemCode"></asp:TextBox>
+                            <asp:TextBox  runat="server" ID="txtItemCode"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan6 margin5">
                         <label>Bar Code</label>
                         <div class="input-control text full-size ">
-                            <span class="mif-anchor prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtBarCode"></asp:TextBox>
+                            <span class="mif-barcode prepend-icon"></span>
+                            <asp:TextBox ReadOnly="True" runat="server" ID="txtBarCode"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -190,10 +190,8 @@
             </div>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE ITEM" CssClass="button primary" OnClick="btnSave_Click" />
-            <a href="ItemsManagementPanel.aspx" class="button link">BACK TO LIST</a>
+            <a href="Default.aspx" class="button link"> <span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>
-
-
 </asp:Content>
