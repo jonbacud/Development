@@ -75,3 +75,43 @@ Z:\pita\Sir jonathan\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml
 Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.csprojResolveAssemblyReference.cache
 Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.dll
 Z:\pita\Sir jonathan\IM\Web.Dashboard\obj\Debug\Web.Dashboard.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Web.Dashboard.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Web.Dashboard.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\AjaxControlToolkit.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\BLToolkit.4.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\EntityFramework.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\EntityFramework.SqlServer.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\IM.BusinessLogic.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\IM.Models.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Net.Http.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Web.Providers.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\IM.BusinessLogic.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\IM.Models.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Net.Http.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\EntityFramework.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\EntityFramework.SqlServer.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\System.Web.Providers.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.csprojResolveAssemblyReference.cache
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.pdb
