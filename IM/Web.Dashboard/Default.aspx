@@ -6,8 +6,13 @@
            
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-          
-
+            <div style="width:500px;height:350px; border-color:blue;border-style:solid;" >
+                Information Summary<br />
+                (0) Pending Requisition<br />
+                (0) Expiring Items<br />
+                (0) Items for re-order<br />
+                
+            </div> 
         </div>
     </div>
     <%-- --%>
