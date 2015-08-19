@@ -87,6 +87,27 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
+                                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ObjectDataSourceItems">
+                                    <Columns>
+                                        <asp:CommandField ShowSelectButton="True" />
+                                        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                                        <asp:BoundField DataField="ItemCode" HeaderText="ItemCode" SortExpression="ItemCode" />
+                                        <asp:BoundField DataField="BarCode" HeaderText="BarCode" SortExpression="BarCode" />
+                                        <asp:BoundField DataField="ItemName" HeaderText="ItemName" SortExpression="ItemName" />
+                                        <asp:BoundField DataField="ClassificationId" HeaderText="ClassificationId" SortExpression="ClassificationId" />
+                                        <asp:BoundField DataField="TypeId" HeaderText="TypeId" SortExpression="TypeId" />
+                                        <asp:BoundField DataField="UnitId" HeaderText="UnitId" SortExpression="UnitId" />
+                                        <asp:BoundField DataField="LastPurchaseDate" HeaderText="LastPurchaseDate" SortExpression="LastPurchaseDate" />
+                                        <asp:BoundField DataField="LastPurchasePrice" HeaderText="LastPurchasePrice" SortExpression="LastPurchasePrice" />
+                                        <asp:BoundField DataField="LastSellingPrice" HeaderText="LastSellingPrice" SortExpression="LastSellingPrice" />
+                                        <asp:BoundField DataField="ReOrderQuantity" HeaderText="ReOrderQuantity" SortExpression="ReOrderQuantity" />
+                                        <asp:BoundField DataField="ReOrderLevel" HeaderText="ReOrderLevel" SortExpression="ReOrderLevel" />
+                                        <asp:BoundField DataField="DepartmentId" HeaderText="DepartmentId" SortExpression="DepartmentId" />
+                                        <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" SortExpression="DateCreated" />
+                                        <asp:BoundField DataField="UniqueId" HeaderText="UniqueId" SortExpression="UniqueId" />
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:ObjectDataSource ID="ObjectDataSourceItems" runat="server" SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemManager"></asp:ObjectDataSource>
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,7 @@
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="Items/Default.aspx">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>

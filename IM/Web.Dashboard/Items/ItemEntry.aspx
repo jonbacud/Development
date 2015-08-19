@@ -136,7 +136,7 @@
                 </div>
                 <div class="row">
                 </div>
-                <div class="row cells3">
+                <div class="row">
                     <div class="cell colspan4 margin5">
                         <label style="font-weight:800;">Quantity</label>
                         <div class="input-control text full-size ">
@@ -151,12 +151,13 @@
                             <asp:ObjectDataSource ID="ObjectDataSourceUnits" runat="server" SelectMethod="FetchAll"
                                 TypeName="IM.BusinessLogic.DataManager.UnitManager">
                                 <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
+                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" 
+                                        PropertyName="SelectedValue" Type="Int32" />
                                 </SelectParameters>
                             </asp:ObjectDataSource>
                         </div>
                     </div>
-                    <div class="cell colspan4 margin5">
+                    <div class="cell colspan3 margin5">
                         <label style="font-weight:800;">Re Order Level</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" min="1" Type="Number" ID="txtReOrderLevel" Text="1"></asp:TextBox>
