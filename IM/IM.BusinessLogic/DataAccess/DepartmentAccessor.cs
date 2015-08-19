@@ -9,5 +9,10 @@ namespace IM.BusinessLogic.DataAccess
     public abstract class DepartmentAccessor : AccessorBase<DepartmentAccessor.DB, DepartmentAccessor>
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
+
+        public void SearchDepartment(string searcParam)
+        {
+            
+        }
     }
 }
