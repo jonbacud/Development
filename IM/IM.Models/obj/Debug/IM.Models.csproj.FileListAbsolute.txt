@@ -8,3 +8,8 @@ Z:\pita\Sir jonathan\IM\IM.Models\bin\Debug\IM.Models.pdb
 Z:\pita\Sir jonathan\IM\IM.Models\bin\Debug\BLToolkit.4.dll
 Z:\pita\Sir jonathan\IM\IM.Models\obj\Debug\IM.Models.dll
 Z:\pita\Sir jonathan\IM\IM.Models\obj\Debug\IM.Models.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\bin\Debug\IM.Models.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\bin\Debug\IM.Models.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\bin\Debug\BLToolkit.4.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\obj\Debug\IM.Models.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\obj\Debug\IM.Models.pdb

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemEntry.aspx.cs" Inherits="Web.Dashboard.Items.ItemEntry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemEntry.aspx.cs"
+    Inherits="Web.Dashboard.Items.ItemEntry" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -46,7 +47,7 @@
                     <span class="title">Reports</span>
                     <span class="counter">0</span>
                 </a></li>
-                   <li><a href="#">
+                <li><a href="#">
                     <span class="mif-apps icon"></span>
                     <span class="title">Item Storage</span>
                     <span class="counter">0</span>
@@ -67,133 +68,130 @@
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell colspan6 margin5">
-                        <label>Item Code</label>
+                        <label style="font-weight:800;">Item Code</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
                             <asp:TextBox runat="server" ID="txtItemCode"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan6 margin5">
-                        <label>Bar Code</label>
+                        <label style="font-weight:800;">Bar Code</label>
                         <div class="input-control text full-size ">
-                            <span class="mif-anchor prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtBarCode"></asp:TextBox>
+                            <span class="mif-barcode prepend-icon"></span>
+                            <asp:TextBox ReadOnly="True" runat="server" ID="txtBarCode"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row ">
                 <div class="cell auto-size">
-                    <label>Item Name</label>
+                    <label style="font-weight:800;">Item Name</label>
                     <div class="input-control text full-size ">
                         <asp:TextBox runat="server" ID="txtItemName" />
                     </div>
                 </div>
             </div>
-            <div class="example" data-text="item details">
-                <div class="flex-grid">
-                    <div class="row ">
-                        <div class="cell auto-size">
-                            <label>Department</label>
-                            <div class="input-control text full-size ">
-                                <asp:DropDownList runat="server" ID="DDLDepartments" DataSourceID="ObjectDataSourceDepartments"
-                                    DataTextField="Description" DataValueField="Id" AutoPostBack="True" />
-                                <asp:ObjectDataSource ID="ObjectDataSourceDepartments" runat="server" SelectMethod="FetchAll"
-                                    TypeName="IM.BusinessLogic.DataManager.DepartmentManager"></asp:ObjectDataSource>
-                            </div>
+            <%--  <div class="example" data-text="item details">--%>
+            <div class="flex-grid">
+                <div class="row ">
+                    <div class="cell auto-size">
+                        <label style="font-weight:800;">Department</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLDepartments" DataSourceID="ObjectDataSourceDepartments"
+                                DataTextField="Description" DataValueField="Id" AutoPostBack="True" />
+                            <asp:ObjectDataSource ID="ObjectDataSourceDepartments" runat="server" SelectMethod="FetchAll"
+                                TypeName="IM.BusinessLogic.DataManager.DepartmentManager"></asp:ObjectDataSource>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="cell colspan6">
-                            <label>Calssification</label>
-                            <div class="input-control text full-size ">
-                                <asp:DropDownList runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
-                                    DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
-                                <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
-                                    SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>
-                            </div>
-                        </div>
-                        <div class="cell "></div>
-                        <div class="cell colspan5">
-                            <label>Type</label>
-                            <div class="input-control text full-size ">
-                                <asp:DropDownList runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
-                                    DataTextField="ItemDesciption" DataValueField="Id" AutoPostBack="True" />
-                                <asp:ObjectDataSource ID="ObjectDataSourceTypes" runat="server" SelectMethod="FetchAll"
-                                    TypeName="IM.BusinessLogic.DataManager.ItemTypeManager">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId"
-                                            PropertyName="SelectedValue" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>
-                            </div>
+                </div>
+                <div class="row">
+                    <div class="cell colspan6">
+                        <label style="font-weight:800;">Calssification</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
+                                DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
+                            <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
+                                SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
                         </div>
                     </div>
-                    <div class="row">
-                    </div>
-                    <div class="row cells3">
-                        <div class="cell colspan4 margin5">
-                            <label>Quantity</label>
-                            <div class="input-control text full-size ">
-                                <asp:TextBox runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="cell colspan4 margin5">
-                            <label>Unit</label>
-                            <div class="input-control text full-size ">
-                                <asp:DropDownList runat="server" ID="DDLUnits" DataSourceID="ObjectDataSourceUnits" DataTextField="Description"
-                                    DataValueField="Id" />
-                                <asp:ObjectDataSource ID="ObjectDataSourceUnits" runat="server" SelectMethod="FetchAll"
-                                    TypeName="IM.BusinessLogic.DataManager.UnitManager">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>
-                            </div>
-                        </div>
-                        <div class="cell colspan4 margin5">
-                            <label>Re Order Level</label>
-                            <div class="input-control text full-size ">
-                                <asp:TextBox runat="server" min="1" Type="Number" ID="txtReOrderLevel" Text="1"></asp:TextBox>
-                            </div>
+                    <div class="cell "></div>
+                    <div class="cell colspan5">
+                        <label style="font-weight:800;">Type</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
+                                DataTextField="ItemDesciption" DataValueField="Id" AutoPostBack="True" />
+                            <asp:ObjectDataSource ID="ObjectDataSourceTypes" runat="server" SelectMethod="FetchAll"
+                                TypeName="IM.BusinessLogic.DataManager.ItemTypeManager">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId"
+                                        PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="cell colspan4">
-                            <label>Last Purchase Date</label>
-                            <div class="input-control text" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                                <asp:TextBox runat="server" ID="txtLastPurchaseDate"></asp:TextBox>
-                                <button class="button"><span class="mif-calendar"></span></button>
-                            </div>
+                </div>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="cell colspan4 margin5">
+                        <label style="font-weight:800;">Quantity</label>
+                        <div class="input-control text full-size ">
+                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
                         </div>
-                        <div class="cell colspan4">
-                            <label>Last Selling Price</label>
-                            <div class="input-control text">
-                                <span class="mif-money prepend-icon"></span>
-                                <asp:TextBox runat="server" ID="txtLastSellingPrice"></asp:TextBox>
+                    </div>
+                    <div class="cell colspan4 margin5">
+                        <label style="font-weight:800;">Unit</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLUnits" DataSourceID="ObjectDataSourceUnits" DataTextField="Description"
+                                DataValueField="Id" />
+                            <asp:ObjectDataSource ID="ObjectDataSourceUnits" runat="server" SelectMethod="FetchAll"
+                                TypeName="IM.BusinessLogic.DataManager.UnitManager">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" 
+                                        PropertyName="SelectedValue" Type="Int32" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                        </div>
+                    </div>
+                    <div class="cell colspan3 margin5">
+                        <label style="font-weight:800;">Re Order Level</label>
+                        <div class="input-control text full-size ">
+                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtReOrderLevel" Text="1"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell colspan4">
+                        <label style="font-weight:800;">Last Purchase Date</label>
+                        <div class="input-control text" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
+                            <asp:TextBox runat="server" ID="txtLastPurchaseDate"></asp:TextBox>
+                            <button class="button"><span class="mif-calendar"></span></button>
+                        </div>
+                    </div>
+                    <div class="cell colspan4">
+                        <label style="font-weight:800;">Last Selling Price</label>
+                        <div class="input-control text ">
+                            <asp:TextBox runat="server" CssClass="fg-darkRed" Text="0.00" ID="txtLastSellingPrice"></asp:TextBox>
 
-                            </div>
                         </div>
-                        <div class="cell colspan4">
-                            <label>Last Purchase Price</label>
-                            <div class="input-control text">
-                                <span class="mif-money prepend-icon"></span>
-                                <asp:TextBox runat="server" ID="txtLastPurchasePrice"></asp:TextBox>
-                            </div>
+                    </div>
+                    <div class="cell colspan4">
+                        <label style="font-weight:800;">Last Purchase Price</label>
+                        <div class="input-control text">
+                            <asp:TextBox runat="server" CssClass="fg-darkRed" Text="0.00" ID="txtLastPurchasePrice"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
+            <%--</div>--%>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE ITEM" CssClass="button primary" OnClick="btnSave_Click" />
-            <a href="ItemsManagementPanel.aspx" class="button link">BACK TO LIST</a>
+            <a href="Default.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>
-
-
 </asp:Content>

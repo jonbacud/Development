@@ -37,7 +37,7 @@ namespace IM.BusinessLogic.DataAccess
         #region Query
 
         [Log, Counter]
-        public abstract class PetShopQuery : SqlQuery
+        public abstract class IM : SqlQuery
         {
             [NoInterception]
             protected override DbManager CreateDbManager()
@@ -120,9 +120,9 @@ namespace IM.BusinessLogic.DataAccess
             #endregion
         }
 
-        public PetShopQuery Query
+        public IM Query
         {
-            get { return TypeAccessor<PetShopQuery>.CreateInstance(); }
+            get { return TypeAccessor<IM>.CreateInstance(); }
         }
 
         #endregion

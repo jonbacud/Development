@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI.WebControls;
 using BLToolkit.Data;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
@@ -76,6 +77,11 @@ namespace IM.BusinessLogic.DataManager
                 result = lastCode;
             }
             return result;
+        }
+
+        public void Search(string searchParam, SqlDataSource datasource)
+        {
+            Accessor.SearchDepartment(searchParam,datasource);
         }
 
         #region Accessor

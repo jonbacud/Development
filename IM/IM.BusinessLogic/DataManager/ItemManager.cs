@@ -10,7 +10,6 @@ namespace IM.BusinessLogic.DataManager
 {
     public class ItemManager:IBaseManager<Item>
     {
-
         public int Identity
         {
             get; set;

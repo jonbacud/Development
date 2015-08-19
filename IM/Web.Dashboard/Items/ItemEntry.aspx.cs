@@ -11,9 +11,23 @@ namespace Web.Dashboard.Items
 {
     public partial class ItemEntry : System.Web.UI.Page
     {
+        readonly BarcodeManager _bManager = new BarcodeManager();
+
+        public Barcode Barcode
+        {
+            get
+            {
+               return  _bManager.FetchAll().FirstOrDefault();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Barcode != null)
+                    txtBarCode.Text = (long.Parse(Barcode.Code) + 1).ToString();
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -38,6 +52,9 @@ namespace Web.Dashboard.Items
                 UniqueId = Guid.NewGuid()
             };
             itemManager.Save(newItem);
+            var bc = Barcode;
+            bc.Code = txtBarCode.Text;
+            _bManager.Save(bc);
         }
     }
 }

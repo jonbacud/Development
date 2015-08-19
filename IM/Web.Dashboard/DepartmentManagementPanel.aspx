@@ -27,7 +27,7 @@
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="Items/Default.aspx">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="cell colspan5">
                             <div class="input-control text full-size" data-role="input">
-                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..."></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                                 <button class="button"><span class="mif-search"></span></button>
                             </div>
                         </div>
@@ -82,10 +82,10 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
-                                <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable" 
+                                <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333">
+                                    AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333" OnPageIndexChanging="gvDepartments_PageIndexChanging">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:TemplateField>
@@ -97,14 +97,14 @@
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False" 
+                                        <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="department_id"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Description" SortExpression="department_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_type" HeaderText="Type" SortExpression="department_type"></asp:BoundField>
                                         <asp:BoundField DataField="department_code" HeaderText="Code" SortExpression="department_code"></asp:BoundField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" 
+                                                <asp:HyperLink ID="HyperLink1" runat="server"
                                                     NavigateUrl='<%# "~/DepartmentEntry.aspx?mode=0&id="+Eval("department_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
@@ -116,6 +116,9 @@
                                         </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
+                                    <EmptyDataTemplate>
+                                        Data not found!
+                                    </EmptyDataTemplate>
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                                     <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="#000" />
                                     <PagerSettings Mode="NumericFirstLast" />
@@ -128,13 +131,13 @@
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSourceDepartments" runat="server"
-                                    ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" 
+                                    ConnectionString="<%$ ConnectionStrings:IMConnectionString %>"
                                     SelectCommand="SELECT * FROM [ref_department] order by department_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
 
                     </div>
-                 </ContentTemplate>
+                </ContentTemplate>
             </asp:UpdatePanel>
         </div>
     </div>
