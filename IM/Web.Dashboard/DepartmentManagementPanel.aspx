@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="cell colspan5">
                             <div class="input-control text full-size" data-role="input">
-                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..."></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                                 <button class="button"><span class="mif-search"></span></button>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333">
+                                    AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333" OnPageIndexChanging="gvDepartments_PageIndexChanging">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:TemplateField>
@@ -116,6 +116,9 @@
                                         </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
+                                    <EmptyDataTemplate>
+                                        Data not found!
+                                    </EmptyDataTemplate>
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                                     <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="#000" />
                                     <PagerSettings Mode="NumericFirstLast" />
