@@ -8697,6 +8697,8 @@ div.square-button.big-button {
 .input-control.email,
 .input-control.tel {
   width: 10.875rem;
+    top: -10px;
+    left: 0px;
 }
 .input-control.text .button,
 .input-control.select .button,
@@ -8778,7 +8780,7 @@ div.square-button.big-button {
   height: 100%;
   z-index: 0;
     top: 0px;
-    left: 0px;
+    left: 1px;
 }
 .input-control input:focus,
 .input-control textarea:focus,

@@ -98,11 +98,11 @@
                 <li>
                     <a href="" class="dropdown-toggle">Settings</a>
                     <ul class="d-menu" data-role="dropdown">
-                        <li><a href="">Departments</a></li>
-                        <li><a href="">Suppliers</a></li>
+                        <li><a href="DepartmentManagementPanel.aspx">Departments</a></li>
+                        <li><a href="SupplierLists.aspx">Suppliers</a></li>
                         <li><a href="">Categories</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Item Classification</a></li>
+                        <li><a href="ItemClassificationPanel.aspx">Item Classification</a></li>
                         <li><a href="">Item Type</a></li>
                         <li><a href="">Unit</a></li>
                         <li><a href="">Items</a></li>
