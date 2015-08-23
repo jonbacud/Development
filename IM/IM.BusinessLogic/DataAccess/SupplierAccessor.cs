@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.UI.WebControls;
 using BLToolkit.Data;
+using System.Web.UI.WebControls;
 
 namespace IM.BusinessLogic.DataAccess
 {
     public abstract class SupplierAccessor : AccessorBase<SupplierAccessor.DB, SupplierAccessor>
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
-
 
         public virtual void SearchSupplier(string searchParam, SqlDataSource datasource)
         {
