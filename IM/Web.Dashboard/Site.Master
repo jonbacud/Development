@@ -158,8 +158,8 @@
         </div>
         <div class="page-content">
             <%-- <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />--%>
-            <div class="flex-grid no-responsive-future" style="height: 100%;">
-                <asp:ContentPlaceHolder  runat="server" ID="MainContent" />
+            <div class="flex-grid no-responsive-future" style="height: 100%; width: 100%;">
+                <asp:ContentPlaceHolder   runat="server" ID="MainContent" />
             </div>
         </div>
         <%--  <footer>

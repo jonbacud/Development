@@ -62,7 +62,7 @@ namespace IM.BusinessLogic.DataManager
 
         public Category FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Category>(key) ?? new Category();
         }
     }
 }

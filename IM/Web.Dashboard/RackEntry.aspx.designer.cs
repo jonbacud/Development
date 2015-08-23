@@ -10,25 +10,25 @@
 namespace Web.Dashboard {
     
     
-    public partial class CategoryEntry {
+    public partial class RackEntry {
         
         /// <summary>
-        /// txtCategoryCode control.
+        /// txtRackCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryCode;
+        protected global::System.Web.UI.WebControls.TextBox txtRackCode;
         
         /// <summary>
-        /// txtCategoryName control.
+        /// txtRackDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryName;
+        protected global::System.Web.UI.WebControls.TextBox txtRackDescription;
         
         /// <summary>
         /// DDLDepartments control.
@@ -47,14 +47,5 @@ namespace Web.Dashboard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

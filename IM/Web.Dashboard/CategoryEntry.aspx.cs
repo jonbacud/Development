@@ -12,6 +12,16 @@ namespace Web.Dashboard
     public partial class CategoryEntry : System.Web.UI.Page
     {
         readonly CategoryManager _categoryManager = new CategoryManager();
+        public int CategoryId {
+            get
+            {
+                return (Request.QueryString["id"]== null) ? 0:
+                int.Parse(Request.QueryString["id"]);
+            }
+        }
+        public Category Category {
+            get { return _categoryManager.FetchById(CategoryId); }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -21,6 +31,15 @@ namespace Web.Dashboard
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
+
+            if (CategoryId>0)
+            {
+                txtCategoryCode.Text = Category.Code;
+                txtCategoryName.Text = Category.Description;
+                DDLDepartments.SelectedValue = Category.DepartmentId.ToString();
+                btnDelete.Enabled = true;
+                btnDelete.Visible = true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -29,10 +48,21 @@ namespace Web.Dashboard
             {
                 Code = txtCategoryCode.Text.Trim(),
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-                Description = txtCategoryDescription.Text,
-                UniqueId = Guid.NewGuid()
+                Description = txtCategoryName.Text,
+                UniqueId = Guid.NewGuid(),
+                Id = CategoryId
             };
             _categoryManager.Save(newCategory);
+            Response.Redirect("CategoryManagementPanel.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var categoryToDelete = new Category
+            {
+                Id = CategoryId
+            };
+            _categoryManager.Delete(categoryToDelete);
             Response.Redirect("CategoryManagementPanel.aspx");
         }
     }

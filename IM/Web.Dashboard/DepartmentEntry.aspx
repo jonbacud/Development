@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="row" style="height: 100%">
-
+    <div class="row cells2 auto-size" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
                 <li class="active"><a href="DepartmentManagementPanel.aspx">
@@ -59,17 +58,17 @@
                 <li><a href="DepartmentManagementPanel.aspx"><span class="icon mif-folder"></span></a></li>
                 <li><a href="#">Department Entry</a></li>
             </ul>
-            <h4 class="text-italic" >
+            <h4 class="text-italic">
                 <asp:Literal runat="server" Text="New Department" ID="ltrlTitle"></asp:Literal>
                 <span class="mif-file-text place-right"></span>
             </h4>
             <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row">
-                    <div class="cell auto-size">
+                    <div class="cell auto-size margin5">
                         <label >Department Description</label>
-                        <div class="input-control text full-size" data-role="input">
-                            <asp:TextBox runat="server" ID="txtDescription" placeholder="" ></asp:TextBox>
+                        <div class="input-control text full-size">
+                            <asp:TextBox runat="server" ID="txtDescription" placeholder=""></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -78,13 +77,13 @@
                         <label>Type</label>
                         <label class="input-control radio">
                             <asp:RadioButton ID="rdioRetail" Checked="True" runat="server" GroupName="departmentType"
-                                 OnCheckedChanged="rdioRetail_CheckedChanged" AutoPostBack="True" />
+                                OnCheckedChanged="rdioRetail_CheckedChanged" AutoPostBack="True" />
                             <span class="check"></span>
                             <span class="caption">Retail</span>
                         </label>
                         <label class="input-control radio">
                             <asp:RadioButton ID="rdioWholesale" runat="server" GroupName="departmentType"
-                                 AutoPostBack="True" OnCheckedChanged="rdioWholesale_CheckedChanged" />
+                                AutoPostBack="True" OnCheckedChanged="rdioWholesale_CheckedChanged" />
                             <span class="check"></span>
                             <span class="caption">Whole Sale</span>
                         </label>
@@ -98,7 +97,7 @@
                 </div>
                 <hr class="thin bg-grayLighter">
                 <div class="row">
-                    <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button" OnClick="btnSave_Click"/>
+                    <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button" OnClick="btnSave_Click" />
                     <asp:HyperLink CssClass="button link" runat="server" NavigateUrl="DepartmentManagementPanel.aspx">
                         <span class="mif-undo"></span>
                         BACK TO LIST

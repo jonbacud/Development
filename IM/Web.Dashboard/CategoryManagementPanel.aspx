@@ -96,10 +96,21 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="category_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="category_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="category_id">
+                                        <ItemStyle HorizontalAlign="Center" Width="20px" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="category_code" HeaderText="Code" SortExpression="category_code"></asp:BoundField>
                                         <asp:BoundField DataField="category_desc" HeaderText="Description" SortExpression="category_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                        <asp:TemplateField ShowHeader="False">
+                                            <ItemTemplate>
+                                               <asp:HyperLink  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Category Details" data-hint-position="left"  runat="server" ID="hpLinlUpdate" 
+                                                   NavigateUrl='<%#"~/CategoryEntry.aspx?mode=0&id="+Eval("category_id") %>'>
+                                                   <span class="mif-pencil"></span>
+                                               </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>

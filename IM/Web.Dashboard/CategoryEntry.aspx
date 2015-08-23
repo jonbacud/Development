@@ -63,17 +63,18 @@
                 <li><a href="#">New Catgory</a></li>
             </ul>
             <h4 class="text-italic">New Category <span class="mif-file-text place-right"></span></h4>
+               <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell colspan6 margin5">
-                        <label style="font-weight: 800;">Category Code</label>
+                        <label style="font-weight: 700;">Category Code</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
                             <asp:TextBox runat="server" ID="txtCategoryCode"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan6 margin5">
-                        <label style="font-weight: 800;">Category Name</label>
+                        <label style="font-weight: 700;">Category Name</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="txtCategoryName"></asp:TextBox>
                         </div>
@@ -81,25 +82,18 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="cell auto-size">
-                    <label style="font-weight: 800;">Description</label>
-                    <div class="input-control text full-size ">
-                        <asp:TextBox runat="server" ID="txtCategoryDescription" />
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
                 <div class="cell colspan8 margin5 ">
-                    <label style="font-weight: 800;">Department</label>
+                    <label style="font-weight: 700;">Department</label>
                     <div class="input-control text full-size ">
                         <asp:DropDownList ID="DDLDepartments" runat="server">
                         </asp:DropDownList>
                     </div>
                 </div>
             </div>
-
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSave" runat="server" Text="SAVE CATEGORY" CssClass="button primary" OnClick="btnSave_Click"  />
+            <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click"  />
+            <asp:Button runat="server" Visible="False" Enabled="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Category" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
             <a href="CategoryManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>

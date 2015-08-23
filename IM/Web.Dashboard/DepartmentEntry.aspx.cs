@@ -86,7 +86,7 @@ namespace Web.Dashboard
             }
             else
             {
-                txtDepartmentCode.Text = Department.Type;
+                txtDepartmentCode.Text = Department.Code;
             }
         }
 
