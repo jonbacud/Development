@@ -98,19 +98,19 @@
                 <li>
                     <a href="" class="dropdown-toggle">Settings</a>
                     <ul class="d-menu" data-role="dropdown">
-                        <li><a href="DepartmentManagementPanel.aspx">Departments</a></li>
-                        <li><a href="SupplierLists.aspx">Suppliers</a></li>
-                        <li><a href="">Categories</a></li>
+                      <li><a href="DepartmentManagementPanel.aspx">Departments</a></li>
+                        <li><a href="SupplierManagementPanel.aspx">Suppliers</a></li>
+                        <li><a href="CategoryManagementPanel.aspx">Categories</a></li>
                         <li class="divider"></li>
                         <li><a href="ItemClassificationPanel.aspx">Item Classification</a></li>
-                        <li><a href="">Item Type</a></li>
-                        <li><a href="">Unit</a></li>
-                        <li><a href="">Items</a></li>
+                        <li><a href="ItemTypeManagementPanel.aspx">Item Type</a></li>
+                        <li><a href="UnitManagementPanel.aspx">Unit</a></li>
+                        <li><a href="Items/Default.aspx">Items</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Location</a></li>
-                        <li><a href="">Rack</a></li>
-                        <li><a href="">Shelve</a></li>
-                        <li><a href="">Bin</a></li>
+                        <li><a href="LocationManagementPanel.aspx">Location</a></li>
+                        <li><a href="RackManagementPanel.aspx">Rack</a></li>
+                        <li><a href="ShelveManagementPanel.aspx">Shelve</a></li>
+                        <li><a href="BinManagementPanel.aspx">Bin</a></li>
                         <li class="divider"></li>
                         <li><a href="">End User</a></li>
                     </ul>
