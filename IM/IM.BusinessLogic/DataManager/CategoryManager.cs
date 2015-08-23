@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
 
@@ -63,6 +64,11 @@ namespace IM.BusinessLogic.DataManager
         public Category FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Category>(key) ?? new Category();
+        }
+
+        public void Search(string searchParameter, SqlDataSource datasource)
+        {
+           Accessor.SearchCategory(searchParameter, datasource);
         }
     }
 }

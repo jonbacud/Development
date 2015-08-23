@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="cell colspan5">
                             <div class="input-control text full-size" data-role="input">
-                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                                 <button class="button"><span class="mif-search"></span></button>
                             </div>
                         </div>
