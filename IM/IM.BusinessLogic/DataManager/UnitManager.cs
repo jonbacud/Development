@@ -12,34 +12,40 @@ namespace IM.BusinessLogic.DataManager
 
         public int Identity
         {
-            get
+            get; set;
+        }
+
+        public void Save(Unit unit)
+        {
+            if (unit.Id>0)
             {
-                throw new NotImplementedException();
+                Accessor.Query.Update(unit);
             }
-            set
+            else
             {
-                throw new NotImplementedException();
+                Accessor.Query.Insert(unit);
             }
         }
 
-        public void Save(Unit model)
+        public void Save(List<Unit> units)
         {
-            throw new NotImplementedException();
+            foreach (var unit in units)
+            {
+                Save(unit);
+            }
         }
 
-        public void Save(List<Unit> collection)
+        public void Delete(Unit unit)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(unit);
         }
 
-        public void Delete(Unit model)
+        public void Delete(List<Unit> units)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<Unit> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var unit in units)
+            {
+                Delete(unit);
+            }
         }
 
         public List<Unit> FetchAll()
