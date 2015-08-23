@@ -99,7 +99,7 @@
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="supplier_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="supplier_id">
-                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="supplier_code" HeaderText="Code" SortExpression="supplier_code"></asp:BoundField>
                                         <asp:BoundField DataField="supplier_name" HeaderText="Name" SortExpression="supplier_name"></asp:BoundField>
@@ -111,11 +111,11 @@
 
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Supplier Details" data-hint-position="left"
+                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Supplier Details" data-hint-position="left"
                                                     NavigateUrl='<%# "~/SupplierEntry.aspx?mode=0&id="+Eval("supplier_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
-                                               
+
                                             </ItemTemplate>
                                             <ItemStyle Width="50px" HorizontalAlign="Center" />
                                         </asp:TemplateField>

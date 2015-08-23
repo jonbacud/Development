@@ -82,10 +82,20 @@
                 AllowSorting="True" DataKeyNames="classifcation_id" PageSize="5" CellPadding="4" ForeColor="#333333">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField DataField="classifcation_id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="classifcation_id"></asp:BoundField>
+                    <asp:BoundField DataField="classifcation_id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="classifcation_id">
+                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="classification_code" HeaderText="Code" SortExpression="classification_code"></asp:BoundField>
                     <asp:BoundField DataField="classification_name" HeaderText="Classification Name" SortExpression="classification_name"></asp:BoundField>
                     <asp:BoundField DataField="department_desc" HeaderText="Department" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                                 <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Supplier Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/SupplierEntry.aspx?mode=0&id="+Eval("supplier_id")%>'>
+                                        <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
