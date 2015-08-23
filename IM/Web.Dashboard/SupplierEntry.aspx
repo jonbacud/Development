@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SupplierEntry.aspx.cs" Inherits="Web.Dashboard.SupplierEntry" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SupplierEntry.aspx.cs" Inherits="Web.Dashboard.SupplierEntry" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -139,7 +140,9 @@
                 </div>
             </div>
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSave" runat="server" Text="SAVE ITEM" CssClass="button primary" OnClick="btnSave_Click" />
+            <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
+            <asp:Button runat="server" Visible="False"  ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Category" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
             <a href="SupplierManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
