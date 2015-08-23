@@ -96,10 +96,20 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="unit_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="unit_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="unit_id">
+                                         <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                         </asp:BoundField>
                                         <asp:BoundField DataField="unit_code" HeaderText="Code" SortExpression="unit_code"></asp:BoundField>
                                         <asp:BoundField DataField="unit_desc" HeaderText="Description" SortExpression="unit_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                         <asp:TemplateField>
+                                             <ItemTemplate>
+                                                  <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Unit Details" data-hint-position="left" NavigateUrl='<%# "~/UnitEntry.aspx?mode=0&id="+Eval("unit_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                             </ItemTemplate>
+                                             <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                         </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -116,7 +126,7 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>  
-                                <asp:SqlDataSource ID="SqlDataSourceUnits" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_unit.unit_id, ref_unit.unit_code, ref_unit.unit_desc, ref_department.department_desc FROM ref_unit INNER JOIN ref_department ON ref_unit.dep_id = ref_department.department_id"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceUnits" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_unit.unit_id, ref_unit.unit_code, ref_unit.unit_desc, ref_department.department_desc FROM ref_unit INNER JOIN ref_department ON ref_unit.dep_id = ref_department.department_id order by ref_unit.unit_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
