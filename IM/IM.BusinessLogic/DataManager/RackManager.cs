@@ -11,44 +11,50 @@ namespace IM.BusinessLogic.DataManager
     {
         public int Identity
         {
-            get
+            get; set;
+        }
+
+        public void Save(Rack rack)
+        {
+            if (rack.Id>0)
             {
-                throw new NotImplementedException();
+                Accessor.Query.Update(rack);
             }
-            set
+            else
             {
-                throw new NotImplementedException();
+                Accessor.Query.Insert(rack);
             }
         }
 
-        public void Save(Rack model)
+        public void Save(List<Rack> racks)
         {
-            throw new NotImplementedException();
+            foreach (var rack in racks)
+            {
+                Save(rack);
+            }
         }
 
-        public void Save(List<Rack> collection)
+        public void Delete(Rack rack)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(rack);
         }
 
-        public void Delete(Rack model)
+        public void Delete(List<Rack> racks)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<Rack> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var rack in racks)
+            {
+                Delete(rack);
+            }
         }
 
         public List<Rack> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<Rack>() ?? new List<Rack>();
         }
 
         public Rack FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Rack>(key) ?? new Rack();
         }
 
         #region Accessor
