@@ -11,38 +11,50 @@ namespace IM.BusinessLogic.DataManager
     {
         public int Identity
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get; set;
         }
 
-        public void Save(Shelve model)
+        public void Save(Shelve shelf)
         {
-            throw new NotImplementedException();
+            if (shelf.Id>0)
+            {
+                Accessor.Query.Update(shelf);
+            }
+            else
+            {
+                Accessor.Query.Insert(shelf);
+            }
         }
 
-        public void Save(List<Shelve> collection)
+        public void Save(List<Shelve> shelves)
         {
-            throw new NotImplementedException();
+            foreach (var shelf in shelves)
+            {
+                Save(shelf);
+            }
         }
 
-        public void Delete(Shelve model)
+        public void Delete(Shelve shelf)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(shelf);
         }
 
-        public void Delete(List<Shelve> collection)
+        public void Delete(List<Shelve> shelves)
         {
-            throw new NotImplementedException();
+            foreach (var shelf in shelves)
+            {
+                Delete(shelf);
+            }
         }
 
         public List<Shelve> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<Shelve>() ?? new List<Shelve>();
         }
 
         public Shelve FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Shelve>(key) ?? new Shelve();
         }
 
         #region Accessor
