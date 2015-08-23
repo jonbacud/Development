@@ -12,44 +12,50 @@ namespace IM.BusinessLogic.DataManager
 
         public int Identity
         {
-            get
+            get; set;
+        }
+
+        public void Save(Location location)
+        {
+            if (location.Id>0)
             {
-                throw new NotImplementedException();
+                Accessor.Query.Update(location);
             }
-            set
+            else
             {
-                throw new NotImplementedException();
+                Accessor.Query.Insert(location);
             }
         }
 
-        public void Save(Location model)
+        public void Save(List<Location> locations)
         {
-            throw new NotImplementedException();
+            foreach (var location in locations)
+            {
+                Save(location);
+            }
         }
 
-        public void Save(List<Location> collection)
+        public void Delete(Location location)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(location);
         }
 
-        public void Delete(Location model)
+        public void Delete(List<Location> locations)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<Location> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var location in locations)
+            {
+                Delete(location);
+            }
         }
 
         public List<Location> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<Location>() ?? new List<Location>();
         }
 
         public Location FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Location>(key) ?? new Location();
         }
 
         #region Accessor
