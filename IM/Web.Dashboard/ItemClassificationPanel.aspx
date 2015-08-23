@@ -49,13 +49,18 @@
             </ul>
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <h1 class="text-light">Virtual machines <span class="mif-drive-eta place-right"></span></h1>
+          <ul class="breadcrumbs2 small">
+                <li><a href="#"><span class="icon mif-folder-open"></span>Item Classifications</a></li>
+            </ul>
+            <h4 class="text-italic">Item Classification Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-
-            <button class="button primary" runat="server" onclick="pushMessage('info')"><span class="mif-plus"></span>Create...</button>
-            <button class="button success" onclick="pushMessage('success')"><span class="mif-play"></span>Start</button>
-            <button class="button warning" onclick="pushMessage('warning')"><span class="mif-loop2"></span>Restart</button>
-            <button class="button alert" onclick="pushMessage('alert')">Stop all machines</button>
+            <asp:HyperLink class="button primary" NavigateUrl="ItemClassificationEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+                <span class="mif-plus"></span> Create...
+            </asp:HyperLink>
+            <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
+            <asp:HyperLink class="button alert" NavigateUrl="PrintDepartments.aspx" runat="server" ID="HyperLink2">
+                <span class="mif-printer"></span> Print
+            </asp:HyperLink>
             <hr class="thin bg-grayLighter">
             <div class="row">
                 <div class="cell  auto-size size-x500">
