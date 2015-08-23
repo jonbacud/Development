@@ -21,34 +21,40 @@ namespace IM.BusinessLogic.DataManager
 
         public int Identity
         {
-            get
+            get; set;
+        }
+
+        public void Save(ItemClassification itemClassification)
+        {
+            if (itemClassification.Id>0)
             {
-                throw new NotImplementedException();
+                Accessor.Query.Update(itemClassification);
             }
-            set
+            else
             {
-                throw new NotImplementedException();
+                Accessor.Query.Insert(itemClassification);
             }
         }
 
-        public void Save(ItemClassification model)
+        public void Save(List<ItemClassification> itemClassifications)
         {
-            throw new NotImplementedException();
+            foreach (var itemClassification in itemClassifications)
+            {
+                Save(itemClassification);
+            }
         }
 
-        public void Save(List<ItemClassification> collection)
+        public void Delete(ItemClassification itemClassification)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(itemClassification);
         }
 
-        public void Delete(ItemClassification model)
+        public void Delete(List<ItemClassification> itemClassifications)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<ItemClassification> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var itemClassification in itemClassifications)
+            {
+                Delete(itemClassification);
+            }
         }
 
         public List<ItemClassification> FetchAll()
