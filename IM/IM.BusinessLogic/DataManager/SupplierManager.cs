@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.UI.WebControls;
-using BLToolkit.Data;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
+using System.Web.UI.WebControls;
+using BLToolkit.Data;
 
 namespace IM.BusinessLogic.DataManager
 {
@@ -14,51 +14,62 @@ namespace IM.BusinessLogic.DataManager
 
         public int Identity
         {
-            get
+            get; set;
+        }
+
+        public void Save(Supplier supplier)
+        {
+            using (var db = new  DbManager())
             {
-                throw new NotImplementedException();
+                if (supplier.Id>0)
+                {
+                    Accessor.Query.Update(db, supplier);
+                }
+                else
+                {
+                    Accessor.Query.Insert(db, supplier);
+                }
             }
-            set
+        }
+
+        public void Save(List<Supplier> suppliers)
+        {
+            foreach (var supplier in suppliers)
             {
-                throw new NotImplementedException();
+                Save(supplier);
             }
         }
 
-        public void Save(Supplier model)
+        public void Delete(Supplier supplier)
         {
-            throw new NotImplementedException();
+            using (var db = new DbManager())
+            {
+                Accessor.Query.Delete(db,supplier);
+            }
         }
 
-        public void Save(List<Supplier> collection)
+        public void Delete(List<Supplier> suppliers)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Supplier model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<Supplier> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var supplier in suppliers)
+            {
+                Delete(supplier);
+            }
         }
 
         public List<Supplier> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<Supplier>() ?? new List<Supplier>();
         }
 
         public Supplier FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<Supplier>(key) ?? new Supplier();
         }
 
         public void Search(string searchParam, SqlDataSource datasource)
         {
             Accessor.SearchSupplier(searchParam, datasource);
         }
-
 
         #region Accessor
         SupplierAccessor Accessor
