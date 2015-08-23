@@ -19,28 +19,40 @@ namespace IM.BusinessLogic.DataManager
 
         public int Identity
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get; set;
         }
 
-        public void Save(Category model)
+        public void Save(Category category)
         {
-            throw new NotImplementedException();
+            if (category.Id>0)
+            {
+                Accessor.Query.Update(category);
+            }
+            else
+            {
+                Accessor.Query.Insert(category);
+            }
         }
 
-        public void Save(List<Category> collection)
+        public void Save(List<Category> categories)
         {
-            throw new NotImplementedException();
+            foreach (var category in categories)
+            {
+                Save(category);
+            }
         }
 
-        public void Delete(Category model)
+        public void Delete(Category category)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(category);
         }
 
-        public void Delete(List<Category> collection)
+        public void Delete(List<Category> categories)
         {
-            throw new NotImplementedException();
+            foreach (var category in categories)
+            {
+                Delete(category);
+            }
         }
 
         public List<Category> FetchAll()
