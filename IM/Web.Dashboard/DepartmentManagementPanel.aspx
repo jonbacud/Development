@@ -98,21 +98,20 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="department_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="department_id">
+                                        <ItemStyle HorizontalAlign="Center" Width="20px" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Description" SortExpression="department_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_type" HeaderText="Type" SortExpression="department_type"></asp:BoundField>
                                         <asp:BoundField DataField="department_code" HeaderText="Code" SortExpression="department_code"></asp:BoundField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server"
+                                                <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Department Details" data-hint-position="left"
                                                     NavigateUrl='<%# "~/DepartmentEntry.aspx?mode=0&id="+Eval("department_id")%>'>
-                                        <span class="mif-pencil"></span>
+                                                             <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
-                                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
-                                          <span class="mif-cancel"></span>
-                                                </asp:LinkButton>
                                             </ItemTemplate>
-                                            <ItemStyle Width="80px" HorizontalAlign="Center" />
+                                            <ItemStyle Width="50px" HorizontalAlign="Center" />
                                         </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />

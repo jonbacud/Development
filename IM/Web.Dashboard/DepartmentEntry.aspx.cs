@@ -52,6 +52,7 @@ namespace Web.Dashboard
                 txtDescription.Text = Department.Description;
                 rdioRetail.Checked = (Department.Type.Equals("RETAIL"));
                 rdioWholesale.Checked = !rdioRetail.Checked;
+                btnDelete.Visible = true;
             }
             else
             {
@@ -70,6 +71,7 @@ namespace Web.Dashboard
                 Id = DepartmentId
             };
             _departmentManager.Save(newDepartment);
+            Response.Redirect("DepartmentManagementPanel.aspx");
         }
 
         protected void rdioRetail_CheckedChanged(object sender, EventArgs e)
@@ -93,6 +95,17 @@ namespace Web.Dashboard
         protected void rdioWholesale_CheckedChanged(object sender, EventArgs e)
         {
            SetLastCodeCounter();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var departmentToDelete = new Department
+            {
+                Id = DepartmentId
+            }; 
+            _departmentManager.Delete(departmentToDelete);
+            Response.Redirect("DepartmentManagementPanel.aspx");
+
         }
     }
 }

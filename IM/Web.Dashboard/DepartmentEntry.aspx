@@ -96,13 +96,13 @@
                     </div>
                 </div>
                 <hr class="thin bg-grayLighter">
-                <div class="row">
-                    <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button" OnClick="btnSave_Click" />
+                    <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
+                     <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Department" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
                     <asp:HyperLink CssClass="button link" runat="server" NavigateUrl="DepartmentManagementPanel.aspx">
                         <span class="mif-undo"></span>
                         BACK TO LIST
                     </asp:HyperLink>
-                </div>
                 <hr class="thin bg-grayLighter">
             </div>
         </div>

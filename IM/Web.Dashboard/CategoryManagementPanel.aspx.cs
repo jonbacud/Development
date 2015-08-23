@@ -10,7 +10,7 @@ namespace Web.Dashboard
 {
     public partial class CategoryManagementPanel : System.Web.UI.Page
     {
-        CategoryManager categoryManager = new CategoryManager();
+        readonly CategoryManager _categoryManager = new CategoryManager();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +20,7 @@ namespace Web.Dashboard
         {
             if (!string.IsNullOrEmpty(txtSearch.Text)|| !string.IsNullOrWhiteSpace(txtSearch.Text))
             {
-                categoryManager.Search(txtSearch.Text,SqlDataSourceCategories);
+                _categoryManager.Search(txtSearch.Text,SqlDataSourceCategories);
                 txtSearch.Focus();
             }
             gvCategories.DataBind();
