@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BLToolkit.Data;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
 
@@ -11,34 +12,46 @@ namespace IM.BusinessLogic.DataManager
     {
         public int Identity
         {
-            get
+            get; set; 
+        }
+
+        public void Save(ItemType itemType)
+        {
+            using (DbManager db = new DbManager())
             {
-                throw new NotImplementedException();
+                if (itemType.Id>0)
+                {
+                    Accessor.Query.Update(db, itemType); 
+                }
+                else
+                {
+                    Accessor.Query.Insert(db, itemType);
+                }
             }
-            set
+        }
+
+        public void Save(List<ItemType> itemTypes)
+        {
+            foreach (var itemType in itemTypes)
             {
-                throw new NotImplementedException();
+                Save(itemType);
             }
         }
 
-        public void Save(ItemType model)
+        public void Delete(ItemType itemType)
         {
-            throw new NotImplementedException();
+            using (DbManager db = new DbManager())
+            {
+                Accessor.Query.Delete(db, itemType);
+            }
         }
 
-        public void Save(List<ItemType> collection)
+        public void Delete(List<ItemType> itemTypes)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(ItemType model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(List<ItemType> collection)
-        {
-            throw new NotImplementedException();
+            foreach (var itemType in itemTypes)
+            {
+                Delete(itemType);
+            }
         }
 
         public List<ItemType> FetchAll()
