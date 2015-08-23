@@ -63,6 +63,7 @@
                 <li><a href="#">New Item Classification</a></li>
             </ul>
             <h4 class="text-italic">New Item Classification<span class="mif-file-text place-right"></span></h4>
+             <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell colspan6 margin5">
@@ -93,8 +94,10 @@
             </div>
 
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSave" runat="server" Text="SAVE CLASSIFICATION" CssClass="button primary" OnClick="btnSave_Click"   />
-            <a href="UnitManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
+            <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click"   />
+            <asp:Button runat="server" Visible="False"  ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Item Classification" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
+            <a href="ItemClassificationPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>

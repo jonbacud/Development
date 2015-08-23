@@ -12,6 +12,17 @@ namespace Web.Dashboard
     public partial class ItemTypeEntry : System.Web.UI.Page
     {
         readonly ItemTypeManager _itemTypeManager = new ItemTypeManager();
+
+        public int ItemTypeId
+        {
+            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+        }
+
+        public ItemType ItemType
+        {
+            get { return _itemTypeManager.FetchById(ItemTypeId); }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -21,6 +32,14 @@ namespace Web.Dashboard
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
+            
+            if (ItemTypeId>0)
+            {
+                txtItemTypeCode.Text = ItemType.ItemTypeCode;
+                txtItemTypeDescription.Text = ItemType.ItemDesciption;
+                DDLDepartments.SelectedValue = ItemType.DepartmentId.ToString();
+                btnDelete.Visible = true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -30,9 +49,20 @@ namespace Web.Dashboard
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
                 ItemDesciption = txtItemTypeDescription.Text,
                 ItemTypeCode = txtItemTypeCode.Text,
-                UniqueId = Guid.NewGuid()
+                UniqueId = Guid.NewGuid(),
+                Id = ItemTypeId
             };
             _itemTypeManager.Save(newItemType);
+            Response.Redirect("ItemTypeManagementPanel.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var itemTypeToDelete = new ItemType
+            {
+                Id = ItemTypeId
+            };
+            _itemTypeManager.Delete(itemTypeToDelete);
             Response.Redirect("ItemTypeManagementPanel.aspx");
         }
     }

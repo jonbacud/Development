@@ -90,11 +90,12 @@
                     <asp:BoundField DataField="department_desc" HeaderText="Department" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                                 <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Supplier Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/SupplierEntry.aspx?mode=0&id="+Eval("supplier_id")%>'>
+                                 <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Classification Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/ItemClassificationEntry.aspx?mode=0&id="+Eval("classifcation_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                         </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="50px" />
                     </asp:TemplateField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />

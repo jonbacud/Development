@@ -97,10 +97,20 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="itemtype_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="itemtype_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="itemtype_id">
+                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="item_type_desc" HeaderText="Description" SortExpression="item_type_desc"></asp:BoundField>
                                         <asp:BoundField DataField="item_type_code" HeaderText="Code" SortExpression="item_type_code"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Type Details" data-hint-position="left" NavigateUrl='<%# "~/ItemTypeEntry.aspx?mode=0&id="+Eval("itemtype_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -117,7 +127,7 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSourceItemTypes" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_item_type.itemtype_id, ref_item_type.item_type_desc, ref_item_type.item_type_code, ref_department.department_desc FROM ref_item_type INNER JOIN ref_department ON ref_item_type.dep_id = ref_department.department_id"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceItemTypes" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_item_type.itemtype_id, ref_item_type.item_type_desc, ref_item_type.item_type_code, ref_department.department_desc FROM ref_item_type INNER JOIN ref_department ON ref_item_type.dep_id = ref_department.department_id order by ref_item_type.itemtype_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
