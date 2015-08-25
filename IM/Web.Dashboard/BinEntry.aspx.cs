@@ -9,9 +9,20 @@ using IM.Models;
 
 namespace Web.Dashboard
 {
-    public partial class BinEntry : System.Web.UI.Page
+    public partial class BinEntry : Page
     {
         readonly BinManager _binManager = new BinManager();
+
+        public int BinId
+        {
+            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+        }
+
+        public Bin Bin
+        {
+            get { return _binManager.FetchById(BinId); }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -21,6 +32,14 @@ namespace Web.Dashboard
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
+
+            if (BinId>0)
+            {
+                txtBinCode.Text = Bin.BinCode;
+                txtBinDescription.Text = Bin.BinDescription;
+                DDLDepartments.SelectedValue = Bin.DepartmentId.ToString();
+                btnDelete.Visible = true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -30,10 +49,22 @@ namespace Web.Dashboard
                 BinCode = txtBinCode.Text,
                 BinDescription = txtBinDescription.Text,
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-                Uid = Guid.NewGuid()
+                Uid = Guid.NewGuid(),
+                Id = BinId
             };
             _binManager.Save(bin);
             Response.Redirect("BinManagementPanel.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var binToDelete = new Bin
+            {
+                Id = BinId
+            };
+            _binManager.Delete(binToDelete);
+            Response.Redirect("BinManagementPanel.aspx");
+
         }
     }
 }

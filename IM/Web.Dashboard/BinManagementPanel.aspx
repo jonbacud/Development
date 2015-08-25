@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BinManagementPanel.aspx.cs" Inherits="Web.Dashboard.BinManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      <div class="row" style="height: 100%">
+    <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
                 <li class="active"><a href="DepartmentManagementPanel.aspx">
@@ -96,10 +97,22 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="bin_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="bin_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="bin_id">
+                                        <ItemStyle HorizontalAlign="Center" Width="60px" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="bin_code" HeaderText="Code" SortExpression="bin_code"></asp:BoundField>
                                         <asp:BoundField DataField="bin_desc" HeaderText="Description" SortExpression="bin_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue"
+                                                    data-hint="Info.|View Shelf Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/BinEntry.aspx?mode=0&id="+Eval("bin_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -115,8 +128,8 @@
                                     <SortedAscendingHeaderStyle BackColor="#506C8C" />
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                                </asp:GridView>  
-                                <asp:SqlDataSource ID="SqlDataSourceBins" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_bin.bin_id, ref_bin.bin_desc, ref_bin.bin_code, ref_department.department_desc FROM ref_bin INNER JOIN ref_department ON ref_bin.dep_id = ref_department.department_id"></asp:SqlDataSource>
+                                </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSourceBins" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_bin.bin_id, ref_bin.bin_desc, ref_bin.bin_code, ref_department.department_desc FROM ref_bin INNER JOIN ref_department ON ref_bin.dep_id = ref_department.department_id order by ref_bin.bin_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
