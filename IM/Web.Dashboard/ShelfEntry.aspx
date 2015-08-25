@@ -93,8 +93,10 @@
             </div>
 
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSave" runat="server" Text="SAVE SHELF" CssClass="button primary" OnClick="btnSave_Click"   />
-            <a href="UnitManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
+            <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click"   />
+             <asp:Button runat="server" Visible="False"  ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Shelf" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
+            <a href="ShelveManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>

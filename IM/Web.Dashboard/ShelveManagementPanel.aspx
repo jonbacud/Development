@@ -100,6 +100,16 @@
                                         <asp:BoundField DataField="shelve_code" HeaderText="Code" SortExpression="shelve_code"></asp:BoundField>
                                         <asp:BoundField DataField="shelve_desc" HeaderText="Description" SortExpression="shelve_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                         <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" 
+                                                    data-hint="Info.|View Shelf Details" data-hint-position="left" 
+                                                    NavigateUrl='<%# "~/ShelfEntry.aspx?mode=0&id="+Eval("shelve_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
