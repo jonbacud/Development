@@ -100,6 +100,16 @@
                                         <asp:BoundField DataField="location_code" HeaderText="Code" SortExpression="location_code"></asp:BoundField>
                                         <asp:BoundField DataField="location_desc" HeaderText="Description" SortExpression="location_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                          <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" 
+                                                    data-hint="Info.|View Item Type Details" data-hint-position="left" 
+                                                    NavigateUrl='<%# "~/LocationEntry.aspx?mode=0&id="+Eval("location_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -116,7 +126,9 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>  
-                                <asp:SqlDataSource ID="SqlDataSourceLocations" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_location.location_id, ref_location.location_desc, ref_location.location_code, ref_department.department_desc FROM ref_location INNER JOIN ref_department ON ref_location.dep_id = ref_department.department_id"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceLocations" runat="server" 
+                                    ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" 
+                                    SelectCommand="SELECT ref_location.location_id, ref_location.location_desc, ref_location.location_code, ref_department.department_desc FROM ref_location INNER JOIN ref_department ON ref_location.dep_id = ref_department.department_id order by ref_location.location_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
