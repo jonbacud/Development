@@ -12,6 +12,17 @@ namespace Web.Dashboard
     public partial class RackEntry : System.Web.UI.Page
     {
         readonly RackManager _rackManager = new RackManager();
+
+        public int RackId
+        {
+            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+        }
+
+        public Rack Rack
+        {
+            get { return _rackManager.FetchById(RackId); }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -21,6 +32,14 @@ namespace Web.Dashboard
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
+
+            if (RackId>0)
+            {
+                txtRackCode.Text = Rack.Code;
+                txtRackDescription.Text = Rack.Description;
+                DDLDepartments.SelectedValue = Rack.DepartmentId.ToString();
+                btnDelete.Visible = true;
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -30,9 +49,20 @@ namespace Web.Dashboard
                 Code = txtRackCode.Text,
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
                 Description = txtRackDescription.Text,
-                UniqueId = Guid.NewGuid()
+                UniqueId = Guid.NewGuid(),
+                Id = RackId
             };
             _rackManager.Save(rack);
+            Response.Redirect("RackManagementPanel.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var rackToDelete = new Rack
+            {
+                Id = RackId
+            };
+            _rackManager.Delete(rackToDelete);
             Response.Redirect("RackManagementPanel.aspx");
         }
     }

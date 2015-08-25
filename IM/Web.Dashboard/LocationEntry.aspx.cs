@@ -62,7 +62,7 @@ namespace Web.Dashboard
                 Id = LocationId
             };
 
-            _locationManager.Save(locationToDelete);
+            _locationManager.Delete(locationToDelete);
             Response.Redirect("LocationManagementPanel.aspx");
         }
     }

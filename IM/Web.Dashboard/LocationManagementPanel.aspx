@@ -96,14 +96,16 @@
                                             <ItemStyle HorizontalAlign="Center" Width="20px" />
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="location_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="location_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="location_id">
+                                         <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                         </asp:BoundField>
                                         <asp:BoundField DataField="location_code" HeaderText="Code" SortExpression="location_code"></asp:BoundField>
                                         <asp:BoundField DataField="location_desc" HeaderText="Description" SortExpression="location_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
                                           <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" 
-                                                    data-hint="Info.|View Item Type Details" data-hint-position="left" 
+                                                    data-hint="Info.|View Location Details" data-hint-position="left" 
                                                     NavigateUrl='<%# "~/LocationEntry.aspx?mode=0&id="+Eval("location_id") %>'>
                                                     <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
