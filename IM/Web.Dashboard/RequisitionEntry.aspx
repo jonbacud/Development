@@ -6,50 +6,64 @@
     <div class="row" style="height: 100%;">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li class="active"><a href="Default.aspx">
-                    <span class="mif-apps icon"></span>
+                <li><a href="DepartmentManagementPanel.aspx">
+                    <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
-                    <span class="mif-vpn-publ icon"></span>
-                    <span class="title">websites</span>
+                <li class="active"><a href="RequisitionManagementPanel.aspx">
+                    <span class="mif-folder-download icon"></span>
+                    <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Virtual machines</span>
+                <li><a href="IssuanceManagementPanel.aspx">
+                    <span class="mif-folder-minus icon"></span>
+                    <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
                 </a></li>
-                <li><a href="#">
-                    <span class="mif-cloud icon"></span>
-                    <span class="title">Cloud services</span>
+                <li><a href="ReceivingItemsManagementPanel.aspx">
+                    <span class="mif-folder-download icon"></span>
+                    <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
+                <li ><a href="ItemManagementPanel.aspx">
                     <span class="mif-database icon"></span>
-                    <span class="title">SQL Databases</span>
+                    <span class="title">Items/Products</span>
+                    <span class="counter">0</span>
+                </a></li>
+                <li ><a href="SupplierManagementPanel.aspx">
+                    <span class="mif-drive-eta icon"></span>
+                    <span class="title">Suppliers</span>
                     <span class="counter">0</span>
                 </a></li>
                 <li><a href="#">
-                    <span class="mif-cogs icon"></span>
-                    <span class="title">Automation</span>
+                    <span class="mif-undo icon"></span>
+                    <span class="title">Returns</span>
+                    <span class="counter">0</span>
+                </a></li>
+                <li><a href="#">
+                    <span class="mif-file-excel icon"></span>
+                    <span class="title">Reports</span>
                     <span class="counter">0</span>
                 </a></li>
                 <li><a href="#">
                     <span class="mif-apps icon"></span>
-                    <span class="title">all items</span>
+                    <span class="title">Item Storage</span>
                     <span class="counter">0</span>
                 </a></li>
                 <li><a href="#">
-                    <span class="mif-apps icon"></span>
-                    <span class="title">all items</span>
+                    <span class="mif-user icon"></span>
+                    <span class="title">User Accounts</span>
                     <span class="counter">0</span>
                 </a></li>
             </ul>
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <h1 class="text-light">New Request Entry <span class="mif-drive-eta place-right"></span></h1>
+           <ul class="breadcrumbs2 small">
+                <li><a href="RequisitionManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="#">New Requestion</a></li>
+            </ul>
+            <h4 class="text-italic">New Requestion Entry<span class="mif-file-text place-right"></span></h4>
             <div class="row">
                 <div class="cell colspan6 margin5">
                     <label>Reference Number</label>
@@ -66,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="example" data-text="select item">
+            <div>
                 <div class="flex-grid">
                     <div class="row ">
                         <div class="cell auto-size">
@@ -163,7 +177,7 @@
                     </div>
                 </div>
             </div>
-            <div class="example" data-text="select item">
+            <div >
                 <div class="flex-grid">
                     <div class="row">
                         <div class="cell auto-size">
