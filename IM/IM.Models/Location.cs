@@ -7,7 +7,7 @@ using BLToolkit.Mapping;
 
 namespace IM.Models
 {
-    [TableName("re_location")]
+    [TableName("ref_location")]
     public class Location
     {
         [PrimaryKey,NonUpdatable]
