@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using BLToolkit.Data;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
@@ -17,7 +16,7 @@ namespace IM.BusinessLogic.DataManager
 
         public void Save(Item item)
         {
-            using (DbManager db = new DbManager())
+            using (var db = new DbManager())
             {
                 if (item.Id>0)
                 {
@@ -38,14 +37,20 @@ namespace IM.BusinessLogic.DataManager
             }
         }
 
-        public void Delete(Item model)
+        public void Delete(Item item)
         {
-            throw new NotImplementedException();
+            using (var db = new DbManager())
+            {
+                Accessor.Query.Delete(db,item);
+            }
         }
 
-        public void Delete(List<Item> collection)
+        public void Delete(List<Item> items)
         {
-            throw new NotImplementedException();
+            foreach (var item in items)
+            {
+                Delete(item);
+            }
         }
 
         public List<Item> FetchAll()
@@ -57,9 +62,8 @@ namespace IM.BusinessLogic.DataManager
         {
             return Accessor.Query.SelectAll<Item>()
                 .Where(i=>i.DepartmentId.Equals(departmentId) &&
-                    i.ClassificationId.Equals(classificationId) && 
-                    i.TypeId.Equals(typeId)).ToList()
-                ?? new List<Item>();
+                          i.ClassificationId.Equals(classificationId) && 
+                          i.TypeId.Equals(typeId)).ToList();
         }
 
         public Item FetchById(int key)
@@ -71,7 +75,7 @@ namespace IM.BusinessLogic.DataManager
 
         ItemAccessor Accessor
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return ItemAccessor.CreateInstance(); }
         }
         #endregion

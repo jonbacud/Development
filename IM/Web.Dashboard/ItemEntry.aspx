@@ -95,10 +95,7 @@
                     <div class="cell auto-size">
                         <label style="font-weight:800;">Department</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDepartments" DataSourceID="ObjectDataSourceDepartments"
-                                DataTextField="Description" DataValueField="Id" AutoPostBack="True" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceDepartments" runat="server" SelectMethod="FetchAll"
-                                TypeName="IM.BusinessLogic.DataManager.DepartmentManager"></asp:ObjectDataSource>
+                            <asp:DropDownList runat="server" ID="DDLDepartments"  AutoPostBack="True" />
                         </div>
                     </div>
                 </div>
@@ -107,9 +104,9 @@
                         <label style="font-weight:800;">Calssification</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
-                                DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
+                                DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True"  />
                             <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
-                                SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
+                                SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager" >
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
                                 </SelectParameters>
@@ -188,6 +185,8 @@
             <%--</div>--%>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
+             <asp:Button runat="server" Visible="False"  ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Bin" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
             <a href="ItemManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
