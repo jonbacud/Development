@@ -105,7 +105,7 @@
                         <li><a href="ItemClassificationPanel.aspx">Item Classification</a></li>
                         <li><a href="ItemTypeManagementPanel.aspx">Item Type</a></li>
                         <li><a href="UnitManagementPanel.aspx">Unit</a></li>
-                        <li><a href="Items/Default.aspx">Items</a></li>
+                        <li><a href="ItemManagementPanel.aspx">Items</a></li>
                         <li class="divider"></li>
                         <li><a href="LocationManagementPanel.aspx">Location</a></li>
                         <li><a href="RackManagementPanel.aspx">Rack</a></li>
