@@ -87,33 +87,23 @@
                         <div class="row">
                             <div class="cell auto-size">
                                 <asp:GridView ID="gvItems" Font-Size="12px" runat="server" AllowPaging="True" AutoGenerateColumns="False" 
-                                    DataSourceID="SqlDataSourceItems" DataKeyNames="item_id"  class="dataTable border bordered" data-role="datatable"
+                                    DataSourceID="SqlDataSourceRequisitions" DataKeyNames="ris_id"  class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false" AllowSorting="True">
                                     <Columns>
-                                        <asp:BoundField DataField="item_id" HeaderText="ID" SortExpression="item_id" InsertVisible="False" ReadOnly="True" />
-                                        <asp:BoundField DataField="item_code" HeaderText="CODE" SortExpression="item_code" />
-                                        <asp:BoundField DataField="barcode" HeaderText="BARCODE" SortExpression="barcode" />
+                                        <asp:BoundField DataField="ris_id" HeaderText="ID" SortExpression="ris_id" InsertVisible="False" ReadOnly="True" />
+                                        <asp:BoundField DataField="reference_number" HeaderText="REF. No." SortExpression="reference_number" />
                                         <asp:BoundField DataField="item_name" HeaderText="NAME" SortExpression="item_name" />
+                                        <asp:BoundField DataField="barcode" HeaderText="BARCODE" SortExpression="barcode" />
+                                        <asp:BoundField DataField="qty_issued" HeaderText="QTTY ISSUED" SortExpression="qty_issued" />
+                                        <asp:BoundField DataField="qty_received" HeaderText="QTTY RECEIVED" SortExpression="qty_received" />
+                                        <asp:BoundField DataField="submitted_to" HeaderText="SUBMITTED TO" SortExpression="submitted_to" />
+                                        <asp:BoundField DataField="unit_desc" HeaderText="UNIT" SortExpression="unit_desc" />
                                         <asp:BoundField DataField="classification_name" HeaderText="CLASSIFICATION" SortExpression="classification_name" />
-                                        <asp:BoundField DataField="item_type_desc" HeaderText="TYPE" SortExpression="item_type_desc" />
-                                        <asp:BoundField DataField="last_purchase_price" HeaderText="LAST PURCHASE PRICE" SortExpression="last_purchase_price" />
-                                        <asp:BoundField DataField="last_selling_price" HeaderText="LAST SELLING PRICE" SortExpression="last_selling_price" />
-                                        <asp:BoundField DataField="reorder_qty" HeaderText="REORDER QTTY" SortExpression="reorder_qty" />
-                                        <asp:BoundField DataField="department_desc" HeaderText="DEPARTMENT" SortExpression="department_desc" />
-                                        <asp:BoundField DataField="datecreated" HeaderText="DATE CREATED" SortExpression="datecreated" />
-                                        <asp:TemplateField>
-                                              <ItemTemplate>
-                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue"
-                                                    data-hint="Info.|View Item Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/RequisitionEntry.aspx?mode=0&id="+Eval("item_id") %>'>
-                                                    <span class="mif-pencil"></span>
-                                                </asp:HyperLink>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="status" HeaderText="STATUS" SortExpression="status" />
+                                        <asp:BoundField DataField="requisition_date" HeaderText="REQUEST DATE" SortExpression="requisition_date" DataFormatString="{0:MM/dd/yyyy}" />
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSourceItems" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_item.item_id, ref_item.item_code, ref_item.barcode, ref_item.item_name, ref_item_classifcation.classification_name, ref_item_type.item_type_desc,  ref_item.last_purchased_date, ref_item.last_purchase_price, ref_item.last_selling_price, ref_item.reorder_qty, ref_item.reorder_level, ref_department.department_desc, ref_item.datecreated FROM ref_item INNER JOIN ref_item_classifcation ON ref_item.item_class_id = ref_item_classifcation.classifcation_id INNER JOIN ref_item_type ON ref_item.item_type_id = ref_item_type.itemtype_id INNER JOIN ref_department ON ref_item.dep_id = ref_department.department_id order by ref_item.item_id desc"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceRequisitions" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_requisition.ris_id, trn_requisition.reference_number, ref_item.item_name, trn_requisition.barcode, trn_requisition.qty_issued, trn_requisition.qty_received, trn_requisition.submitted_to, ref_department.department_desc, ref_unit.unit_desc, ref_item_classifcation.classification_name, trn_requisition.status, trn_requisition.requisition_date FROM trn_requisition INNER JOIN ref_item ON trn_requisition.item_id = ref_item.item_id INNER JOIN ref_unit ON trn_requisition.unit_id = ref_unit.unit_id INNER JOIN ref_department ON trn_requisition.dep_id = ref_department.department_id INNER JOIN ref_item_classifcation ON trn_requisition.item_class_id = ref_item_classifcation.classifcation_id order by trn_requisition.ris_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>

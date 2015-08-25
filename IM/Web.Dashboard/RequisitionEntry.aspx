@@ -66,14 +66,14 @@
             <h4 class="text-italic">New Requestion Entry<span class="mif-file-text place-right"></span></h4>
             <div class="row">
                 <div class="cell colspan6 margin5">
-                    <label>Reference Number</label>
+                    <label  style="font-weight: 700;">Reference Number</label>
                     <div class="input-control text full-size ">
                         <span class="mif-anchor prepend-icon"></span>
                         <asp:TextBox runat="server" ID="txtReferenceNumber"></asp:TextBox>
                     </div>
                 </div>
                 <div class="cell colspan6 margin5">
-                    <label>Date Requested</label>
+                    <label  style="font-weight: 700;">Date Requested</label>
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
                         <asp:TextBox runat="server" ID="txtDateRequested"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
@@ -84,7 +84,7 @@
                 <div class="flex-grid">
                     <div class="row ">
                         <div class="cell auto-size">
-                            <label>Department</label>
+                            <label style="font-weight: 700;">Department</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList runat="server" AutoPostBack="True" ID="DDLDepartments"
                                     OnSelectedIndexChanged="DDLDepartments_SelectedIndexChanged" />
@@ -93,14 +93,14 @@
                     </div>
                     <div class="row">
                         <div class="cell colspan5">
-                            <label>Calssification</label>
+                            <label  style="font-weight: 700;">Calssification</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList runat="server" ID="DDLClassifications" OnSelectedIndexChanged="DDLClassifications_SelectedIndexChanged" />
                             </div>
                         </div>
                         <div class="cell "></div>
                         <div class="cell colspan5">
-                            <label>Type</label>
+                            <label  style="font-weight: 700;">Type</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList AutoPostBack="True" runat="server" ID="DDLTypes" OnSelectedIndexChanged="DDLTypes_SelectedIndexChanged" />
                             </div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="row">
                         <div class="cell auto-size">
-                            <label>Items</label>
+                            <label  style="font-weight: 700;">Items</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList runat="server" AutoPostBack="True" ID="DDLProducts"
                                     OnSelectedIndexChanged="DDLProducts_SelectedIndexChanged" />
@@ -120,21 +120,21 @@
                     </div>
                     <div class="row">
                         <div class="cell colspan3">
-                            <label>Item Code</label>
+                            <label  style="font-weight: 700;">Item Code</label>
                             <div class="input-control text">
                                 <span class="mif-tag prepend-icon"></span>
                                 <asp:TextBox runat="server" ReadOnly="True" ID="txtItemCode"></asp:TextBox>
                             </div>
                         </div>
                         <div class="cell colspan3">
-                            <label>Barcode</label>
+                            <label  style="font-weight: 700;">Barcode</label>
                             <div class="input-control text">
                                 <span class="mif-barcode prepend-icon"></span>
                                 <asp:TextBox runat="server" ReadOnly="True" ID="txtBarCode"></asp:TextBox>
                             </div>
                         </div>
                         <div class="cell colspan3">
-                            <label>Unit</label>
+                            <label  style="font-weight: 700;">Unit</label>
                             <div class="input-control text">
                                 <asp:DropDownList runat="server" ID="DDLUnits" />
                             </div>
@@ -147,13 +147,13 @@
                     </div>
                     <div class="row">
                          <div class="cell colspan2 margin5">
-                          <label>Quantity Issue</label>
+                          <label  style="font-weight: 700;">Quantity Issue</label>
                             <div class="input-control text full-size">
                                 <asp:TextBox runat="server" ID="txtQuantityIssue" min="1" Text="1" Type="Number"></asp:TextBox>
                             </div>
                         </div>
                         <div class="cell colspan10 margin5">
-                          <label>Request to</label>
+                          <label  style="font-weight: 700;">Request to</label>
                             <div class="input-control text full-size">
                                  <asp:DropDownList runat="server" ID="DDLRequestTo"/>
                             </div>

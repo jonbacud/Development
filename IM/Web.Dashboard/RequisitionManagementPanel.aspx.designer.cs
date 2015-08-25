@@ -76,12 +76,12 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.GridView gvItems;
         
         /// <summary>
-        /// SqlDataSourceItems control.
+        /// SqlDataSourceRequisitions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceItems;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceRequisitions;
     }
 }

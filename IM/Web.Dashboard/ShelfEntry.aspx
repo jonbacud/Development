@@ -63,6 +63,7 @@
                 <li><a href="#">New Shelf</a></li>
             </ul>
             <h4 class="text-italic">New Shelf<span class="mif-file-text place-right"></span></h4>
+                      <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell colspan6 margin5">
