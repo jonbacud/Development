@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO.MemoryMappedFiles;
-using System.Linq;
-using System.Text;
 using BLToolkit.DataAccess;
 using BLToolkit.Mapping;
 

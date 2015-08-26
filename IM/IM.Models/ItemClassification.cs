@@ -1,9 +1,6 @@
-﻿using BLToolkit.DataAccess;
+﻿using System;
+using BLToolkit.DataAccess;
 using BLToolkit.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace IM.Models
 {
