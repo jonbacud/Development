@@ -16,32 +16,45 @@ namespace IM.BusinessLogic.DataManager
 
         public void Save(ReceivingDetail receivingDetail)
         {
-            throw new NotImplementedException();
+            if (receivingDetail.Id>0)
+            {
+                Accessor.Query.Update(receivingDetail);
+            }
+            else
+            {
+                Accessor.Query.Insert(receivingDetail);
+            }
         }
 
         public void Save(List<ReceivingDetail> receivingDetails)
         {
-            throw new NotImplementedException();
+            foreach (var receivingDetail in receivingDetails)
+            {
+                Save(receivingDetail);
+            }
         }
 
         public void Delete(ReceivingDetail receivingDetail)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(receivingDetail);
         }
 
         public void Delete(List<ReceivingDetail> receivingDetails)
         {
-            throw new NotImplementedException();
+            foreach (var receivingDetail in receivingDetails)
+            {
+                Delete(receivingDetail);
+            }
         }
 
         public List<ReceivingDetail> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<ReceivingDetail>() ?? new List<ReceivingDetail>();
         }
 
         public ReceivingDetail FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<ReceivingDetail>(key) ?? new ReceivingDetail();
         }
         #region Accessor
         ReceivingDetailAccessor Accessor
