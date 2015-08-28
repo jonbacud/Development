@@ -5,12 +5,12 @@
       <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li><a href="../DepartmentManagementPanel.aspx">
+                <li><a href="DepartmentManagementPanel.aspx">
                     <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="../RequisitionManagementPanel.aspx">
+                <li><a href="RequisitionManagementPanel.aspx">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
@@ -20,7 +20,7 @@
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
                 </a></li>
-                <li><a href="../ReceivingItemsManagementPanel.aspx">
+                <li><a href="ReceivingManagementPanel.aspx">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
@@ -30,7 +30,7 @@
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="../SupplierManagementPanel.aspx">
+                <li><a href="SupplierManagementPanel.aspx">
                     <span class="mif-drive-eta icon"></span>
                     <span class="title">Suppliers</span>
                     <span class="counter">0</span>
