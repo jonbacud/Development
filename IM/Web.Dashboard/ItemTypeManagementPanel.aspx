@@ -98,11 +98,13 @@
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="itemtype_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="itemtype_id">
-                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="item_type_desc" HeaderText="Description" SortExpression="item_type_desc"></asp:BoundField>
+                                        <asp:BoundField DataField="item_type_desc" HeaderText="Description"
+                                             SortExpression="item_type_desc"></asp:BoundField>
                                         <asp:BoundField DataField="item_type_code" HeaderText="Code" SortExpression="item_type_code"></asp:BoundField>
-                                        <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
+                                        <asp:BoundField DataField="department_desc" HeaderText="Department"
+                                             SortExpression="department_desc"></asp:BoundField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Type Details" data-hint-position="left" NavigateUrl='<%# "~/ItemTypeEntry.aspx?mode=0&id="+Eval("itemtype_id") %>'>

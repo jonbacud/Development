@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReceivingEntry.aspx.cs" Inherits="Web.Dashboard.ReceivingEntry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReceivingDetails.aspx.cs" Inherits="Web.Dashboard.ReceivingDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -158,140 +158,13 @@
                     </div>
                 </div>
                 <hr class="thin bg-active-brown">
-
-                <div class="row">
-                    <div class="cell colspan6">
-                        <label style="font-weight: 800;">Classification</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList required runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
-                                DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
-                                SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
-                                </SelectParameters>
-                            </asp:ObjectDataSource>
-                        </div>
-                    </div>
-                    <div class="cell "></div>
-                    <div class="cell colspan5">
-                        <label style="font-weight: 800;">Type</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList required runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
-                                DataTextField="ItemDesciption" DataValueField="Id" AutoPostBack="True" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceTypes" runat="server" SelectMethod="FetchAll"
-                                TypeName="IM.BusinessLogic.DataManager.ItemTypeManager">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId"
-                                        PropertyName="SelectedValue" Type="Int32" />
-                                </SelectParameters>
-                            </asp:ObjectDataSource>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="cell auto-size">
-                        <label style="font-weight: 800;">Items</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList required runat="server" ID="DDLItems" AutoPostBack="True" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin10">
-                        <div class="input-control full-size ">
-                            <asp:HyperLink ID="hpLinkViewDetails" CssClass="button link" runat="server">
-                                <span class="mif-file-text">view details</span>
-                            </asp:HyperLink>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Quantity</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtReceivedQuantity" Text="1"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="cell colspan3 margin5">
-                        <label style="font-weight: 800;">Unit</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLUnits" DataSourceID="ObjectDataSourceUnits" DataTextField="Description"
-                                DataValueField="Id" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceUnits" runat="server" SelectMethod="FetchAll"
-                                TypeName="IM.BusinessLogic.DataManager.UnitManager">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId"
-                                        PropertyName="SelectedValue" Type="Int32" />
-                                </SelectParameters>
-                            </asp:ObjectDataSource>
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Price</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" required ID="txtPrice" Text="1"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Total Price</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="txtTotalPrice" Text="1"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Selling Price</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="txtSellingPrice" Text="1"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-                <div class="row cells5">
-                    <div class="cell colspan3 margin5">
-                        <label style="font-weight: 800;">Location</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLLocations" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Rack</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLRacks" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Bin</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLBins" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Shelf</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLShelves" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 800;">Expiry Date</label>
-                        <div class="input-control text full-size" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                            <asp:TextBox runat="server" ID="txtExpiryDate"></asp:TextBox>
-                            <button class="button bg-active-green"><span class="mif-calendar"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="cell auto-size">
-                        <label style="font-weight: 800;">Remarks</label>
-                        <div class="input-control text full-size">
-                            <asp:TextBox runat="server" ID="txtRemarks"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
                         <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
                             runat="server" OnClick="lnkButtonAdd_Click">
-                          <span class="mif-arrow-down"></span>Add Receiving Item
+                          <span class="mif-plus"></span> Add Receiving Item
                         </asp:LinkButton>
                     </div>
                 </div>
@@ -302,7 +175,7 @@
                     <div class="cell auto-size">
                         <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 12px;" class="dataTable border bordered" data-role="datatable"
                             data-auto-width="false"
-                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                             <Columns>
                                 <asp:TemplateField HeaderText="Item Name">
                                     <ItemTemplate>
@@ -348,12 +221,11 @@
                                 </asp:BoundField>
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton data-role="hint" data-hint-background="bg-red"
-                                            data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
-                                            OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')"
-                                            runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
-                                            <span class="icon mif-arrow-up"></span>
-                                        </asp:LinkButton>
+                                        <asp:HyperLink runat="server" Target="_blank" data-role="hint" data-hint-background="bg-red"
+                                            data-hint="Info.|View detail" data-hint-position="left"
+                                             NavigateUrl='<%# "ReceivingDetailEntry.aspx?mode=0"+Eval("Uid") %>'>
+                                            <span class="icon mif-pencil"></span>
+                                        </asp:HyperLink>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" Width="50px" />
                                 </asp:TemplateField>
@@ -376,3 +248,4 @@
         </div>
     </div>
 </asp:Content>
+

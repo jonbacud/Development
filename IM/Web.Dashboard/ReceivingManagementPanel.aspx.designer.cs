@@ -76,12 +76,12 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.GridView gvCategories;
         
         /// <summary>
-        /// SqlDataSourceCategories control.
+        /// SqlDataSourceReceiving control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCategories;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceReceiving;
     }
 }

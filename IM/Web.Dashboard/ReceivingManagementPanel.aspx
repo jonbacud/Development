@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReceivingManagementPanel.aspx.cs" Inherits="Web.Dashboard.ReceivingManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      <div class="row" style="height: 100%">
+    <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
                 <li><a href="DepartmentManagementPanel.aspx">
@@ -20,7 +21,7 @@
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
                 </a></li>
-                <li  class="active"><a href="#">
+                <li class="active"><a href="#">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
@@ -80,34 +81,32 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
-                                <asp:GridView GridLines="None" ID="gvCategories" class="dataTable border bordered" data-role="datatable"
+                                <asp:GridView GridLines="None" Font-Size="12px" ID="gvCategories"
+                                    class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
-                                    runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceCategories" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="category_id" PageSize="5" CellPadding="4" ForeColor="#333333" >
+                                    runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceReceiving" AllowPaging="True"
+                                    AllowSorting="True" DataKeyNames="receiving_id" PageSize="5" CellPadding="4" ForeColor="#333333">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
+                                        <asp:BoundField DataField="receiving_id" HeaderText="Id" InsertVisible="False"
+                                            ReadOnly="True" SortExpression="receiving_id"></asp:BoundField>
+                                        <asp:BoundField DataField="reference_no" HeaderText="Ref. No." SortExpression="reference_no"></asp:BoundField>
+                                        <asp:BoundField DataField="po_number" HeaderText="P.O. No." SortExpression="po_number"></asp:BoundField>
+                                        <asp:BoundField DataField="invoice_no" HeaderText="Invoice No." SortExpression="invoice_no"></asp:BoundField>
+                                        <asp:BoundField DataField="pr_number" HeaderText="P.R. No." SortExpression="pr_number" />
+                                        <asp:BoundField DataField="receiving_date" HeaderText="Received Date" SortExpression="receiving_date" DataFormatString="{0:MMM dd, yyyy}" />
+                                        <asp:BoundField DataField="alobs_number" HeaderText="ALOBS No." SortExpression="alobs_number" />
+                                        <asp:BoundField DataField="mode_procurement" HeaderText="Procurement" SortExpression="mode_procurement" />
+                                        <asp:BoundField DataField="amount" HeaderText="Amount" SortExpression="amount" DataFormatString="{0:##,##0.00}" />
+                                        <asp:BoundField DataField="selling_amount" HeaderText="Selling Amt." SortExpression="selling_amount" DataFormatString="{0:##,##0.00}" />
+                                        <asp:BoundField DataField="supplier_name" HeaderText="Supplier" SortExpression="supplier_name" />
+                                        <asp:BoundField DataField="category_desc" HeaderText="Category" SortExpression="category_desc" />
+                                        <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc" />
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <label class="input-control checkbox small-check no-margin">
-                                                    <input runat="server" id="chkCategory" type="checkbox">
-                                                    <span class="check"></span>
-                                                </label>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="20px" />
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="category_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="category_id">
-                                        <ItemStyle HorizontalAlign="Center" Width="20px" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="category_code" HeaderText="Code" SortExpression="category_code"></asp:BoundField>
-                                        <asp:BoundField DataField="category_desc" HeaderText="Description" SortExpression="category_desc"></asp:BoundField>
-                                        <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
-                                        <asp:TemplateField ShowHeader="False">
-                                            <ItemTemplate>
-                                               <asp:HyperLink  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Category Details" data-hint-position="left"  runat="server" ID="hpLinlUpdate" 
-                                                   NavigateUrl='<%#"~/CategoryEntry.aspx?mode=0&id="+Eval("category_id") %>'>
-                                                   <span class="mif-pencil"></span>
-                                               </asp:HyperLink>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Receiving Item Details" data-hint-position="left" NavigateUrl='<%# "~/ReceivingDetails.aspx?mode=0&id="+Eval("receiving_id") %>'>
+                                                    <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" Width="50px" />
                                         </asp:TemplateField>
@@ -127,7 +126,7 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSourceCategories" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_category.category_id,ref_category.category_code,ref_category.category_desc,ref_department.department_desc FROM [ref_category] inner join ref_department on ref_category.dep_id = ref_department.department_id order by category_id desc "></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceReceiving" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_receivingHeader.*, ref_supplier.supplier_name, ref_category.category_desc, ref_department.department_desc FROM trn_receivingHeader INNER JOIN ref_supplier ON trn_receivingHeader.supplier_id = ref_supplier.supplier_id INNER JOIN ref_category ON trn_receivingHeader.category_id = ref_category.category_id INNER JOIN ref_department ON trn_receivingHeader.dep_id = ref_department.department_id"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>

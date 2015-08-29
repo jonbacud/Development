@@ -52,10 +52,23 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<ReceivingDetail>() ?? new List<ReceivingDetail>();
         }
 
+        public List<ReceivingDetail> FetchAllByReceivingId(int receivingId)
+        {
+            return Accessor.Query.SelectAll<ReceivingDetail>()
+                .Where(rd => rd.ReceivingId.Equals(receivingId))
+                .ToList();
+        }
+
         public ReceivingDetail FetchById(int key)
         {
             return Accessor.Query.SelectByKey<ReceivingDetail>(key) ?? new ReceivingDetail();
         }
+
+        public ReceivingDetail FetchById(Guid key)
+        {
+            return Accessor.Query.SelectByKey<ReceivingDetail>(key) ?? new ReceivingDetail();
+        }
+
         #region Accessor
         ReceivingDetailAccessor Accessor
         {
