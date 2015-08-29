@@ -58,6 +58,12 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Item>() ?? new List<Item>();
         }
 
+        public List<Item> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Item>()
+                .Where(i => i.DepartmentId == departmentId).ToList();
+        }
+
         public List<Item> FetchAll(int departmentId, int classificationId,int typeId)
         {
             return Accessor.Query.SelectAll<Item>()
