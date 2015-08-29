@@ -60,7 +60,7 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="ItemManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="PurchaseRequestManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">New Purchase</a></li>
             </ul>
             <h4 class="text-italic">New Purchase Request Entry <span class="mif-file-text place-right"></span></h4>
@@ -77,7 +77,7 @@
                     <div class="cell colspan3 margin5">
                         <label style="font-weight: 800;">Request Date</label>
                         <div class="input-control text full-size" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                            <asp:TextBox runat="server" ID="txtLastPurchaseDate"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtRequestDate"></asp:TextBox>
                             <button class="button bg-active-green"><span class="mif-calendar"></span></button>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                     <div class="cell colspan4 margin5">
                         <label style="font-weight: 800;">Quantity</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
+                            <asp:TextBox CssClass="fg-darkRed text-bold" runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
                         </div>
                     </div>
 
@@ -184,20 +184,31 @@
                                             <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="CalssificationName" HeaderText="Calssification" />
-                                    <asp:BoundField DataField="DepartmentName" HeaderText="Department" />
-                                    <asp:BoundField DataField="TypeName" HeaderText="Type" />
-                                    <asp:BoundField DataField="UnitName" HeaderText="Unit" />
-                                    <asp:BoundField DataField="Barcode" HeaderText="Barcode" />
-                                    <asp:BoundField DataField="ItemCode" HeaderText="Item Code" />
-                                    <asp:BoundField DataField="ReferenceNumber" HeaderText="Reference No." />
+                                    <asp:BoundField DataField="UnitName" HeaderText="Unit" >
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" >
+                                    <ItemStyle HorizontalAlign="Center" Font-Bold="True" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="UnitCost" HeaderText="Unit Cost" DataFormatString="{0:#,##0.00}" >
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="EstimatedCost" HeaderText="Estimated Cost" DataFormatString="{0:#,##0.00}" >
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="RequestNumber" HeaderText="Request No." >
+                                    <ItemStyle HorizontalAlign="Center" />
+                                    </asp:BoundField>
                                     <asp:TemplateField ShowHeader="False">
                                         <ItemTemplate>
-                                            <asp:LinkButton ToolTip="Remove from list." ID="btnLinkDelete"
-                                                OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
+                                            <asp:LinkButton data-role="hint" data-hint-background="bg-red"
+                                                data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
+                                                OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')" 
+                                                runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
                                             <span class="icon mif-arrow-up"></span>
                                             </asp:LinkButton>
                                         </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
                                     </asp:TemplateField>
                                 </Columns>
                                 <EmptyDataTemplate>

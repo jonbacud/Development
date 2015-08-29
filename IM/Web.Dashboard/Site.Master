@@ -122,7 +122,7 @@
                         <li><a href="">Donation</a></li>
                         <li><a href="">Emergency Purchases</a></li>
                         <li><a href="RequisitionManagementPanel.aspx">Requisition and Issue Slip</a></li>
-                        <li><a href="">Purchase Request</a></li>
+                        <li><a href="PurchaseRequestManagementPanel.aspx">Purchase Request</a></li>
 
                     </ul>
                 </li>

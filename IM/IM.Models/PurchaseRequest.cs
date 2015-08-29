@@ -7,7 +7,7 @@ using BLToolkit.Mapping;
 
 namespace IM.Models
 {
-    [System.Web.DynamicData.TableName("purchase_request")]
+    [TableName("purchase_requests")]
     public class PurchaseRequest
     {
         [PrimaryKey,NonUpdatable]
@@ -52,5 +52,7 @@ namespace IM.Models
 
         [MapField("requisition_no")]
         public string  RequisitionNumber { get; set; }
+
+        public Guid uid { get; set; }
     }
 }
