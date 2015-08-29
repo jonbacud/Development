@@ -124,25 +124,25 @@
                 </div>
                 <div class="row ">
                     <div class="cell auto-size margin5">
-                        <label style="font-weight: 800;">Item Name</label>
+                        <label style="font-weight: 800;">ALOBS Number</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="txtItemName" />
                         </div>
                     </div>
                      <div class="cell auto-size margin5">
-                        <label style="font-weight: 800;">Item Name</label>
+                        <label style="font-weight: 800;">Mode Procurement</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox1" />
                         </div>
                     </div>
                      <div class="cell auto-size margin5">
-                        <label style="font-weight: 800;">Item Name</label>
+                        <label style="font-weight: 800;">Amount</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox2" />
                         </div>
                     </div>
                      <div class="cell auto-size margin5">
-                        <label style="font-weight: 800;">Item Name</label>
+                        <label style="font-weight: 800;">Selling Amount</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox3" />
                         </div>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="row">
                     <div class="cell colspan6">
-                        <label style="font-weight: 800;">Calssification</label>
+                        <label style="font-weight: 800;">Classification</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
                                 DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
@@ -187,6 +187,12 @@
                     </div>
                 </div>
                 <div class="row">
+                     <div class="cell auto-size">
+                        <label style="font-weight: 800;">Items</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" />
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="cell colspan4 margin5">

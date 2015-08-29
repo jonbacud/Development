@@ -166,6 +166,15 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceTypes;
         
         /// <summary>
+        /// DDLItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLItems;
+        
+        /// <summary>
         /// txtQuantity control.
         /// </summary>
         /// <remarks>

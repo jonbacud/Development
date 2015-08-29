@@ -12,12 +12,12 @@ namespace Web.Dashboard
 {
     public partial class ItemIssuanceEntry : System.Web.UI.Page
     {
-        private  DepartmentManager dManager = new DepartmentManager();
+        private readonly DepartmentManager _dManager = new DepartmentManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                var departments = dManager.FetchAll();
+                var departments = _dManager.FetchAll();
                 DDLDepartments.DataSource = departments;
                 DDLDepartments.DataTextField = "Description";
                 DDLDepartments.DataValueField = "Id";
@@ -45,7 +45,7 @@ namespace Web.Dashboard
             UnitManager uManager = new UnitManager();
             List<RequestItem> requesItems = (from ri in items
                 let classification = classificationManager.FetchById(ri.ItemClassificationId)
-                let department = dManager.FetchById(ri.DepartmentId)
+                let department = _dManager.FetchById(ri.DepartmentId)
                 let item = itemManager.FetchById(ri.ItemId)
                 let type = itManager.FetchById(item.TypeId)
                 let unit = uManager.FetchById(ri.UnitId)
