@@ -53,6 +53,14 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Location>() ?? new List<Location>();
         }
 
+        public List<Location> FetchAll( int departmentId)
+        {
+            return Accessor.Query.SelectAll<Location>()
+                .Where(l => l.DepartmentId.Equals(departmentId))
+                .OrderBy(l=>l.Description)
+                .ToList();
+        }
+
         public Location FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Location>(key) ?? new Location();

@@ -52,6 +52,14 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Bin>() ?? new List<Bin>();
         }
 
+        public List<Bin> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Bin>()
+                .Where(b=>b.DepartmentId.Equals(departmentId))
+                .OrderBy(b=>b.BinDescription)
+                .ToList();
+        }
+
         public Bin FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Bin>(key) ?? new Bin();

@@ -52,6 +52,14 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Rack>() ?? new List<Rack>();
         }
 
+        public List<Rack> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Rack>()
+                .Where(r => r.DepartmentId.Equals(departmentId))
+                .OrderBy(r => r.Description)
+                .ToList();
+        }
+
         public Rack FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Rack>(key) ?? new Rack();

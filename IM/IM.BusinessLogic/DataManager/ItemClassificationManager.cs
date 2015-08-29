@@ -66,7 +66,9 @@ namespace IM.BusinessLogic.DataManager
         public List<ItemClassification> FetchAll(int departmentId)
         {
             return Accessor.Query.SelectAll<ItemClassification>()
-                .Where(ic=>ic.DepartmentId.Equals(departmentId)).ToList() ??
+                .Where(ic=>ic.DepartmentId.Equals(departmentId))
+                .OrderBy(ic=>ic.ClassificationName)
+                .ToList() ??
                    new List<ItemClassification>();
         }
 

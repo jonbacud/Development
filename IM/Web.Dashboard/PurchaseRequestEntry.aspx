@@ -114,12 +114,12 @@
                         <label style="font-weight: 800;">Select Item</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" />
-                           
+
                         </div>
                     </div>
                     <div class="cell colspan2 margin10">
                         <div class="input-control full-size ">
-                         <asp:HyperLink ID="hpLinkViewDetails" CssClass="button link" runat="server">
+                            <asp:HyperLink ID="hpLinkViewDetails" CssClass="button link" runat="server">
                                 <span class="mif-file-text">view details</span>
                             </asp:HyperLink>
                         </div>
@@ -161,7 +161,7 @@
                 </div>
 
             </div>
-            
+
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
@@ -171,54 +171,54 @@
                     </div>
                 </div>
             </div>
-            
-               <div class="flex-grid">
-                    <div class="row">
-                        <div class="cell auto-size">
-                            <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered" data-role="datatable" data-auto-width="false"
-                                runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
-                                <Columns>
-                                    <asp:TemplateField HeaderText="Item Name">
-                                        <ItemTemplate>
-                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ItemName") %>'></asp:Label>
-                                            <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField DataField="UnitName" HeaderText="Unit" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" >
-                                    <ItemStyle HorizontalAlign="Center" Font-Bold="True" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="UnitCost" HeaderText="Unit Cost" DataFormatString="{0:#,##0.00}" >
-                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="EstimatedCost" HeaderText="Estimated Cost" DataFormatString="{0:#,##0.00}" >
-                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
-                                    </asp:BoundField>
-                                    <asp:BoundField DataField="RequestNumber" HeaderText="Request No." >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                    </asp:BoundField>
-                                    <asp:TemplateField ShowHeader="False">
-                                        <ItemTemplate>
-                                            <asp:LinkButton data-role="hint" data-hint-background="bg-red"
-                                                data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
-                                                OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')" 
-                                                runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
-                                            <span class="icon mif-arrow-up"></span>
-                                            </asp:LinkButton>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                    </asp:TemplateField>
-                                </Columns>
-                                <EmptyDataTemplate>
-                                    Please select item and click add to add in the list.
-                                </EmptyDataTemplate>
-                            </asp:GridView>
 
-                        </div>
+            <div class="flex-grid">
+                <div class="row">
+                    <div class="cell auto-size">
+                        <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered" data-role="datatable" data-auto-width="false"
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Item Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("ItemName") %>'></asp:Label>
+                                        <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="UnitName" HeaderText="Unit">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity">
+                                    <ItemStyle HorizontalAlign="Center" Font-Bold="True" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="UnitCost" HeaderText="Unit Cost" DataFormatString="{0:#,##0.00}">
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="EstimatedCost" HeaderText="Estimated Cost" DataFormatString="{0:#,##0.00}">
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="RequestNumber" HeaderText="Request No.">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:TemplateField ShowHeader="False">
+                                    <ItemTemplate>
+                                        <asp:LinkButton data-role="hint" data-hint-background="bg-red"
+                                            data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
+                                            OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')"
+                                            runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
+                                            <span class="icon mif-arrow-up"></span>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                </asp:TemplateField>
+                            </Columns>
+                            <EmptyDataTemplate>
+                                Please select item and click add to add in the list.
+                            </EmptyDataTemplate>
+                        </asp:GridView>
+
                     </div>
                 </div>
+            </div>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
             <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"

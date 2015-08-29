@@ -61,6 +61,11 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Supplier>() ?? new List<Supplier>();
         }
 
+        public List<Supplier> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Supplier>().Where(s=>s.DepartmentId.Equals(departmentId)).ToList();
+        }
+
         public Supplier FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Supplier>(key) ?? new Supplier();

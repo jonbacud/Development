@@ -60,7 +60,7 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="ItemManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="ReceivingManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">New Receiving Item</a></li>
             </ul>
             <h4 class="text-italic">New Receiving Item Entry <span class="mif-file-text place-right"></span></h4>
@@ -99,6 +99,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="cell auto-size">
+                        <label style="font-weight: 800;">Department</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLDepartments" AutoPostBack="True" 
+                                OnSelectedIndexChanged="DDLDepartments_SelectedIndexChanged" />
+                        </div>
+                    </div>
+                </div>
                 <div class="row cells12">
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Receiving Date</label>
@@ -109,16 +118,16 @@
                     </div>
                     <div class="cell colspan5 margin5">
                         <label style="font-weight: 800;">Supplier</label>
+                        <span class="mif-drive-eta"></span>
                         <div class="input-control text full-size">
-                             <span class="mif-drive-eta prepend-icon"></span>
-                             <asp:DropDownList runat="server" ID="DDLSuppliers"/>
+                            <asp:DropDownList runat="server" ID="DDLSuppliers" />
                         </div>
                     </div>
-                     <div class="cell colspan4 margin5">
+                    <div class="cell colspan4 margin5">
                         <label style="font-weight: 800;">Category</label>
                         <div class="input-control text full-size">
-                             <span class="mif-apps prepend-icon"></span>
-                             <asp:DropDownList runat="server" ID="DDLCategories"/>
+                            <span class="mif-apps prepend-icon"></span>
+                            <asp:DropDownList runat="server" ID="DDLCategories" />
                         </div>
                     </div>
                 </div>
@@ -129,33 +138,27 @@
                             <asp:TextBox runat="server" ID="txtItemName" />
                         </div>
                     </div>
-                     <div class="cell auto-size margin5">
+                    <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Mode Procurement</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox1" />
                         </div>
                     </div>
-                     <div class="cell auto-size margin5">
+                    <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Amount</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox2" />
                         </div>
                     </div>
-                     <div class="cell auto-size margin5">
+                    <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Selling Amount</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" ID="TextBox3" />
                         </div>
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="cell auto-size">
-                        <label style="font-weight: 800;">Department</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDepartments" AutoPostBack="True" />
-                        </div>
-                    </div>
-                </div>
+                <hr class="thin bg-active-brown">
+
                 <div class="row">
                     <div class="cell colspan6">
                         <label style="font-weight: 800;">Classification</label>
@@ -187,21 +190,28 @@
                     </div>
                 </div>
                 <div class="row">
-                     <div class="cell auto-size">
+                    <div class="cell auto-size">
                         <label style="font-weight: 800;">Items</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" />
                         </div>
                     </div>
+                    <div class="cell colspan2 margin10">
+                        <div class="input-control full-size ">
+                            <asp:HyperLink ID="hpLinkViewDetails" CssClass="button link" runat="server">
+                                <span class="mif-file-text">view details</span>
+                            </asp:HyperLink>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="cell colspan4 margin5">
+                    <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Quantity</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="cell colspan4 margin5">
+                    <div class="cell colspan3 margin5">
                         <label style="font-weight: 800;">Unit</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLUnits" DataSourceID="ObjectDataSourceUnits" DataTextField="Description"
@@ -215,11 +225,130 @@
                             </asp:ObjectDataSource>
                         </div>
                     </div>
-                    <div class="cell colspan3 margin5">
-                        <label style="font-weight: 800;">Re Order Level</label>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Price</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtReOrderLevel" Text="1"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtPrice" Text="1"></asp:TextBox>
                         </div>
+                    </div>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Total Price</label>
+                        <div class="input-control text full-size ">
+                            <asp:TextBox runat="server" ID="TextBox4" Text="1"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Selling Price</label>
+                        <div class="input-control text full-size ">
+                            <asp:TextBox runat="server" ID="TextBox5" Text="1"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cells4">
+                    <div class="cell colspan4 margin5">
+                        <label style="font-weight: 800;">Location</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLLocations" />
+                        </div>
+                    </div>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Rack</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLRacks" />
+                        </div>
+                    </div>
+                    <div class="cell colspan3 margin5">
+                        <label style="font-weight: 800;">Bin</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLBins" />
+                        </div>
+                    </div>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Shelf</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLShelves" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grid">
+                <div class="row flex-just-center">
+                    <div class="cell">
+                        <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
+                            runat="server" OnClick="lnkButtonAdd_Click">
+                          <span class="mif-arrow-down"></span>Add Receiving Item
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-grid">
+                <div class="row">
+                    <div class="cell auto-size">
+                        <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered" data-role="datatable"
+                            data-auto-width="false"
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Item Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("ItemName") %>'></asp:Label>
+                                        <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="UnitName" HeaderText="Unit">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ReceivedQuantity" HeaderText="Quantity">
+                                    <ItemStyle HorizontalAlign="Center" Font-Bold="True" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:#,##0.00}">
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" DataFormatString="{0:#,##0.00}">
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="SellingPrice" HeaderText="Selling Price" DataFormatString="{0:#,##0.00}">
+                                    <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="LocationName" HeaderText="Location">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="RackName" HeaderText="Rack">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="BinName" HeaderText="Bin">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ShelveName" HeaderText="Shelf">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="DepartmentName" HeaderText="Department">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Remarks" HeaderText="Remarks">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="RequestNumber" HeaderText="Request No.">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>
+                                <asp:TemplateField ShowHeader="False">
+                                    <ItemTemplate>
+                                        <asp:LinkButton data-role="hint" data-hint-background="bg-red"
+                                            data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
+                                            OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')"
+                                            runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
+                                            <span class="icon mif-arrow-up"></span>
+                                        </asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                </asp:TemplateField>
+                            </Columns>
+                            <EmptyDataTemplate>
+                                Please select item and click add to add in the list.
+                            </EmptyDataTemplate>
+                        </asp:GridView>
+
                     </div>
                 </div>
             </div>

@@ -52,6 +52,14 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Shelve>() ?? new List<Shelve>();
         }
 
+        public List<Shelve> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Shelve>()
+                .Where(s=>s.DepartmentId.Equals(departmentId))
+                .OrderBy(s=>s.Description)
+                .ToList();
+        }
+
         public Shelve FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Shelve>(key) ?? new Shelve();
