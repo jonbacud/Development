@@ -1,17 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemManagementPanel.aspx.cs" Inherits="Web.Dashboard.ItemManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="row" style="height: 100%">
-
+    <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li><a href="../DepartmentManagementPanel.aspx">
+                <li><a href="DepartmentManagementPanel.aspx">
                     <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="../RequisitionManagementPanel.aspx">
+                <li><a href="RequisitionManagementPanel.aspx">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
@@ -21,7 +21,7 @@
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
                 </a></li>
-                <li><a href="../ReceivingItemsManagementPanel.aspx">
+                <li><a href="ReceivingManagementPanel.aspx">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
@@ -31,7 +31,7 @@
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="../SupplierManagementPanel.aspx">
+                <li><a href="SupplierManagementPanel.aspx">
                     <span class="mif-drive-eta icon"></span>
                     <span class="title">Suppliers</span>
                     <span class="counter">0</span>
@@ -86,8 +86,8 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
-                                <asp:GridView ID="gvItems" Font-Size="12px" runat="server" AllowPaging="True" AutoGenerateColumns="False" 
-                                    DataSourceID="SqlDataSourceItems" DataKeyNames="item_id"  class="dataTable border bordered" data-role="datatable"
+                                <asp:GridView ID="gvItems" Font-Size="12px" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                                    DataSourceID="SqlDataSourceItems" DataKeyNames="item_id" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false" AllowSorting="True">
                                     <Columns>
                                         <asp:BoundField DataField="item_id" HeaderText="ID" SortExpression="item_id" InsertVisible="False" ReadOnly="True" />
@@ -102,7 +102,7 @@
                                         <asp:BoundField DataField="department_desc" HeaderText="DEPARTMENT" SortExpression="department_desc" />
                                         <asp:BoundField DataField="datecreated" HeaderText="DATE CREATED" SortExpression="datecreated" />
                                         <asp:TemplateField>
-                                              <ItemTemplate>
+                                            <ItemTemplate>
                                                 <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue"
                                                     data-hint="Info.|View Item Details" data-hint-position="left"
                                                     NavigateUrl='<%# "~/ItemEntry.aspx?mode=0&id="+Eval("item_id") %>'>
