@@ -162,7 +162,7 @@
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
-                        <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
+                        <asp:LinkButton Style="width: 230px;" EnableViewState="False" class="button button-shadow default" ID="lnkButtonAdd"
                             runat="server" OnClick="lnkButtonAdd_Click">
                           <span class="mif-plus"></span> Add Receiving Item
                         </asp:LinkButton>
@@ -173,7 +173,7 @@
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell auto-size">
-                        <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 12px;" class="dataTable border bordered" data-role="datatable"
+                        <asp:GridView ID="gvSelectedItems" EnableViewState="False" Style="width: 100%; font-size: 12px;" class="dataTable border bordered" data-role="datatable"
                             data-auto-width="false"
                             runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                             <Columns>
@@ -223,7 +223,7 @@
                                     <ItemTemplate>
                                         <asp:HyperLink runat="server" Target="_blank" data-role="hint" data-hint-background="bg-red"
                                             data-hint="Info.|View detail" data-hint-position="left"
-                                             NavigateUrl='<%# "ReceivingDetailEntry.aspx?mode=0"+Eval("Uid") %>'>
+                                             NavigateUrl='<%# "ReceivingDetailEntry.aspx?mode=0&id="+Eval("Uid") %>'>
                                             <span class="icon mif-pencil"></span>
                                         </asp:HyperLink>
                                     </ItemTemplate>
