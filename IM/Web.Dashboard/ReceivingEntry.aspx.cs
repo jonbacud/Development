@@ -21,12 +21,12 @@ namespace Web.Dashboard
         private readonly BinManager _binManager = new BinManager();
         private readonly ShelveManager _shelveManager = new ShelveManager();
         private readonly CategoryManager _categoryManager = new CategoryManager();
-        public List<ReceivingItem> ReceivedItems()
+        public List<ReceivingDetail> ReceivedItems()
         {
-            var items = new List<ReceivingItem>();
+            var items = new List<ReceivingDetail>();
             if (Session["RECEIVING_ITEMS"] != null)
             {
-                items = (List<ReceivingItem>)Session["RECEIVING_ITEMS"];
+                items = (List<ReceivingDetail>)Session["RECEIVING_ITEMS"];
             }
             else
             {
@@ -178,13 +178,13 @@ namespace Web.Dashboard
                 LocationId = item.LocationId,
                 Price = item.Price,
                 RackId = item.RackId,
-                ReceiveQuantity = item.ReceivedQuantity,
+                ReceiveQuantity = item.ReceiveQuantity,
                 ReceivingId = identity,
                 ReceivingReamrks = item.Remarks,
                 ReferenceNumber = item.ReferenceNumber,
                 Remarks = item.Remarks,
                 SellingPrice = item.SellingPrice,
-                Shelfid = item.ShelveId,
+                Shelfid = item.Shelfid,
                 SupplierId = item.SupplierId,
                 TotalAmount = item.TotalAmount,
                 UnitId = item.UnitId,
@@ -215,32 +215,32 @@ namespace Web.Dashboard
         {
             var itemDetails = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
             var items = ReceivedItems();
-            var item = new ReceivingItem
+            var item = new ReceivingDetail
             {
-                ItemName = DDLItems.SelectedItem.Text,
+                //ItemName = DDLItems.SelectedItem.Text,
                 UnitId = int.Parse(DDLUnits.SelectedValue),
-                UnitName = DDLUnits.SelectedItem.Text,
+                //UnitName = DDLUnits.SelectedItem.Text,
                 Uid = Guid.NewGuid(),
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
                 Barcode = itemDetails.BarCode,
                 BinId = int.Parse(DDLBins.SelectedValue),
-                BinName = DDLBins.SelectedItem.Text,
-                DepartmentName = DDLDepartments.SelectedItem.Text,
+                //BinName = DDLBins.SelectedItem.Text,
+                //DepartmentName = DDLDepartments.SelectedItem.Text,
                 ExpiryDate = DateTime.Parse(txtExpiryDate.Text),
                 ItemId = itemDetails.Id,
                 LocationId = int.Parse(DDLLocations.SelectedValue),
-                LocationName = DDLLocations.SelectedItem.Text,
+                //LocationName = DDLLocations.SelectedItem.Text,
                 Price = Decimal.Parse(txtPrice.Text),
                 RackId = int.Parse(DDLRacks.SelectedValue),
-                RackName = DDLRacks.SelectedItem.Text,
-                ReceivedQuantity = int.Parse(txtReceivedQuantity.Text),
-                ReceivingRemarks = txtRemarks.Text,
+                //RackName = DDLRacks.SelectedItem.Text,
+                ReceiveQuantity = int.Parse(txtReceivedQuantity.Text),
+                ReceivingReamrks = txtRemarks.Text,
                 Remarks = txtRemarks.Text,
                 SellingPrice = decimal.Parse(txtSellingPrice.Text),
-                ShelveId = int.Parse(DDLShelves.SelectedValue),
-                ShelveName = DDLShelves.SelectedItem.Text,
+                Shelfid = int.Parse(DDLShelves.SelectedValue),
+                //ShelveName = DDLShelves.SelectedItem.Text,
                 SupplierId = int.Parse(DDLSuppliers.SelectedValue),
-                SupplierName = DDLSuppliers.SelectedItem.Text,
+                //SupplierName = DDLSuppliers.SelectedItem.Text,
                 TotalAmount = (int.Parse(txtReceivedQuantity.Text)*decimal.Parse(txtPrice.Text)),
                 ReferenceNumber = txtReferenceNumber.Text
             };

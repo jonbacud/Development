@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Barcode.cs" />
+    <Compile Include="Bin.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Department.cs">
       <SubType>Code</SubType>
@@ -54,14 +55,26 @@
     <Compile Include="ItemType.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseRequest.cs" />
     <Compile Include="Rack.cs" />
+    <Compile Include="Receiving.cs" />
+    <Compile Include="ReceivingDetail.cs" />
     <Compile Include="Requisition.cs" />
+    <Compile Include="ReturnIssuance.cs" />
+    <Compile Include="ReturnIssuanceDetail.cs" />
+    <Compile Include="ReturnReceiving.cs" />
+    <Compile Include="ReturnReceivingDetail.cs" />
     <Compile Include="Shelve.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="UserAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\IM.Models.dll" />
+    <Content Include="bin\Debug\IM.Models.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

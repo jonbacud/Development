@@ -78,34 +78,34 @@ namespace Web.Dashboard
                 let shelf = _shelveManager.FetchById(rd.Shelfid)
                 let supplier = _supplierManager.FetchById(rd.SupplierId)
                 let unit = _unitManager.FetchById(rd.UnitId)
-                select new ReceivingItem
+                select new ReceivingDetail
                 {
                     Barcode = rd.Barcode, 
-                    BinName = bin.BinDescription, 
+                    //BinName = bin.BinDescription, 
                     BinId = bin.Id, 
                     DepartmentId = rd.DepartmentId, 
-                    DepartmentName = dept.Description, 
+                    //DepartmentName = dept.Description, 
                     ExpiryDate = rd.ExpiryDate, 
                     ItemId = rd.ItemId, 
-                    ItemName = item.ItemName, 
+                    //ItemName = item.ItemName, 
                     LocationId = rd.LocationId, 
-                    LocationName = location.Description, 
+                    //LocationName = location.Description, 
                     Price = rd.Price, 
                     RackId = rd.RackId, 
-                    RackName = rack.Description, 
-                    ReceivedQuantity = rd.ReceiveQuantity, 
-                    ReceivingRemarks = rd.Remarks, 
+                    //RackName = rack.Description, 
+                    ReceiveQuantity = rd.ReceiveQuantity, 
+                    ReceivingReamrks = rd.Remarks, 
                     ReferenceNumber = rd.ReferenceNumber,
                     Remarks = rd.Remarks,
                     SellingPrice = rd.SellingPrice,
-                    ShelveId = rd.Shelfid,
-                    ShelveName = shelf.Description,
+                    Shelfid = rd.Shelfid,
+                    //ShelveName = shelf.Description,
                     SupplierId = rd.SupplierId,
-                    SupplierName = supplier.Name,
+                   //SupplierName = supplier.Name,
                     TotalAmount = rd.TotalAmount, 
                     Uid = rd.Uid, 
                     UnitId = rd.UnitId,
-                    UnitName = unit.Description,
+                    //UnitName = unit.Description,
                 }).ToList();
 
             gvSelectedItems.DataSource = receivingItems;

@@ -14,3 +14,11 @@ C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.Mo
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.dll
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.pdb
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\bin\Debug\BLToolkit.4.dll
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.dll
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.pdb
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
+D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb

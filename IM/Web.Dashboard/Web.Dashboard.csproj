@@ -132,6 +132,10 @@
     <Content Include="App_Data\InventorWRI_log.ldf">
       <DependentUpon>InventorWRI.mdf</DependentUpon>
     </Content>
+    <Content Include="BinEntry.aspx" />
+    <Content Include="BinManagementPanel.aspx" />
+    <Content Include="CategoryEntry.aspx" />
+    <Content Include="CategoryManagementPanel.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -213,10 +217,13 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ItemClassificationEntry.aspx" />
     <Content Include="ItemClassificationPanel.aspx" />
+    <Content Include="ItemEntry.aspx" />
     <Content Include="ItemIssuanceEntry.aspx" />
-    <Content Include="Items\Default.aspx" />
-    <Content Include="Items\ItemEntry.aspx" />
+    <Content Include="ItemManagementPanel.aspx" />
+    <Content Include="ItemTypeEntry.aspx" />
+    <Content Include="ItemTypeManagementPanel.aspx" />
     <Content Include="js\docs.js" />
     <Content Include="js\ga.js" />
     <Content Include="js\jquery-2.1.3.min.js" />
@@ -254,6 +261,8 @@
     <Content Include="js\prettify\prettify.js" />
     <Content Include="js\prettify\run_prettify.js" />
     <Content Include="js\select2.min.js" />
+    <Content Include="LocationEntry.aspx" />
+    <Content Include="LocationManagementPanel.aspx" />
     <Content Include="login.html" />
     <Content Include="DepartmentEntry.aspx" />
     <Content Include="news-portal.html" />
@@ -261,8 +270,17 @@
     <Content Include="fonts\metro.eot" />
     <Content Include="fonts\metro.ttf" />
     <Content Include="fonts\metro.woff" />
+    <Content Include="WRIreports\recevingreport.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="PrintDepartments.aspx" />
+    <Content Include="PurchaseRequestEntry.aspx" />
+    <Content Include="PurchaseRequestManagementPanel.aspx" />
+    <Content Include="RackEntry.aspx" />
+    <Content Include="RackManagementPanel.aspx" />
+    <Content Include="ReceivingDetailEntry.aspx" />
+    <Content Include="ReceivingDetails.aspx" />
+    <Content Include="ReceivingEntry.aspx" />
+    <Content Include="ReceivingManagementPanel.aspx" />
     <Content Include="RequisitionEntry.aspx" />
     <Content Include="RequisitionManagementPanel.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -270,12 +288,29 @@
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="ShelfEntry.aspx" />
+    <Content Include="ShelveManagementPanel.aspx" />
     <Content Include="start-screen.html" />
     <Content Include="supplier.aspx" />
+    <Content Include="SupplierEntry.aspx" />
     <Content Include="SupplierLists.aspx" />
+    <Content Include="SupplierManagementPanel.aspx" />
     <Content Include="template.html" />
+    <Content Include="UnitEntry.aspx" />
+    <Content Include="UnitManagementPanel.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
+    <Content Include="WRIreports\rpt\WRIDtset.xsc">
+      <DependentUpon>WRIDtset.xsd</DependentUpon>
+    </Content>
+    <None Include="WRIreports\rpt\WRIDtset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WRIDtset.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="WRIreports\rpt\WRIDtset.xss">
+      <DependentUpon>WRIDtset.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\_references.js" />
@@ -332,6 +367,34 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BinEntry.aspx.cs">
+      <DependentUpon>BinEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BinEntry.aspx.designer.cs">
+      <DependentUpon>BinEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BinManagementPanel.aspx.cs">
+      <DependentUpon>BinManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BinManagementPanel.aspx.designer.cs">
+      <DependentUpon>BinManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryEntry.aspx.cs">
+      <DependentUpon>CategoryEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryEntry.aspx.designer.cs">
+      <DependentUpon>CategoryEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryManagementPanel.aspx.cs">
+      <DependentUpon>CategoryManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryManagementPanel.aspx.designer.cs">
+      <DependentUpon>CategoryManagementPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,12 +419,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ItemClassificationEntry.aspx.cs">
+      <DependentUpon>ItemClassificationEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemClassificationEntry.aspx.designer.cs">
+      <DependentUpon>ItemClassificationEntry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ItemClassificationPanel.aspx.cs">
       <DependentUpon>ItemClassificationPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ItemClassificationPanel.aspx.designer.cs">
       <DependentUpon>ItemClassificationPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEntry.aspx.cs">
+      <DependentUpon>ItemEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemEntry.aspx.designer.cs">
+      <DependentUpon>ItemEntry.aspx</DependentUpon>
     </Compile>
     <Compile Include="ItemIssuanceEntry.aspx.cs">
       <DependentUpon>ItemIssuanceEntry.aspx</DependentUpon>
@@ -370,19 +447,40 @@
     <Compile Include="ItemIssuanceEntry.aspx.designer.cs">
       <DependentUpon>ItemIssuanceEntry.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Items\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="ItemManagementPanel.aspx.cs">
+      <DependentUpon>ItemManagementPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Items\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="ItemManagementPanel.aspx.designer.cs">
+      <DependentUpon>ItemManagementPanel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Items\ItemEntry.aspx.cs">
-      <DependentUpon>ItemEntry.aspx</DependentUpon>
+    <Compile Include="ItemTypeEntry.aspx.cs">
+      <DependentUpon>ItemTypeEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Items\ItemEntry.aspx.designer.cs">
-      <DependentUpon>ItemEntry.aspx</DependentUpon>
+    <Compile Include="ItemTypeEntry.aspx.designer.cs">
+      <DependentUpon>ItemTypeEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTypeManagementPanel.aspx.cs">
+      <DependentUpon>ItemTypeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemTypeManagementPanel.aspx.designer.cs">
+      <DependentUpon>ItemTypeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocationEntry.aspx.cs">
+      <DependentUpon>LocationEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocationEntry.aspx.designer.cs">
+      <DependentUpon>LocationEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocationManagementPanel.aspx.cs">
+      <DependentUpon>LocationManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocationManagementPanel.aspx.designer.cs">
+      <DependentUpon>LocationManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModelViews\RequestItem.cs" />
     <Compile Include="DepartmentEntry.aspx.cs">
@@ -400,6 +498,62 @@
       <DependentUpon>PrintDepartments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseRequestEntry.aspx.cs">
+      <DependentUpon>PurchaseRequestEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseRequestEntry.aspx.designer.cs">
+      <DependentUpon>PurchaseRequestEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseRequestManagementPanel.aspx.cs">
+      <DependentUpon>PurchaseRequestManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseRequestManagementPanel.aspx.designer.cs">
+      <DependentUpon>PurchaseRequestManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RackEntry.aspx.cs">
+      <DependentUpon>RackEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RackEntry.aspx.designer.cs">
+      <DependentUpon>RackEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RackManagementPanel.aspx.cs">
+      <DependentUpon>RackManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RackManagementPanel.aspx.designer.cs">
+      <DependentUpon>RackManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivingDetailEntry.aspx.cs">
+      <DependentUpon>ReceivingDetailEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceivingDetailEntry.aspx.designer.cs">
+      <DependentUpon>ReceivingDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivingDetails.aspx.cs">
+      <DependentUpon>ReceivingDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceivingDetails.aspx.designer.cs">
+      <DependentUpon>ReceivingDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivingEntry.aspx.cs">
+      <DependentUpon>ReceivingEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceivingEntry.aspx.designer.cs">
+      <DependentUpon>ReceivingEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivingManagementPanel.aspx.cs">
+      <DependentUpon>ReceivingManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceivingManagementPanel.aspx.designer.cs">
+      <DependentUpon>ReceivingManagementPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RequisitionEntry.aspx.cs">
       <DependentUpon>RequisitionEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,6 +567,20 @@
     </Compile>
     <Compile Include="RequisitionManagementPanel.aspx.designer.cs">
       <DependentUpon>RequisitionManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShelfEntry.aspx.cs">
+      <DependentUpon>ShelfEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShelfEntry.aspx.designer.cs">
+      <DependentUpon>ShelfEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShelveManagementPanel.aspx.cs">
+      <DependentUpon>ShelveManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShelveManagementPanel.aspx.designer.cs">
+      <DependentUpon>ShelveManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -435,12 +603,40 @@
     <Compile Include="supplier.aspx.designer.cs">
       <DependentUpon>supplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SupplierEntry.aspx.cs">
+      <DependentUpon>SupplierEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEntry.aspx.designer.cs">
+      <DependentUpon>SupplierEntry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SupplierLists.aspx.cs">
       <DependentUpon>SupplierLists.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SupplierLists.aspx.designer.cs">
       <DependentUpon>SupplierLists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierManagementPanel.aspx.cs">
+      <DependentUpon>SupplierManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierManagementPanel.aspx.designer.cs">
+      <DependentUpon>SupplierManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnitEntry.aspx.cs">
+      <DependentUpon>UnitEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnitEntry.aspx.designer.cs">
+      <DependentUpon>UnitEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnitManagementPanel.aspx.cs">
+      <DependentUpon>UnitManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnitManagementPanel.aspx.designer.cs">
+      <DependentUpon>UnitManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -449,8 +645,22 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WRIreports\recevingreport.aspx.cs">
+      <DependentUpon>recevingreport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WRIreports\recevingreport.aspx.designer.cs">
+      <DependentUpon>recevingreport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WRIreports\rpt\WRIDtset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WRIDtset.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Items\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
@@ -464,6 +674,10 @@
       <Project>{1dc06ff2-09b9-42c0-94c6-4b77a24c6053}</Project>
       <Name>IM.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WRIreports\rpt\issuancereport.rdlc" />
+    <EmbeddedResource Include="WRIreports\rpt\receiving.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
