@@ -71,14 +71,14 @@
                         <label style="font-weight: 800;">Reference Number</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtReferenceNumber"></asp:TextBox>
+                            <asp:TextBox required runat="server" ID="txtReferenceNumber"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan4 margin5">
                         <label style="font-weight: 800;">P.O. Number</label>
                         <div class="input-control text full-size ">
                             <span class="mif-qrcode prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtPONumber"></asp:TextBox>
+                            <asp:TextBox  runat="server" ID="txtPONumber"></asp:TextBox>
                             <asp:LinkButton runat="server" ID="btnGetPODetail" class="button success block-shadow-success text-shadow">
                                  <span class="mif-search"></span>
                             </asp:LinkButton>
@@ -103,7 +103,7 @@
                     <div class="cell auto-size">
                         <label style="font-weight: 800;">Department</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDepartments" AutoPostBack="True" 
+                            <asp:DropDownList required runat="server" ID="DDLDepartments" AutoPostBack="True"
                                 OnSelectedIndexChanged="DDLDepartments_SelectedIndexChanged" />
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Receiving Date</label>
                         <div class="input-control text full-size" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                            <asp:TextBox runat="server" ID="txtLastPurchaseDate"></asp:TextBox>
+                            <asp:TextBox runat="server" required ID="txtReceivingDate"></asp:TextBox>
                             <button class="button bg-active-green"><span class="mif-calendar"></span></button>
                         </div>
                     </div>
@@ -120,14 +120,14 @@
                         <label style="font-weight: 800;">Supplier</label>
                         <span class="mif-drive-eta"></span>
                         <div class="input-control text full-size">
-                            <asp:DropDownList runat="server" ID="DDLSuppliers" />
+                            <asp:DropDownList required runat="server" ID="DDLSuppliers" />
                         </div>
                     </div>
                     <div class="cell colspan4 margin5">
                         <label style="font-weight: 800;">Category</label>
+                        <span class="mif-apps"></span>
                         <div class="input-control text full-size">
-                            <span class="mif-apps prepend-icon"></span>
-                            <asp:DropDownList runat="server" ID="DDLCategories" />
+                            <asp:DropDownList  runat="server" ID="DDLCategories" />
                         </div>
                     </div>
                 </div>
@@ -135,25 +135,25 @@
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">ALOBS Number</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="txtItemName" />
+                            <asp:TextBox required runat="server" ID="txtAlobsNumber" />
                         </div>
                     </div>
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Mode Procurement</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="TextBox1" />
+                            <asp:TextBox required runat="server" ID="txtModeProcurement" />
                         </div>
                     </div>
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Amount</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="TextBox2" />
+                            <asp:TextBox required runat="server" ID="txtAmount" />
                         </div>
                     </div>
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 800;">Selling Amount</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="TextBox3" />
+                            <asp:TextBox required runat="server" ID="txtSellingAmount" />
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                     <div class="cell colspan6">
                         <label style="font-weight: 800;">Classification</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
+                            <asp:DropDownList required runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
                                 DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
                             <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
                                 SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
@@ -177,7 +177,7 @@
                     <div class="cell colspan5">
                         <label style="font-weight: 800;">Type</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
+                            <asp:DropDownList required runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
                                 DataTextField="ItemDesciption" DataValueField="Id" AutoPostBack="True" />
                             <asp:ObjectDataSource ID="ObjectDataSourceTypes" runat="server" SelectMethod="FetchAll"
                                 TypeName="IM.BusinessLogic.DataManager.ItemTypeManager">
@@ -193,7 +193,7 @@
                     <div class="cell auto-size">
                         <label style="font-weight: 800;">Items</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" />
+                            <asp:DropDownList required runat="server" ID="DDLItems" AutoPostBack="True" />
                         </div>
                     </div>
                     <div class="cell colspan2 margin10">
@@ -208,7 +208,7 @@
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Quantity</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtQuantity" Text="1"></asp:TextBox>
+                            <asp:TextBox runat="server" min="1" Type="Number" ID="txtReceivedQuantity" Text="1"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan3 margin5">
@@ -228,24 +228,24 @@
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Price</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="txtPrice" Text="1"></asp:TextBox>
+                            <asp:TextBox runat="server" required ID="txtPrice" Text="1"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Total Price</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="TextBox4" Text="1"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtTotalPrice" Text="1"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Selling Price</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="TextBox5" Text="1"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtSellingPrice" Text="1"></asp:TextBox>
                         </div>
                     </div>
                 </div>
-                <div class="row cells4">
-                    <div class="cell colspan4 margin5">
+                <div class="row cells5">
+                    <div class="cell colspan3 margin5">
                         <label style="font-weight: 800;">Location</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLLocations" />
@@ -257,7 +257,7 @@
                             <asp:DropDownList runat="server" ID="DDLRacks" />
                         </div>
                     </div>
-                    <div class="cell colspan3 margin5">
+                    <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Bin</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList runat="server" ID="DDLBins" />
@@ -269,9 +269,23 @@
                             <asp:DropDownList runat="server" ID="DDLShelves" />
                         </div>
                     </div>
+                    <div class="cell colspan2 margin5">
+                        <label style="font-weight: 800;">Expiry Date</label>
+                        <div class="input-control text full-size" data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
+                            <asp:TextBox runat="server" ID="txtExpiryDate"></asp:TextBox>
+                            <button class="button bg-active-green"><span class="mif-calendar"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell auto-size">
+                        <label style="font-weight: 800;">Remarks</label>
+                        <div class="input-control text full-size">
+                            <asp:TextBox runat="server" ID="txtRemarks"></asp:TextBox>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
@@ -286,7 +300,7 @@
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell auto-size">
-                        <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered" data-role="datatable"
+                        <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 12px;" class="dataTable border bordered" data-role="datatable"
                             data-auto-width="false"
                             runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
                             <Columns>
@@ -329,7 +343,7 @@
                                 <asp:BoundField DataField="Remarks" HeaderText="Remarks">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="RequestNumber" HeaderText="Request No.">
+                                <asp:BoundField DataField="ReferenceNumber" HeaderText="Reference No.">
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField ShowHeader="False">

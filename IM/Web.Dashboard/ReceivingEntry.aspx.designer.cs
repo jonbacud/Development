@@ -67,13 +67,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.DropDownList DDLDepartments;
         
         /// <summary>
-        /// txtLastPurchaseDate control.
+        /// txtReceivingDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastPurchaseDate;
+        protected global::System.Web.UI.WebControls.TextBox txtReceivingDate;
         
         /// <summary>
         /// DDLSuppliers control.
@@ -94,40 +94,40 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.DropDownList DDLCategories;
         
         /// <summary>
-        /// txtItemName control.
+        /// txtAlobsNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemName;
+        protected global::System.Web.UI.WebControls.TextBox txtAlobsNumber;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtModeProcurement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtModeProcurement;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtAmount;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txtSellingAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtSellingAmount;
         
         /// <summary>
         /// DDLClassifications control.
@@ -184,13 +184,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.HyperLink hpLinkViewDetails;
         
         /// <summary>
-        /// txtQuantity control.
+        /// txtReceivedQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.TextBox txtReceivedQuantity;
         
         /// <summary>
         /// DDLUnits control.
@@ -220,22 +220,22 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
         
         /// <summary>
-        /// TextBox4 control.
+        /// txtTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtTotalPrice;
         
         /// <summary>
-        /// TextBox5 control.
+        /// txtSellingPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtSellingPrice;
         
         /// <summary>
         /// DDLLocations control.
@@ -272,6 +272,24 @@ namespace Web.Dashboard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLShelves;
+        
+        /// <summary>
+        /// txtExpiryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExpiryDate;
+        
+        /// <summary>
+        /// txtRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
         
         /// <summary>
         /// lnkButtonAdd control.

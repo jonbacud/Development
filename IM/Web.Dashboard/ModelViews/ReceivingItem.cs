@@ -32,5 +32,6 @@ namespace Web.Dashboard.ModelViews
         public string Remarks { get; set; }
         public string ReceivingRemarks { get; set; }
         public Guid Uid { get; set; }
+        public string ReferenceNumber { get; set; }
     }
 }

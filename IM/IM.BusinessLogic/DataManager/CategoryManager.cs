@@ -61,6 +61,14 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Category>() ?? new List<Category>();
         }
 
+        public List<Category> FetchAll(int departmentId)
+        {
+            return Accessor.Query.SelectAll<Category>()
+                .Where(c=>c.DepartmentId.Equals(departmentId))
+                .OrderBy(c=>c.Description)
+                .ToList();
+        }
+
         public Category FetchById(int key)
         {
             return Accessor.Query.SelectByKey<Category>(key) ?? new Category();

@@ -6,3 +6,11 @@ D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.BusinessLogic\bi
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\BLToolkit.4.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb

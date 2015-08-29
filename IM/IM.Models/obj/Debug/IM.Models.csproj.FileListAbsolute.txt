@@ -18,3 +18,4 @@ D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.Models\bin\Debug
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.Models\bin\Debug\BLToolkit.4.dll
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.Models\obj\Debug\IM.Models.dll
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\IM\IM.Models\obj\Debug\IM.Models.pdb
+C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\obj\Debug\IM.Models.csprojResolveAssemblyReference.cache
