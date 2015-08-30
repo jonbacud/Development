@@ -92,6 +92,7 @@ namespace Web.Dashboard
                 var item = itemManager.FetchById(int.Parse(DDLProducts.SelectedValue));
                 txtBarCode.Text = item.BarCode;
                 txtItemCode.Text = item.ItemCode;
+                hpLinkItemDetails.NavigateUrl = "~/ItemEntry.aspx?mode=2&id="+item.Id;
             }
             else
             {
@@ -142,6 +143,7 @@ namespace Web.Dashboard
         protected void DDLProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetItemDetails(_itemManager);
+
         }
 
         protected void lnkButtonAdd_Click(object sender, EventArgs e)

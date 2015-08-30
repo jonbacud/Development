@@ -115,7 +115,6 @@
                                 <asp:DropDownList runat="server" AutoPostBack="True" ID="DDLProducts"
                                     OnSelectedIndexChanged="DDLProducts_SelectedIndexChanged" />
                             </div>
-
                         </div>
                     </div>
                     <div class="row">
@@ -141,7 +140,7 @@
                         </div>
                         <div class="cell colspan3">
                             <div class="input-control text">
-                                <asp:HyperLink runat="server" CssClass="button link" ID="hpLink">View Item Details</asp:HyperLink>
+                                <asp:HyperLink runat="server" Target="_blank" CssClass="button link" ID="hpLinkItemDetails">View Item Details</asp:HyperLink>
                             </div>
                         </div>
                     </div>

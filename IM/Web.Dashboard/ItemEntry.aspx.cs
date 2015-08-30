@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Configuration;
 using System.Web.UI;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -27,6 +29,11 @@ namespace Web.Dashboard
             }
         }
 
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode) int.Parse(Request.QueryString["mode"]); }
+        }
+
         public void InitializeDepartments()
         {
             var departmentManager = new DepartmentManager();
@@ -41,29 +48,45 @@ namespace Web.Dashboard
             if (!IsPostBack)
             {
                 InitializeDepartments();
-                if (ItemId>0)
+                
+                switch (Mode)
                 {
-                    txtBarCode.Text = Item.BarCode;
-                    txtItemCode.Text = Item.ItemCode;
-                    txtItemName.Text = Item.ItemName;
-                    txtLastPurchaseDate.Text = Item.LastPurchaseDate.ToString("MMM dd, yyyy");
-                    txtLastPurchasePrice.Text = Item.LastPurchasePrice.ToString("##0.00");
-                    txtLastSellingPrice.Text = Item.LastSellingPrice.ToString("##0.00");
-                    txtQuantity.Text = Item.ReOrderQuantity.ToString();
-                    txtReOrderLevel.Text = Item.ReOrderLevel.ToString();
-                    DDLDepartments.SelectedValue = Item.DepartmentId.ToString();
-                    DDLClassifications.SelectedValue = Item.ClassificationId.ToString();
-                    DDLTypes.SelectedValue = Item.TypeId.ToString();
-                    DDLUnits.SelectedValue = Item.UnitId.ToString();
-                    btnDelete.Visible = true;
+                    case Transaction.TransactionMode.UpdateEntry:
+                        InitItemDetails();
+                        btnDelete.Visible = true;
+                        break;
+                    case Transaction.TransactionMode.ViewDetail:
+                        txtBarCode.ReadOnly = true;
+                        txtItemCode.ReadOnly = true;
+                        txtItemName.ReadOnly = true;
+                        btnDelete.Visible = false;
+                        InitItemDetails();
+                        btnSave.Visible = false;
+                        hpLinkBack.Visible = false;
+                        break;
+                    case  Transaction.TransactionMode.NewEntry:
+                        if (Barcode != null)
+                            txtBarCode.Text = (long.Parse(Barcode.Code) + 1).ToString();
+                        break;
                 }
-                else
-                {
-                    if (Barcode != null)
-                        txtBarCode.Text = (long.Parse(Barcode.Code) + 1).ToString();
-                }
-             
+                
             }
+        }
+
+        private void InitItemDetails()
+        {
+            txtBarCode.Text = Item.BarCode;
+            txtItemCode.Text = Item.ItemCode;
+            txtItemName.Text = Item.ItemName;
+            txtLastPurchaseDate.Text = Item.LastPurchaseDate.ToString("MMM dd, yyyy");
+            txtLastPurchasePrice.Text = Item.LastPurchasePrice.ToString("##0.00");
+            txtLastSellingPrice.Text = Item.LastSellingPrice.ToString("##0.00");
+            txtQuantity.Text = Item.ReOrderQuantity.ToString();
+            txtReOrderLevel.Text = Item.ReOrderLevel.ToString();
+            DDLDepartments.SelectedValue = Item.DepartmentId.ToString();
+            DDLClassifications.SelectedValue = Item.ClassificationId.ToString();
+            DDLTypes.SelectedValue = Item.TypeId.ToString();
+            DDLUnits.SelectedValue = Item.UnitId.ToString();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

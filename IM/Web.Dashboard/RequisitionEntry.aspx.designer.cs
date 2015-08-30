@@ -94,13 +94,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.DropDownList DDLUnits;
         
         /// <summary>
-        /// hpLink control.
+        /// hpLinkItemDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hpLink;
+        protected global::System.Web.UI.WebControls.HyperLink hpLinkItemDetails;
         
         /// <summary>
         /// txtQuantityIssue control.
