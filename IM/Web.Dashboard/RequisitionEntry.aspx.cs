@@ -191,7 +191,18 @@ namespace Web.Dashboard
             {
                 requests.AddRange(RequestItems().Select(ri => new Requisition
                 {
-                    UnitId = ri.UnitId, BarCode = ri.Barcode, DateCreated = DateTime.Now, DepartmentId = ri.DepartmentId, ItemClassificationId = ri.ClassificationId, ItemId = ri.ItemId, QuantityIssued = int.Parse(txtQuantityIssue.Text), SubmittedTo = DDLRequestTo.SelectedItem.Text, ReferenceNumber = txtReferenceNumber.Text.Trim(), RequisitionDate = DateTime.Parse(txtDateRequested.Text), Status = "Submmited", UniqueId = Guid.NewGuid(),QuantityReceived = 0
+                    UnitId = ri.UnitId,
+                    BarCode = ri.Barcode,
+                    DateCreated = DateTime.Now,
+                    DepartmentId = ri.DepartmentId,
+                    ItemClassificationId = ri.ClassificationId,
+                    ItemId = ri.ItemId,
+                    QuantityIssued = int.Parse(txtQuantityIssue.Text),
+                    SubmittedTo = DDLRequestTo.SelectedItem.Text,
+                    ReferenceNumber = txtReferenceNumber.Text.Trim(),
+                    RequisitionDate = DateTime.Parse(txtDateRequested.Text),
+                    Status = "Submmited", UniqueId = Guid.NewGuid(),
+                    QuantityReceived = 0
                 }));
                RequisitionManager requisitionManager = new RequisitionManager();
                 requisitionManager.Save(requests);

@@ -98,19 +98,19 @@
                 <li>
                     <a href="" class="dropdown-toggle">Settings</a>
                     <ul class="d-menu" data-role="dropdown">
-                      <li><a href="DepartmentManagementPanel.aspx">Departments</a></li>
-                        <li><a href="SupplierManagementPanel.aspx">Suppliers</a></li>
-                        <li><a href="CategoryManagementPanel.aspx">Categories</a></li>
+                      <li><a href="/DepartmentManagementPanel">Departments</a></li>
+                        <li><a href="/SupplierManagementPanel">Suppliers</a></li>
+                        <li><a href="/CategoryManagementPanel">Categories</a></li>
                         <li class="divider"></li>
-                        <li><a href="ItemClassificationPanel.aspx">Item Classification</a></li>
-                        <li><a href="ItemTypeManagementPanel.aspx">Item Type</a></li>
-                        <li><a href="UnitManagementPanel.aspx">Unit</a></li>
-                        <li><a href="ItemManagementPanel.aspx">Items</a></li>
+                        <li><a href="/ItemClassificationPanel">Item Classification</a></li>
+                        <li><a href="/ItemTypeManagementPanel">Item Type</a></li>
+                        <li><a href="/UnitManagementPanel">Unit</a></li>
+                        <li><a href="/ItemManagementPanel">Items</a></li>
                         <li class="divider"></li>
-                        <li><a href="LocationManagementPanel.aspx">Location</a></li>
-                        <li><a href="RackManagementPanel.aspx">Rack</a></li>
-                        <li><a href="ShelveManagementPanel.aspx">Shelve</a></li>
-                        <li><a href="BinManagementPanel.aspx">Bin</a></li>
+                        <li><a href="/LocationManagementPanel">Location</a></li>
+                        <li><a href="/RackManagementPanel">Rack</a></li>
+                        <li><a href="/ShelveManagementPanel">Shelve</a></li>
+                        <li><a href="/BinManagementPanel">Bin</a></li>
                         <li class="divider"></li>
                         <li><a href="">End User</a></li>
                     </ul>

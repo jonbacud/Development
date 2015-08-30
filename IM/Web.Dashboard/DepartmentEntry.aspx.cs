@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -15,25 +16,20 @@ namespace Web.Dashboard
       
         public int DepartmentId
         {
-            get
-            {
-                return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]);
-            }
+                 get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
+
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
+        }
+
         public string DepartmentType {
             get
             {
                 return (rdioRetail.Checked) ? "RETAIL" : "WHOLESALE";
             }
          }
-
-        public int Tmode
-        {
-            get
-            {
-                return (Request.QueryString["mode"] == null) ? 0 : int.Parse(Request.QueryString["mode"]);
-            }
-        }
 
         public Department Department
         {

@@ -11,12 +11,12 @@
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
+                <li><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
+                <li><a href="/IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
@@ -55,7 +55,7 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="DepartmentManagementPanel.aspx"><span class="icon mif-folder"></span></a></li>
+                <li><a href="/DepartmentManagementPanel"><span class="icon mif-folder"></span></a></li>
                 <li><a href="#">Department Entry</a></li>
             </ul>
             <h4 class="text-italic">
@@ -99,7 +99,7 @@
                     <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
                      <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
                  data-hint="Delete|Delete this Department" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
-                    <asp:HyperLink CssClass="button link" runat="server" NavigateUrl="DepartmentManagementPanel.aspx">
+                    <asp:HyperLink CssClass="button link" runat="server" NavigateUrl="/DepartmentManagementPanel">
                         <span class="mif-undo"></span>
                         BACK TO LIST
                     </asp:HyperLink>

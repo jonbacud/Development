@@ -60,7 +60,7 @@
             </ul>
             <h4 class="text-italic">Department Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="DepartmentEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="department/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -107,7 +107,7 @@
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Department Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/DepartmentEntry.aspx?mode=0&id="+Eval("department_id")%>'>
+                                                    NavigateUrl='<%# "~/department/0/"+Eval("department_id")%>'>
                                                              <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>

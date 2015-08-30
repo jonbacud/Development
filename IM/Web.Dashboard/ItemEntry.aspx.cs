@@ -14,7 +14,7 @@ namespace Web.Dashboard
         readonly ItemManager _itemManager = new ItemManager();
 
         public int ItemId {
-            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
         public Item Item {
@@ -31,7 +31,7 @@ namespace Web.Dashboard
 
         public Transaction.TransactionMode Mode
         {
-            get { return (Transaction.TransactionMode) int.Parse(Request.QueryString["mode"]); }
+            get { return (Transaction.TransactionMode) int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
         public void InitializeDepartments()
