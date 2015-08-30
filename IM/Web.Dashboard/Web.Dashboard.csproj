@@ -482,6 +482,8 @@
     <Compile Include="LocationManagementPanel.aspx.designer.cs">
       <DependentUpon>LocationManagementPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModelViews\PurchaseRequestItem.cs" />
+    <Compile Include="ModelViews\ReceivingItem.cs" />
     <Compile Include="ModelViews\RequestItem.cs" />
     <Compile Include="DepartmentEntry.aspx.cs">
       <DependentUpon>DepartmentEntry.aspx</DependentUpon>
