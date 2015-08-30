@@ -57,6 +57,11 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectByKey<Receiving>(key) ?? new Receiving();
         }
 
+        public Receiving FetchById(Guid key)
+        {
+            return Accessor.Query.SelectAll<Receiving>().FirstOrDefault(r => r.Uid.Equals(key)) ?? new Receiving();
+        }
+
         #region Accessor
         ReceivingDataAccessor Accessor
         {

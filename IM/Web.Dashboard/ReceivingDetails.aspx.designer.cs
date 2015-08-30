@@ -130,13 +130,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtSellingAmount;
         
         /// <summary>
-        /// lnkButtonAdd control.
+        /// hpLinkAddRecevingDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkButtonAdd;
+        protected global::System.Web.UI.WebControls.HyperLink hpLinkAddRecevingDetail;
         
         /// <summary>
         /// gvSelectedItems control.

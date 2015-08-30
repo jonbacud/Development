@@ -71,7 +71,7 @@
                         <label style="font-weight: 800;">Reference Number</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox required runat="server" ID="txtReferenceNumber"></asp:TextBox>
+                            <asp:TextBox disabled runat="server" ID="txtReferenceNumber"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan4 margin5">
@@ -162,10 +162,9 @@
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
-                        <asp:LinkButton Style="width: 230px;" EnableViewState="False" class="button button-shadow default" ID="lnkButtonAdd"
-                            runat="server" OnClick="lnkButtonAdd_Click">
-                          <span class="mif-plus"></span> Add Receiving Item
-                        </asp:LinkButton>
+                        <asp:HyperLink style="width: 210px;"  class="button button-shadow default" runat="server" ID="hpLinkAddRecevingDetail">
+                            <span class="mif-plus">Add Receiving Item</span> 
+                        </asp:HyperLink>
                     </div>
                 </div>
             </div>
@@ -175,7 +174,7 @@
                     <div class="cell auto-size">
                         <asp:GridView ID="gvSelectedItems" EnableViewState="False" Style="width: 100%; font-size: 12px;" class="dataTable border bordered" data-role="datatable"
                             data-auto-width="false"
-                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:TemplateField HeaderText="Item Name">
                                     <ItemTemplate>
@@ -221,9 +220,9 @@
                                 </asp:BoundField>
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:HyperLink runat="server" Target="_blank" data-role="hint" data-hint-background="bg-red"
+                                        <asp:HyperLink runat="server" data-role="hint" data-hint-background="bg-red"
                                             data-hint="Info.|View detail" data-hint-position="left"
-                                             NavigateUrl='<%# "ReceivingDetailEntry.aspx?mode=0&id="+Eval("Uid") %>'>
+                                            NavigateUrl='<%# "ReceivingDetailEntry.aspx?mode=0&id="+Eval("Uid") %>'>
                                             <span class="icon mif-pencil"></span>
                                         </asp:HyperLink>
                                     </ItemTemplate>
