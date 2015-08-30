@@ -177,45 +177,6 @@ namespace Web.Dashboard
 
         }
 
-        protected void lnkButtonAdd_Click(object sender, EventArgs e)
-        {
-            //var itemDetails = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
-            //var items = ReceivedItems();
-            //var item = new ReceivingItem
-            //{
-            //    ItemName = DDLItems.SelectedItem.Text,
-            //    UnitId = int.Parse(DDLUnits.SelectedValue),
-            //    UnitName = DDLUnits.SelectedItem.Text,
-            //    Uid = Guid.NewGuid(),
-            //    DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-            //    Barcode = itemDetails.BarCode,
-            //    BinId = int.Parse(DDLBins.SelectedValue),
-            //    BinName = DDLBins.SelectedItem.Text,
-            //    DepartmentName = DDLDepartments.SelectedItem.Text,
-            //    ExpiryDate = DateTime.Parse(txtExpiryDate.Text),
-            //    ItemId = itemDetails.Id,
-            //    LocationId = int.Parse(DDLLocations.SelectedValue),
-            //    LocationName = DDLLocations.SelectedItem.Text,
-            //    Price = Decimal.Parse(txtPrice.Text),
-            //    RackId = int.Parse(DDLRacks.SelectedValue),
-            //    RackName = DDLRacks.SelectedItem.Text,
-            //    ReceivedQuantity = int.Parse(txtReceivedQuantity.Text),
-            //    ReceivingRemarks = txtRemarks.Text,
-            //    Remarks = txtRemarks.Text,
-            //    SellingPrice = decimal.Parse(txtSellingPrice.Text),
-            //    ShelveId = int.Parse(DDLShelves.SelectedValue),
-            //    ShelveName = DDLShelves.SelectedItem.Text,
-            //    SupplierId = int.Parse(DDLSuppliers.SelectedValue),
-            //    SupplierName = DDLSuppliers.SelectedItem.Text,
-            //    TotalAmount = (int.Parse(txtReceivedQuantity.Text) * decimal.Parse(txtPrice.Text)),
-            //    ReferenceNumber = txtReferenceNumber.Text
-            //};
-
-            //items.Add(item);
-            //gvSelectedItems.DataSource = items;
-            //gvSelectedItems.DataBind();
-        }
-
         protected void DDLDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitDepartmentData();
