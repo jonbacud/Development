@@ -64,7 +64,7 @@
             </ul>
             <h4 class="text-italic">Purchase Reques Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="ItemEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="PurchaseRequestEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
