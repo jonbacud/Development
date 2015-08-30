@@ -41,7 +41,7 @@ namespace Web.Dashboard
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            hpLinkAddRecevingDetail.NavigateUrl = "ReceivingDetailEntry.aspx?mode=1&id="+Receiving.Uid;
+            hpLinkAddRecevingDetail.NavigateUrl = "receiving-detail/1/" + Receiving.Uid;
             var departments = _dManager.FetchAll();
             DDLDepartments.DataSource = departments;
             DDLDepartments.DataTextField = "Description";

@@ -42,7 +42,7 @@ namespace Web.Dashboard
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            if (DepartmentId>0)
+            if (Mode == Transaction.TransactionMode.UpdateEntry)
             {
                 txtDepartmentCode.Text = Department.Code;
                 txtDescription.Text = Department.Description;

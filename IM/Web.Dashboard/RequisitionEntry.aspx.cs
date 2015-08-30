@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
 using Web.Dashboard.ModelViews;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -15,9 +16,19 @@ namespace Web.Dashboard
     {
         private readonly ItemManager _itemManager = new ItemManager();
 
+        public int RequestId
+        {
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
+        }
+
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
+        }
+
         public List<RequestItem> RequestItems()
         {
-            List<RequestItem> items = new List<RequestItem>();
+           var items = new List<RequestItem>();
             if (Session["REQUEST_ITEMS"]!=null)
             {
                 items = (List<RequestItem>) Session["REQUEST_ITEMS"];
@@ -30,26 +41,22 @@ namespace Web.Dashboard
         } 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                var dManager = new DepartmentManager();
-                var departments = dManager.FetchAll();
-                DDLDepartments.DataSource = departments;
-                DDLDepartments.DataTextField = "Description";
-                DDLDepartments.DataValueField = "Id";
-                DDLDepartments.DataBind();
-                DDLRequestTo.DataSource = departments;
-                DDLRequestTo.DataTextField = "Description";
-                DDLRequestTo.DataValueField = "Id";
-                DDLRequestTo.DataBind();
-
-                InitDetails();
-                txtDateRequested.Text = DateTime.Now.ToString("MMM dd, yyyy");
+            if (IsPostBack) return;
+            var dManager = new DepartmentManager();
+            var departments = dManager.FetchAll();
+            DDLDepartments.DataSource = departments;
+            DDLDepartments.DataTextField = "Description";
+            DDLDepartments.DataValueField = "Id";
+            DDLDepartments.DataBind();
+            DDLRequestTo.DataSource = departments;
+            DDLRequestTo.DataTextField = "Description";
+            DDLRequestTo.DataValueField = "Id";
+            DDLRequestTo.DataBind();
+            InitDetails();
+            txtDateRequested.Text = DateTime.Now.ToString("MMM dd, yyyy");
               
-                gvSelectedItems.DataSource = RequestItems();
-                gvSelectedItems.DataBind();
-              
-            }
+            gvSelectedItems.DataSource = RequestItems();
+            gvSelectedItems.DataBind();
         }
       
         protected void DDLDepartments_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,30 +66,25 @@ namespace Web.Dashboard
 
         private void InitDetails()
         {
-            if (!string.IsNullOrEmpty(DDLDepartments.SelectedValue.Trim()) ||
-                !string.IsNullOrWhiteSpace(DDLDepartments.SelectedValue.Trim()))
-            {
-                InitClassifications();
-                InitTypes();
-                InitItems();
-                InitUnits();
-            }
+            if (string.IsNullOrEmpty(DDLDepartments.SelectedValue.Trim()) &&
+                string.IsNullOrWhiteSpace(DDLDepartments.SelectedValue.Trim())) return;
+            InitClassifications();
+            InitTypes();
+            InitItems();
+            InitUnits();
         }
 
         private void InitItems()
         {
-            if (!string.IsNullOrEmpty(DDLClassifications.SelectedValue.Trim()) &&
-                !string.IsNullOrEmpty(DDLTypes.SelectedValue.Trim()))
-            {
-               
-                DDLProducts.DataSource = _itemManager.FetchAll(int.Parse(DDLDepartments.SelectedValue),
-                    int.Parse(DDLClassifications.SelectedValue)
-                    , int.Parse(DDLTypes.SelectedValue));
-                DDLProducts.DataTextField = "ItemName";
-                DDLProducts.DataValueField = "Id";
-                DDLProducts.DataBind();
-                GetItemDetails(_itemManager);
-            }
+            if (string.IsNullOrEmpty(DDLClassifications.SelectedValue.Trim()) ||
+                string.IsNullOrEmpty(DDLTypes.SelectedValue.Trim())) return;
+            DDLProducts.DataSource = _itemManager.FetchAll(int.Parse(DDLDepartments.SelectedValue),
+                int.Parse(DDLClassifications.SelectedValue)
+                , int.Parse(DDLTypes.SelectedValue));
+            DDLProducts.DataTextField = "ItemName";
+            DDLProducts.DataValueField = "Id";
+            DDLProducts.DataBind();
+            GetItemDetails(_itemManager);
         }
 
         private void GetItemDetails(ItemManager itemManager)
@@ -92,7 +94,7 @@ namespace Web.Dashboard
                 var item = itemManager.FetchById(int.Parse(DDLProducts.SelectedValue));
                 txtBarCode.Text = item.BarCode;
                 txtItemCode.Text = item.ItemCode;
-                hpLinkItemDetails.NavigateUrl = "~/ItemEntry.aspx?mode=2&id="+item.Id;
+                hpLinkItemDetails.NavigateUrl = "~/item/2/"+item.Id;
             }
             else
             {
@@ -207,6 +209,11 @@ namespace Web.Dashboard
                RequisitionManager requisitionManager = new RequisitionManager();
                 requisitionManager.Save(requests);
             }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

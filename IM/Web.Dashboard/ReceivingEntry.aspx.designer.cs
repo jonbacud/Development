@@ -130,42 +130,6 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtSellingAmount;
         
         /// <summary>
-        /// DDLClassifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLClassifications;
-        
-        /// <summary>
-        /// ObjectDataSourceClassifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceClassifications;
-        
-        /// <summary>
-        /// DDLTypes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLTypes;
-        
-        /// <summary>
-        /// ObjectDataSourceTypes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceTypes;
-        
-        /// <summary>
         /// DDLItems control.
         /// </summary>
         /// <remarks>
@@ -182,6 +146,15 @@ namespace Web.Dashboard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpLinkViewDetails;
+        
+        /// <summary>
+        /// DDLSuppliedTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLSuppliedTypes;
         
         /// <summary>
         /// txtReceivedQuantity control.

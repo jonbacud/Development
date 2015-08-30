@@ -6,27 +6,27 @@
 
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li><a href="DepartmentManagementPanel.aspx">
+                <li><a href="/DepartmentManagementPanel">
                     <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li class="active"><a href="RequisitionManagementPanel.aspx">
+                <li class="active"><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
+                <li><a href="/IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
                 </a></li>
-                <li><a href="ReceivingItemsManagementPanel.aspx">
+                <li><a href="/ReceivingManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li ><a href="Default.aspx">
+                <li ><a href="/ItemManagementPanel">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
@@ -64,7 +64,7 @@
             </ul>
             <h4 class="text-italic">Requisitions Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="RequisitionEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="requisition/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -87,10 +87,12 @@
                         <div class="row">
                             <div class="cell auto-size">
                                 <asp:GridView ID="gvItems" Font-Size="12px" runat="server" AllowPaging="True" AutoGenerateColumns="False" 
-                                    DataSourceID="SqlDataSourceRequisitions" DataKeyNames="ris_id"  class="dataTable border bordered" data-role="datatable"
+                                    DataSourceID="SqlDataSourceRequisitions" DataKeyNames="ris_id"  class="dataTable border bordered"
+                                     data-role="datatable"
                                     data-auto-width="false" AllowSorting="True">
                                     <Columns>
-                                        <asp:BoundField DataField="ris_id" HeaderText="ID" SortExpression="ris_id" InsertVisible="False" ReadOnly="True" />
+                                        <asp:BoundField DataField="ris_id" HeaderText="ID" SortExpression="ris_id" 
+                                            InsertVisible="False" ReadOnly="True" />
                                         <asp:BoundField DataField="reference_number" HeaderText="REF. No." SortExpression="reference_number" />
                                         <asp:BoundField DataField="item_name" HeaderText="NAME" SortExpression="item_name" />
                                         <asp:BoundField DataField="barcode" HeaderText="BARCODE" SortExpression="barcode" />
@@ -98,12 +100,16 @@
                                         <asp:BoundField DataField="qty_received" HeaderText="QTTY RECEIVED" SortExpression="qty_received" />
                                         <asp:BoundField DataField="submitted_to" HeaderText="SUBMITTED TO" SortExpression="submitted_to" />
                                         <asp:BoundField DataField="unit_desc" HeaderText="UNIT" SortExpression="unit_desc" />
-                                        <asp:BoundField DataField="classification_name" HeaderText="CLASSIFICATION" SortExpression="classification_name" />
+                                        <asp:BoundField DataField="classification_name" HeaderText="CLASSIFICATION" 
+                                            SortExpression="classification_name" />
                                         <asp:BoundField DataField="status" HeaderText="STATUS" SortExpression="status" />
-                                        <asp:BoundField DataField="requisition_date" HeaderText="REQUEST DATE" SortExpression="requisition_date" DataFormatString="{0:MMM dd, yyyy}" />
+                                        <asp:BoundField DataField="requisition_date" HeaderText="REQUEST DATE" SortExpression="requisition_date" 
+                                            DataFormatString="{0:MMM dd, yyyy}" />
                                          <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Requisition Details" data-hint-position="left" NavigateUrl='<%# "~/RequisitionEntry.aspx?mode=0&id="+Eval("ris_id") %>'>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue"
+                                                     data-hint="Info.|View Requisition Details" data-hint-position="left" 
+                                                    NavigateUrl='<%# "~/requisition/0/"+Eval("ris_id") %>'>
                                                     <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>

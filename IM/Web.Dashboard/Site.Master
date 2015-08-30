@@ -121,7 +121,7 @@
                         <li><a href="">Consignment</a></li>
                         <li><a href="">Donation</a></li>
                         <li><a href="">Emergency Purchases</a></li>
-                        <li><a href="RequisitionManagementPanel.aspx">Requisition and Issue Slip</a></li>
+                        <li><a href="/RequisitionManagementPanel">Requisition and Issue Slip</a></li>
                         <li><a href="PurchaseRequestManagementPanel.aspx">Purchase Request</a></li>
 
                     </ul>
@@ -130,7 +130,7 @@
                     <a href="" class="dropdown-toggle">Inventory Transaction</a>
                     <ul class="d-menu" data-role="dropdown">
                         <li><a href="/ReceivingManagementPanel">Receiving</a></li>
-                        <li><a href="">Issuance</a></li>
+                        <li><a href="/IssuanceManagementPanel">Issuance</a></li>
                         <li><a href="">Return from Receiving</a></li>
                         <li><a href="">Return from Issuance</a></li>
                         <li class="divider"></li>

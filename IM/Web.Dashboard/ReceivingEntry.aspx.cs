@@ -36,7 +36,6 @@ namespace Web.Dashboard
             return items;
         } 
 
-
         protected void Page_Init(object sender, EventArgs e)
         {
             var departments = _dManager.FetchAll();

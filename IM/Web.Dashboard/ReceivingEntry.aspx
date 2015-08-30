@@ -160,47 +160,32 @@
                 <hr class="thin bg-active-brown">
 
                 <div class="row">
-                    <div class="cell colspan6">
-                        <label style="font-weight: 800;">Classification</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList required runat="server" ID="DDLClassifications" DataSourceID="ObjectDataSourceClassifications"
-                                DataTextField="ClassificationName" DataValueField="Id" AutoPostBack="True" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceClassifications" runat="server"
-                                SelectMethod="FetchAll" TypeName="IM.BusinessLogic.DataManager.ItemClassificationManager">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId" PropertyName="SelectedValue" Type="Int32" />
-                                </SelectParameters>
-                            </asp:ObjectDataSource>
-                        </div>
-                    </div>
                     <div class="cell "></div>
-                    <div class="cell colspan5">
-                        <label style="font-weight: 800;">Type</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList required runat="server" ID="DDLTypes" DataSourceID="ObjectDataSourceTypes"
-                                DataTextField="ItemDesciption" DataValueField="Id" AutoPostBack="True" />
-                            <asp:ObjectDataSource ID="ObjectDataSourceTypes" runat="server" SelectMethod="FetchAll"
-                                TypeName="IM.BusinessLogic.DataManager.ItemTypeManager">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="DDLDepartments" Name="departmentId"
-                                        PropertyName="SelectedValue" Type="Int32" />
-                                </SelectParameters>
-                            </asp:ObjectDataSource>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="row">
-                    <div class="cell auto-size">
+                    <div class="cell colspan7 auto-size">
                         <label style="font-weight: 800;">Items</label>
                         <div class="input-control text full-size ">
                             <asp:DropDownList required runat="server" ID="DDLItems" AutoPostBack="True" />
                         </div>
                     </div>
-                    <div class="cell colspan2 margin10">
+                     <div class="cell colspan2 margin10">
                         <div class="input-control full-size ">
                             <asp:HyperLink ID="hpLinkViewDetails" CssClass="button link" runat="server">
                                 <span class="mif-file-text">view details</span>
                             </asp:HyperLink>
+                        </div>
+                    </div>
+                    <div class="cell colspan2">
+                        <label style="font-weight: 800;">Supplied Type</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList required runat="server" ID="DDLSuppliedTypes" >
+                                <asp:ListItem>Procurement</asp:ListItem>
+                                <asp:ListItem>Donation</asp:ListItem>
+                                <asp:ListItem>Consignment</asp:ListItem>
+                                <asp:ListItem>Emergency Purchase</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
