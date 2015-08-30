@@ -12,12 +12,12 @@
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
+                <li><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
+                <li><a href="/IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
@@ -27,7 +27,7 @@
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="Items/Default.aspx">
+                <li><a href="/ItemManagementPanel">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
@@ -56,11 +56,11 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="DepartmentManagementPanel.aspx"><span class="icon mif-folder-open"></span>Supplier</a></li>
+                <li><a href="/SupplierManagementPanel"><span class="icon mif-folder-open"></span>Suppliers</a></li>
             </ul>
             <h4 class="text-italic">Supplier Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="SupplierEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="supplier/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -85,7 +85,8 @@
                                 <asp:GridView GridLines="None" ID="gvSuppliers" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="supplier_id" PageSize="5" CellPadding="4" ForeColor="#333333" OnPageIndexChanging="gvSuppliers_PageIndexChanging">
+                                    AllowSorting="True" DataKeyNames="supplier_id" PageSize="5" CellPadding="4" 
+                                    ForeColor="#333333" OnPageIndexChanging="gvSuppliers_PageIndexChanging">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:TemplateField>
@@ -104,15 +105,17 @@
                                         <asp:BoundField DataField="supplier_code" HeaderText="Code" SortExpression="supplier_code"></asp:BoundField>
                                         <asp:BoundField DataField="supplier_name" HeaderText="Name" SortExpression="supplier_name"></asp:BoundField>
                                         <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address"></asp:BoundField>
-                                        <asp:BoundField DataField="contact_person" HeaderText="Contact person" SortExpression="contact_person"></asp:BoundField>
+                                        <asp:BoundField DataField="contact_person" HeaderText="Contact person" 
+                                            SortExpression="contact_person"></asp:BoundField>
                                         <asp:BoundField DataField="telNo" HeaderText="Tel No" SortExpression="telNo"></asp:BoundField>
                                         <asp:BoundField DataField="faxNumber" HeaderText="Fax No" SortExpression="faxNo"></asp:BoundField>
                                         <asp:BoundField DataField="emailaddress" HeaderText="Email" SortExpression="emailaddress"></asp:BoundField>
 
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Supplier Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/SupplierEntry.aspx?mode=0&id="+Eval("supplier_id")%>'>
+                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" 
+                                                    data-hint="Info.|View Supplier Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/supplier/0/"+Eval("supplier_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
 

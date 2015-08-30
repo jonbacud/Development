@@ -21,6 +21,7 @@ namespace Web.Dashboard
         private readonly BinManager _binManager = new BinManager();
         private readonly ShelveManager _shelveManager = new ShelveManager();
         private readonly CategoryManager _categoryManager = new CategoryManager();
+
         public List<ReceivingItem> ReceivedItems()
         {
             var items = new List<ReceivingItem>();

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -13,7 +14,12 @@ namespace Web.Dashboard
     {
         readonly SupplierManager _supplierManager = new SupplierManager();
         public int SupplierId {
-            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
+        }
+
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
         public Supplier Supplier

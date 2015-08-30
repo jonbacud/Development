@@ -60,7 +60,7 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="ReceivingManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="/ReceivingManagementPanel"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">New Receiving Item</a></li>
             </ul>
             <h4 class="text-italic">New Receiving Item Entry <span class="mif-file-text place-right"></span></h4>
@@ -371,7 +371,7 @@
             <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="button primary" OnClick="btnSave_Click" />
             <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
                 data-hint="Delete|Delete this Bin" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
-            <a href="ReceivingManagementPanel.aspx" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
+            <a href="/ReceivingManagementPanel" class="button link"><span class="mif-undo"></span>BACK TO LIST</a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>

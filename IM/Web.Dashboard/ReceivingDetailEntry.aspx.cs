@@ -28,12 +28,12 @@ namespace Web.Dashboard
 
         public int Mode
         {
-            get { return (Request.QueryString["mode"] == null) ? 1 : int.Parse(Request.QueryString["mode"]); }
+            get { return (Page.RouteData.Values["mode"] == null) ? 1 : int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
         public Guid ReceivingDetailUid
         {
-            get { return (Request.QueryString["id"] == null) ? Guid.NewGuid() : Guid.Parse(Request.QueryString["id"]); }
+            get { return (Page.RouteData.Values["id"] == null) ? Guid.NewGuid() : Guid.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
         public ReceivingDetail ReceivingDetail
@@ -78,7 +78,8 @@ namespace Web.Dashboard
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            hpLinkBack.Attributes.Add("href", "ReceivingDetails.aspx?mode=0&id="+Receiving.Id);
+            hpLinkBack.Attributes.Add("href", "receiving-details/0/"+Receiving.Id);
+            hpLinkDetails.Attributes.Add("href", "receiving-details/0/" + Receiving.Id);
             InitDepartmentData();
 
             //for header

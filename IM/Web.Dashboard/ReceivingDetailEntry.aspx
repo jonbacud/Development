@@ -59,8 +59,9 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="ReceivingManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
-                <li><a href="#">New Receiving Item</a></li>
+                <li><a href="/ReceivingManagementPanel"><span class="icon mif-folder-open"></span></a></li>
+                <li><a runat="server" id="hpLinkDetails" >Receiving Item Details</a></li>
+                <li><a href="#">New Receiving Detail Item</a></li>
             </ul>
             <h4 class="text-italic">New Receiving Item Entry <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">

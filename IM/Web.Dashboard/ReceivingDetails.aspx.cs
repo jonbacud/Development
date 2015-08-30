@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
 using Web.Dashboard.ModelViews;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -25,10 +26,12 @@ namespace Web.Dashboard
         private readonly UnitManager _unitManager = new UnitManager();
         public int ReceivingId
         {
-            get
-            {
-                return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]);
-            }
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
+        }
+
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
         public Receiving Receiving

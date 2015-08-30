@@ -16,7 +16,7 @@ namespace Web.Dashboard
       
         public int DepartmentId
         {
-                 get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
+           get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
         public Transaction.TransactionMode Mode

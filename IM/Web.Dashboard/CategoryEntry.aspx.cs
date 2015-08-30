@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -13,12 +14,14 @@ namespace Web.Dashboard
     {
         readonly CategoryManager _categoryManager = new CategoryManager();
         public int CategoryId {
-            get
-            {
-                return (Request.QueryString["id"]== null) ? 0:
-                int.Parse(Request.QueryString["id"]);
-            }
+               get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
+
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
+        }
+
         public Category Category {
             get { return _categoryManager.FetchById(CategoryId); }
         }
@@ -53,7 +56,7 @@ namespace Web.Dashboard
                 Id = CategoryId
             };
             _categoryManager.Save(newCategory);
-            Response.Redirect("CategoryManagementPanel.aspx");
+            Response.Redirect("~/CategoryManagementPanel");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -63,7 +66,7 @@ namespace Web.Dashboard
                 Id = CategoryId
             };
             _categoryManager.Delete(categoryToDelete);
-            Response.Redirect("CategoryManagementPanel.aspx");
+            Response.Redirect("~/CategoryManagementPanel");
         }
     }
 }

@@ -10,12 +10,12 @@
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
+                <li><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
+                <li><a href="/IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
@@ -25,7 +25,7 @@
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="Items/Default.aspx">
+                <li><a href="/ItemManagementPanel">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
@@ -58,7 +58,7 @@
             </ul>
             <h4 class="text-italic">Categories Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="CategoryEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="category/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -105,7 +105,7 @@
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                <asp:HyperLink  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Category Details" data-hint-position="left"  runat="server" ID="hpLinlUpdate" 
-                                                   NavigateUrl='<%#"~/CategoryEntry.aspx?mode=0&id="+Eval("category_id") %>'>
+                                                   NavigateUrl='<%#"~/category/0/"+Eval("category_id") %>'>
                                                    <span class="mif-pencil"></span>
                                                </asp:HyperLink>
                                             </ItemTemplate>
