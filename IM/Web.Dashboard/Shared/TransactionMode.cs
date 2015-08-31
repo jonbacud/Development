@@ -13,5 +13,22 @@ namespace Web.Dashboard.Shared
             UpdateEntry = 0,
             ViewDetail = 2
         }
+
+        public enum TransactionType
+        {
+          RIS, // Requisition
+          ISS, // Issuance
+          RCV,  //Receiving
+          RRCV, // Return Receiving
+          RISS // Return Issuance
+        }
+
+        public enum TransactionStatus
+        {
+            Submitted, // Requisittion Status
+            Partial, // Receiving status
+            Completed, // Receiving status
+            Posted // Receiving
+        }
     }
 }
