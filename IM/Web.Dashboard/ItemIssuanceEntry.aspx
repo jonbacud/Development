@@ -6,17 +6,17 @@
     <div class="row" style="height: 100%;">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li><a href="DepartmentManagementPanel.aspx">
+                <li><a href="/DepartmentManagementPanel">
                     <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li class="active"><a href="IssuanceManagementPanel.aspx">
+                <li class="active"><a href="/IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
@@ -55,25 +55,36 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
               <ul class="breadcrumbs2 small">
-                    <li><a href="ItemIssuanceManagementPanel.aspx"><span class="icon mif-folder-open"></span></a></li>
+                    <li><a href="/IssuanceManagementPanel"><span class="icon mif-folder-open"></span></a></li>
                     <li><a href="#">New Issuance</a></li>
                 </ul>
             <h4 class="text-italic">New Issuance Entry <span class="mif-file-text place-right"></span></h4>
             <div class="row">
-                <div class="cell colspan6 margin5">
-                    <label>Reference Number</label>
+                <div class="cell colspan3 margin5">
+                    <label style="font-weight:700;">Reference Number</label>
                     <div class="input-control text full-size ">
                         <span class="mif-anchor prepend-icon"></span>
                         <asp:TextBox runat="server" ID="txtReferenceNumber"></asp:TextBox>
                     </div>
                 </div>
-                <div class="cell colspan6 margin5">
-                    <label>Issuance Date</label>
+                <div class="cell colspan3 margin5">
+                    <label style="font-weight: 600;" >Issuance Date</label>
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
                         <asp:TextBox runat="server" ID="txtIssuanceDate"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
                     </div>
                 </div>
+                  <div class="cell colspan4 margin5">
+                        <label style="font-weight:700;">RIS Number</label>
+                        <div class="input-control text full-size ">
+                            <span class="mif-qrcode prepend-icon"></span>
+                            <asp:TextBox CssClass="text-bold fg-darkRed" runat="server" ID="txtRISNumber"></asp:TextBox>
+                            <asp:LinkButton runat="server" ID="btnGetRISDetail" 
+                                class="button success block-shadow-success text-shadow" OnClick="btnGetRISDetail_Click">
+                                 <span class="mif-search"></span>
+                            </asp:LinkButton>
+                        </div>
+                    </div>
             </div>
             <div class="example" data-text="Header">
                 <div class="flex-grid">
@@ -116,7 +127,7 @@
                 <div class="flex-grid">
                     <div class="row">
                         <div class="cell auto-size">
-                            <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered"
+                            <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size:13px;" class="dataTable border bordered"
                                 data-role="datatable" data-auto-width="false"
                                 runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
                                 <Columns>
@@ -170,7 +181,9 @@
             </div>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSubmitIssuance" runat="server" Text="SUBMIT ISSUANCE" CssClass="button primary" OnClick="btnSubmitIssuance_Click" />
-            <a href="RequisitionManagementPanel.aspx" class="button link">BACK TO LIST</a>
+            <a href="/IssuanceManagementPanel" class="button link">
+                <span class="mif-undo"> BACK TO LIST</span>
+            </a>
             <hr class="thin bg-grayLighter">
         </div>
     </div>

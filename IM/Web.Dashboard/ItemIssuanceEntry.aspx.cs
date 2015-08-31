@@ -13,20 +13,18 @@ namespace Web.Dashboard
     public partial class ItemIssuanceEntry : System.Web.UI.Page
     {
         private readonly DepartmentManager _dManager = new DepartmentManager();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                var departments = _dManager.FetchAll();
-                DDLDepartments.DataSource = departments;
-                DDLDepartments.DataTextField = "Description";
-                DDLDepartments.DataValueField = "Id";
-                DDLDepartments.DataBind();
+            if (IsPostBack) return;
 
-                InitialiazeIssuanceEntry("23232");
-
-                txtIssuanceDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
-            }
+            var departments = _dManager.FetchAll();
+            DDLDepartments.DataSource = departments;
+            DDLDepartments.DataTextField = "Description";
+            DDLDepartments.DataValueField = "Id";
+            DDLDepartments.DataBind();
+         
+            txtIssuanceDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
         }
 
         private void InitialiazeIssuanceEntry(string requestReferenceNumber)
@@ -105,6 +103,14 @@ namespace Web.Dashboard
             }).ToList();
 
             idManager.Save(issuanceDetails);
+        }
+
+        protected void btnGetRISDetail_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtRISNumber.Text)|| !string.IsNullOrWhiteSpace(txtRISNumber.Text))
+            {
+                InitialiazeIssuanceEntry(txtRISNumber.Text);
+            }
         }
     }
 }

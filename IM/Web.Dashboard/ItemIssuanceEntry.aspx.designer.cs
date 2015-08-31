@@ -31,6 +31,24 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtIssuanceDate;
         
         /// <summary>
+        /// txtRISNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRISNumber;
+        
+        /// <summary>
+        /// btnGetRISDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnGetRISDetail;
+        
+        /// <summary>
         /// DDLDepartments control.
         /// </summary>
         /// <remarks>
