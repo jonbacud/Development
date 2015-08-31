@@ -53,7 +53,7 @@ namespace Web.Dashboard
             routes.MapPageRoute("requisition-detail",
                               "requisition-detail/{mode}/{id}",
                               "~/RequisitionDetailEntry.aspx");
-
+            //issuance entry map route
             routes.MapPageRoute("issuance-entry",
                             "issuance/{mode}/{id}",
                             "~/ItemIssuanceEntry.aspx");

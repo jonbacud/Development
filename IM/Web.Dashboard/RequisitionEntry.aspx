@@ -84,13 +84,13 @@
             <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
-                        <div runat="server" style="width: 500px;" Visible="False" clientidmode="Static" id="divMessageBox">
+                        <div runat="server" style="width: 500px;" visible="False" clientidmode="Static" id="divMessageBox">
                             <span id="btnClose" class="notify-closer"></span>
                             <span class="notify-title">Submit Successful!</span>
                             <span class="notify-text">
                                 <asp:Literal runat="server" ID="ltrlMessage"></asp:Literal>
                             </span>
-                         
+
                         </div>
                     </div>
                 </div>
@@ -256,7 +256,8 @@
             <hr class="thin bg-grayLighter">
         </div>
     </div>
-    <div data-role="dialog" id="dialogProcess" class="padding20" data-close-button="true" data-type="warning" data-overlay="true" data-overlay-color="op-dark">
+    <div data-role="dialog" id="dialogProcess" class="padding20" data-close-button="true" data-type="warning" 
+        data-overlay="true" data-overlay-color="op-dark">
         <h3>Process Request </h3>
         <div class="row">
             <div class="cell auto-size">

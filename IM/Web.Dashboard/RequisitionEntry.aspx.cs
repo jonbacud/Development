@@ -211,7 +211,7 @@ namespace Web.Dashboard
             {
                 ItemId = int.Parse(DDLProducts.SelectedValue),
                 Barcode = txtBarCode.Text.Trim(),
-                CalssificationName = DDLClassifications.SelectedItem.Text,
+                ClassificationName = DDLClassifications.SelectedItem.Text,
                 ClassificationId = int.Parse(DDLClassifications.SelectedValue),
                 DepartmentId = int.Parse(DDLRequestTo.SelectedValue),
                 DepartmentName = DDLDepartments.SelectedItem.Text,

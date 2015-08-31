@@ -13,6 +13,33 @@ namespace Web.Dashboard {
     public partial class ItemIssuanceEntry {
         
         /// <summary>
+        /// divMessageBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMessageBox;
+        
+        /// <summary>
+        /// ltrlMessageHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrlMessageHeader;
+        
+        /// <summary>
+        /// ltrlMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrlMessage;
+        
+        /// <summary>
         /// txtReferenceNumber control.
         /// </summary>
         /// <remarks>

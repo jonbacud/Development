@@ -10,7 +10,7 @@ namespace Web.Dashboard.ModelViews
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public int ClassificationId { get; set; }
-        public string CalssificationName { get; set; }
+        public string ClassificationName { get; set; }
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
         public int TypeId { get; set; }
@@ -26,5 +26,7 @@ namespace Web.Dashboard.ModelViews
         public int Quantity { get; set; }
         public int RequesitionId { get; set; }
         public decimal ItemPrice { get; set; }
+        public int ReceivedQuantity { get; set; }
+        public int IssuedQuantity { get; set; }
     }
 }
