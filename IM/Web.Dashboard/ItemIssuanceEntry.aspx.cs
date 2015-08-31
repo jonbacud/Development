@@ -92,7 +92,7 @@ namespace Web.Dashboard
                     UnitId = unit.Id,
                     Uid = ri.UniqueId,
                     Quantity = ri.QuantityIssued,
-                    RequesitionId = item.Id,
+                    RequesitionId = ri.Id,
                     ItemPrice = item.LastSellingPrice,
                     ReceivedQuantity = ri.QuantityReceived,
                     IssuedQuantity = ri.QuantityIssued
@@ -101,7 +101,6 @@ namespace Web.Dashboard
             Session["REQUEST_ITEMS"] = requesItems;
             gvSelectedItems.DataSource = requesItems;
             gvSelectedItems.DataBind();
-
           
             if (requesItems.Count>0)
             {
@@ -219,7 +218,6 @@ namespace Web.Dashboard
             if (!string.IsNullOrEmpty(txtRISNumber.Text)|| !string.IsNullOrWhiteSpace(txtRISNumber.Text))
             {
                 InitialiazeIssuanceEntry(txtRISNumber.Text);
-          
             }
         }
     }

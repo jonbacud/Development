@@ -27,10 +27,6 @@ namespace Web.Dashboard
             get { return _issuanceManager.FetchById(IssuanceId); }
         }
 
-        //public Transaction.TransactionMode Mode
-        //{
-        //    get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
-        //}
 
         protected void Page_Load(object sender, EventArgs e)
         {

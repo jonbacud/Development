@@ -81,7 +81,8 @@
                         <div runat="server" style="width: 500px;" visible="False" clientidmode="Static" id="divMessageBox">
                             <span id="btnClose" class="notify-closer"></span>
                             <span class="notify-icon mif-info"></span>
-                            <span class="notify-title">  <asp:Literal runat="server" ID="ltrlMessageHeader"></asp:Literal></span>
+                            <span class="notify-title">
+                                <asp:Literal runat="server" ID="ltrlMessageHeader"></asp:Literal></span>
                             <span class="notify-text">
                                 <asp:Literal runat="server" ID="ltrlMessage"></asp:Literal>
                             </span>
@@ -128,12 +129,13 @@
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 700;">Total Amount</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" style="text-align:center;" CssClass="text-bold fg-darkRed"
-                                 ID="txtTotalAmount" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox runat="server" Style="text-align: center;" CssClass="text-bold fg-darkRed"
+                                ID="txtTotalAmount" ReadOnly="True"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
+           
             <div class="flex-grid">
                 <div class="row">
                     <div class="cell auto-size">
@@ -151,8 +153,8 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Item Name">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblItemName" ToolTip='<%# Eval("RequesitionId") %>' 
-                                             runat="server" Text='<%# Bind("ItemName") %>'></asp:Label>
+                                        <asp:Label ID="lblItemName" ToolTip='<%# Eval("RequesitionId") %>'
+                                            runat="server" Text='<%# Bind("ItemName") %>'></asp:Label>
                                         <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -161,16 +163,16 @@
                                 <asp:BoundField DataField="UnitName" HeaderText="Unit" />
                                 <asp:BoundField DataField="Barcode" HeaderText="Barcode" />
                                 <asp:BoundField DataField="ItemCode" HeaderText="Item Code" />
-                                <asp:BoundField DataField="Quantity" HeaderText="Qtty" >
-                                <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                                <asp:BoundField DataField="Quantity" HeaderText="Qtty">
+                                    <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="ReceivedQuantity" HeaderText="Rcvd Qtty" >
-                                <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                                <asp:BoundField DataField="ReceivedQuantity" HeaderText="Rcvd Qtty">
+                                    <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="Issue Qtty">
                                     <ItemTemplate>
                                         <div class="input-control text" style="width: 70px;">
-                                            <asp:TextBox CssClass="text-bold fg-darkRed" ID="txtQuantity" 
+                                            <asp:TextBox CssClass="text-bold fg-darkRed" ID="txtQuantity"
                                                 Text='<%# Eval("Quantity") %>' runat="server" Type="Number">
                                             </asp:TextBox>
                                         </div>
@@ -194,7 +196,7 @@
                 </div>
             </div>
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSubmitIssuance" Enabled="False" runat="server" Text="SUBMIT ISSUANCE" 
+            <asp:Button ID="btnSubmitIssuance" Enabled="False" runat="server" Text="SUBMIT ISSUANCE"
                 CssClass="button primary" OnClick="btnSubmitIssuance_Click" />
             <a href="/IssuanceManagementPanel" class="button link">
                 <span class="mif-undo">BACK TO LIST</span>

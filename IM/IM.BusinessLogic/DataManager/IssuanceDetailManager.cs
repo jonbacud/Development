@@ -62,6 +62,11 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectByKey<IssuanceDetail>(key) ?? new IssuanceDetail();
         }
 
+        public IssuanceDetail FetchById(Guid key)
+        {
+            return Accessor.Query.SelectAll<IssuanceDetail>().FirstOrDefault(id => id.Uid.Equals(key));
+        }
+
         public List<IssuanceDetail> FetchAll(int issuanceId)
         {
             return Accessor.Query.SelectAll<IssuanceDetail>()
