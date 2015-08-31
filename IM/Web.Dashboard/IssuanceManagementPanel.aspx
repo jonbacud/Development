@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="IssuanceManagementPanel.aspx.cs" Inherits="Web.Dashboard.IssuanceManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="row" style="height: 100%">
+    <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
                 <li><a href="DepartmentManagementPanel.aspx">
@@ -72,7 +73,7 @@
                     <div class="row">
                         <div class="cell colspan5">
                             <div class="input-control text full-size" data-role="input">
-                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True" ></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True"></asp:TextBox>
                                 <button class="button"><span class="mif-search"></span></button>
                             </div>
                         </div>
@@ -88,29 +89,45 @@
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:BoundField DataField="issuance_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="issuance_id"></asp:BoundField>
+                                            ReadOnly="True" SortExpression="issuance_id">
+                                        <ItemStyle CssClass="text-bold" HorizontalAlign="Center" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="reference_number" HeaderText="Ref. Number" SortExpression="reference_number">
-                                        <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                                            <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="issuance_date" HeaderText="Date Issued" SortExpression="issuance_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
+                                        <asp:BoundField DataField="issuance_date" HeaderText="Date Issued" 
+                                            SortExpression="issuance_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
                                         <asp:BoundField DataField="issued_to" HeaderText="Issued To" SortExpression="issued_to"></asp:BoundField>
-                                        <asp:BoundField DataField="total_amount" HeaderText="Total Amount" SortExpression="total_amount" DataFormatString="{0:##,##0.00}" >
-                                        <ItemStyle HorizontalAlign="Right" />
+                                        <asp:BoundField DataField="total_amount" HeaderText="Total Amount" 
+                                            SortExpression="total_amount" DataFormatString="{0:##,##0.00}">
+                                            <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="ris_reference_number" HeaderText="Request Ref. No." SortExpression="ris_reference_number" >
-                                        <ItemStyle HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="ris_reference_number" 
+                                            HeaderText="Request Ref. No." SortExpression="ris_reference_number">
+                                            <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <asp:TemplateField HeaderText="Status" SortExpression="isPosted">
                                             <ItemTemplate>
-                                                  <span  data-hint-color="fg-white"  data-role="hint" data-hint-background="bg-lightBlue"
-                data-hint='<%# bool.Parse(Eval("isPosted").ToString()) ? "Posted" : "Not Posted" %>'  data-hint-position="top" class='<%# bool.Parse(Eval("isPosted").ToString()) ? "mif-checkmark fg-green" 
-                                                : "mif-stop fg-red" %>'></span>
+                                                <span data-hint-color="fg-white" data-role="hint" data-hint-background="bg-lightBlue"
+                                                    data-hint='<%# bool.Parse(Eval("isPosted").ToString()) ? "Posted" : "Not Posted" %>' 
+                                                    data-hint-position="top" class='<%# bool.Parse(Eval("isPosted").ToString()) 
+                                                ? "mif-checkmark fg-green" : "mif-stop fg-red" %>'></span>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="datecreated" HeaderText="Date Created" SortExpression="datecreated" >
-                                        <ItemStyle HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="datecreated" HeaderText="Date Created" SortExpression="datecreated">
+                                            <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
+                                         <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="HyperLink1" data-hint-color="fg-white" runat="server"  data-role="hint" 
+                                                    data-hint-background="bg-blue" data-hint="Info.|View Issuance Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/issuance/0/"+Eval("issuance_id")%>'>
+                                                             <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle Width="50px" HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -127,8 +144,7 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlDataSourceIssuance" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_issuance_header.*, ref_department.department_desc FROM trn_issuance_header INNER JOIN ref_department ON trn_issuance_header.dep_id = ref_department.department_id"></asp:SqlDataSource>
-                                <asp:SqlDataSource ID="SqlDataSourceReceiving" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_receivingHeader.*, ref_supplier.supplier_name, ref_category.category_desc, ref_department.department_desc FROM trn_receivingHeader INNER JOIN ref_supplier ON trn_receivingHeader.supplier_id = ref_supplier.supplier_id INNER JOIN ref_category ON trn_receivingHeader.category_id = ref_category.category_id INNER JOIN ref_department ON trn_receivingHeader.dep_id = ref_department.department_id"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSourceIssuance" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_issuance_header.* FROM trn_issuance_header order by trn_issuance_header.issuance_id desc"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
