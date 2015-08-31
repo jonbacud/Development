@@ -15,6 +15,7 @@ namespace Web.Dashboard
     public partial class RequisitionEntry : System.Web.UI.Page
     {
         private readonly ItemManager _itemManager = new ItemManager();
+        readonly RequisitionManager _requisitionManager = new RequisitionManager();
 
         public int RequestId
         {
@@ -38,7 +39,27 @@ namespace Web.Dashboard
                 Session["REQUEST_ITEMS"] = items;
             }
             return items;
-        } 
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            switch (Mode)
+            {
+                case Transaction.TransactionMode.UpdateEntry:
+                    btnDelete.Visible = true;
+                    btnSubmitEntry.Text = "UPDATE REQUEST";
+                    break;
+                case Transaction.TransactionMode.NewEntry:
+
+                    txtReferenceNumber.Text = Transaction.TransactionType.RIS
+                                    + "-" + (_requisitionManager.ReferenceNumber + 1);
+                    break;
+                case Transaction.TransactionMode.ViewDetail:
+                    break;
+            }
+            //set last reference number
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -206,8 +227,7 @@ namespace Web.Dashboard
                     Status = "Submmited", UniqueId = Guid.NewGuid(),
                     QuantityReceived = 0
                 }));
-               RequisitionManager requisitionManager = new RequisitionManager();
-                requisitionManager.Save(requests);
+                _requisitionManager.Save(requests);
             }
         }
 
