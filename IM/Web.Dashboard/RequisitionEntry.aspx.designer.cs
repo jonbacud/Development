@@ -67,6 +67,15 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.DropDownList DDLProducts;
         
         /// <summary>
+        /// hpLinkItemDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hpLinkItemDetails;
+        
+        /// <summary>
         /// txtItemCode control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.DropDownList DDLUnits;
         
         /// <summary>
-        /// hpLinkItemDetails control.
+        /// hpLinkViewStocks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hpLinkItemDetails;
+        protected global::System.Web.UI.WebControls.HyperLink hpLinkViewStocks;
         
         /// <summary>
         /// txtQuantityIssue control.
@@ -148,6 +157,15 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.Button btnSubmitEntry;
         
         /// <summary>
+        /// btnProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnProcess;
+        
+        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -155,5 +173,23 @@ namespace Web.Dashboard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
+        /// txtQuantityReceived control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQuantityReceived;
+        
+        /// <summary>
+        /// btnProcessRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProcessRequest;
     }
 }

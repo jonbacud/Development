@@ -12,10 +12,11 @@ using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
-    public partial class RequisitionEntry : System.Web.UI.Page
+    public partial class RequisitionEntry : Page
     {
         private readonly ItemManager _itemManager = new ItemManager();
-        readonly RequisitionManager _requisitionManager = new RequisitionManager();
+        private readonly RequisitionManager _requisitionManager = new RequisitionManager();
+        private  readonly DepartmentManager _departmentManager = new DepartmentManager();
 
         public int RequestId
         {
@@ -25,6 +26,11 @@ namespace Web.Dashboard
         public Transaction.TransactionMode Mode
         {
             get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
+        }
+
+        public Requisition Requisition
+        {
+            get { return _requisitionManager.FetchById(RequestId); }
         }
 
         public List<RequestItem> RequestItems()
@@ -43,28 +49,13 @@ namespace Web.Dashboard
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            switch (Mode)
-            {
-                case Transaction.TransactionMode.UpdateEntry:
-                    btnDelete.Visible = true;
-                    btnSubmitEntry.Text = "UPDATE REQUEST";
-                    break;
-                case Transaction.TransactionMode.NewEntry:
-
-                    txtReferenceNumber.Text = Transaction.TransactionType.RIS
-                                    + "-" + (_requisitionManager.ReferenceNumber + 1);
-                    break;
-                case Transaction.TransactionMode.ViewDetail:
-                    break;
-            }
             //set last reference number
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            var dManager = new DepartmentManager();
-            var departments = dManager.FetchAll();
+            var departments = _departmentManager.FetchAll();
             DDLDepartments.DataSource = departments;
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
@@ -74,8 +65,49 @@ namespace Web.Dashboard
             DDLRequestTo.DataValueField = "Id";
             DDLRequestTo.DataBind();
             InitDetails();
-            txtDateRequested.Text = DateTime.Now.ToString("MMM dd, yyyy");
-              
+
+            switch (Mode)
+            {
+                case Transaction.TransactionMode.UpdateEntry:
+                    if (Requisition != null)
+                    {
+                        btnDelete.Visible = true;
+                        btnSubmitEntry.Text = "UPDATE REQUEST";
+                        lnkButtonAdd.Visible = false;
+                        gvSelectedItems.Visible = false;
+                        txtReferenceNumber.Text = Requisition.ReferenceNumber;
+                        txtDateRequested.Text = Requisition.RequisitionDate.ToString("MMM dd, yyyy");
+                        DDLProducts.SelectedValue = Requisition.ItemId.ToString();
+                        DDLRequestTo.SelectedValue = Requisition.DepartmentId.ToString();
+                        DDLUnits.SelectedValue = Requisition.UnitId.ToString();
+                        txtQuantityIssue.Text = Requisition.QuantityIssued.ToString();
+                        if (Requisition.Status == Transaction.TransactionStatus.Completed.ToString())
+                        {
+                            btnProcess.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        btnDelete.Enabled = false;
+                        btnSubmitEntry.Enabled = false;
+                        lnkButtonAdd.Enabled = false;
+                    }
+                    break;
+                case Transaction.TransactionMode.NewEntry:
+                    txtReferenceNumber.Text = Transaction.TransactionType.RIS
+                                    + "-" + (_requisitionManager.ReferenceNumber + 1);
+                    txtDateRequested.Text = DateTime.Now.ToString("MMM dd, yyyy");
+                    btnProcess.Visible = false;
+                    break;
+                case Transaction.TransactionMode.ViewDetail:
+                    break;
+                default:
+                    btnDelete.Enabled = false;
+                    btnSubmitEntry.Enabled = false;
+                    lnkButtonAdd.Enabled = false;
+                    break;
+            }
+
             gvSelectedItems.DataSource = RequestItems();
             gvSelectedItems.DataBind();
         }
@@ -116,6 +148,8 @@ namespace Web.Dashboard
                 txtBarCode.Text = item.BarCode;
                 txtItemCode.Text = item.ItemCode;
                 hpLinkItemDetails.NavigateUrl = "~/item/2/"+item.Id;
+                //stocks view
+               // hpLinkViewStocks.NavigateUrl = "receiving-details/0/1";
             }
             else
             {
@@ -171,7 +205,7 @@ namespace Web.Dashboard
 
         protected void lnkButtonAdd_Click(object sender, EventArgs e)
         {
-            List<RequestItem> items = RequestItems();
+            var items = RequestItems();
             var item = new RequestItem
             {
                 ItemId = int.Parse(DDLProducts.SelectedValue),
@@ -197,21 +231,42 @@ namespace Web.Dashboard
 
         protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            List<RequestItem> list = RequestItems();
-            GridViewRow row = gvSelectedItems.Rows[e.RowIndex];
-            HiddenField hfId = (HiddenField)row.FindControl("hfUniqueId");
-            Guid uid = Guid.Parse(hfId.Value);
+            var list = RequestItems();
+            var row = gvSelectedItems.Rows[e.RowIndex];
+            var hfId = (HiddenField)row.FindControl("hfUniqueId");
+            var uid = Guid.Parse(hfId.Value);
             list.RemoveAll(o => o.Uid == uid);
-
-             gvSelectedItems.DataSource = RequestItems();
-             gvSelectedItems.DataBind();
+            gvSelectedItems.DataSource = RequestItems();
+            gvSelectedItems.DataBind();
         }
 
         protected void btnSubmitEntry_Click(object sender, EventArgs e)
         {
-            var requests = new List<Requisition>();
-            if (RequestItems().Count > 0)
+            if (Mode==Transaction.TransactionMode.UpdateEntry)
             {
+                var request = new Requisition
+                {
+                    ItemId = int.Parse(DDLProducts.SelectedValue),
+                    BarCode = txtBarCode.Text.Trim(),
+                    ItemClassificationId = int.Parse(DDLClassifications.SelectedValue),
+                    DepartmentId = int.Parse(DDLRequestTo.SelectedValue),
+                    DateCreated = DateTime.Now,
+                    ReferenceNumber = Requisition.ReferenceNumber,
+                    UniqueId = Guid.NewGuid(),
+                    Id = RequestId,
+                    QuantityIssued = int.Parse(txtQuantityIssue.Text),
+                    QuantityReceived = 0,
+                    RequisitionDate = DateTime.Parse(txtDateRequested.Text),
+                    Status = Transaction.TransactionStatus.Submitted.ToString(),
+                    SubmittedTo = DDLRequestTo.SelectedItem.Text,
+                    UnitId = int.Parse(DDLUnits.SelectedValue)
+                };
+                _requisitionManager.Save(request);
+            }
+            else
+            {
+                var requests = new List<Requisition>();
+                if (RequestItems().Count <= 0) return;
                 requests.AddRange(RequestItems().Select(ri => new Requisition
                 {
                     UnitId = ri.UnitId,
@@ -224,16 +279,29 @@ namespace Web.Dashboard
                     SubmittedTo = DDLRequestTo.SelectedItem.Text,
                     ReferenceNumber = txtReferenceNumber.Text.Trim(),
                     RequisitionDate = DateTime.Parse(txtDateRequested.Text),
-                    Status = "Submmited", UniqueId = Guid.NewGuid(),
-                    QuantityReceived = 0
+                    Status = Transaction.TransactionStatus.Submitted.ToString(),
+                    UniqueId = Guid.NewGuid(),
+                    QuantityReceived = 0,
                 }));
                 _requisitionManager.Save(requests);
             }
+            Response.Redirect("/RequisitionManagementPanel");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnProcessRequest_Click(object sender, EventArgs e)
+        {
+            var requestProcess = Requisition;
+            if (int.Parse(txtQuantityReceived.Text) <= 0) return;
+            requestProcess.QuantityReceived = int.Parse(txtQuantityReceived.Text);
+            requestProcess.Status = requestProcess.QuantityIssued == requestProcess.QuantityReceived
+                ? Transaction.TransactionStatus.Completed.ToString()
+                : Transaction.TransactionStatus.Partial.ToString();
+            _requisitionManager.Save(requestProcess);
         }
     }
 }

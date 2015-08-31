@@ -1,6 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RequisitionEntry.aspx.cs" Inherits="Web.Dashboard.RequisitionEntry" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script>
+        function showDialog(id) {
+            var dialog = $("#" + id).data('dialog');
+            if (!dialog.element.data('opened')) {
+                dialog.open();
+            } else {
+                dialog.close();
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row" style="height: 100%;">
@@ -64,12 +74,13 @@
                 <li><a href="#">New Requestion</a></li>
             </ul>
             <h4 class="text-italic">New Requestion Entry<span class="mif-file-text place-right"></span></h4>
+               <hr class="thin bg-grayLighter">
             <div class="row">
                 <div class="cell colspan6 margin5">
                     <label style="font-weight: 700;">Reference Number</label>
                     <div class="input-control text full-size ">
                         <span class="mif-anchor prepend-icon"></span>
-                        <asp:TextBox CssClass="text-bold fg-darkRed" disabled runat="server" ID="txtReferenceNumber"></asp:TextBox>
+                        <asp:TextBox CssClass="text-bold fg-darkRed" ReadOnly="True" runat="server" ID="txtReferenceNumber"></asp:TextBox>
                     </div>
                 </div>
                 <div class="cell colspan6 margin5">
@@ -93,7 +104,7 @@
                     </div>
                     <div class="row">
                         <div class="cell colspan5">
-                            <label style="font-weight: 700;">Calssification</label>
+                            <label style="font-weight: 700;">Classification</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList runat="server" ID="DDLClassifications" OnSelectedIndexChanged="DDLClassifications_SelectedIndexChanged" />
                             </div>
@@ -109,13 +120,20 @@
                     <div class="row">
                     </div>
                     <div class="row">
-                        <div class="cell auto-size">
+                        <div class="cell colspan8 auto-size">
                             <label style="font-weight: 700;">Items</label>
                             <div class="input-control text full-size ">
                                 <asp:DropDownList runat="server" AutoPostBack="True" ID="DDLProducts"
                                     OnSelectedIndexChanged="DDLProducts_SelectedIndexChanged" />
                             </div>
                         </div>
+                        <div class="cell colspan2 margin10">
+                            <div class="input-control">
+                                <asp:HyperLink runat="server" Target="_blank" CssClass="button link"
+                                    ID="hpLinkItemDetails">View Item Details</asp:HyperLink>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="cell colspan3">
@@ -139,8 +157,8 @@
                             </div>
                         </div>
                         <div class="cell colspan3">
-                            <div class="input-control text">
-                                <asp:HyperLink runat="server" Target="_blank" CssClass="button link" ID="hpLinkItemDetails">View Item Details</asp:HyperLink>
+                            <div class="input-control">
+                                <asp:HyperLink runat="server" Target="_blank" CssClass="button link" ID="hpLinkViewStocks">View Item Stocks</asp:HyperLink>
                             </div>
                         </div>
                     </div>
@@ -158,13 +176,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="cell auto-size">
-                            <%-- <asp:HyperLink ID="hpLinkAddItem" CssClass="button" runat="server">
-                        <span class="mif-plus"> </span>
-                            </asp:HyperLink>--%>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="flex-grid">
@@ -180,7 +191,7 @@
                 <div class="flex-grid">
                     <div class="row">
                         <div class="cell auto-size">
-                            <asp:GridView ID="gvSelectedItems" Style="width: 100%;" class="dataTable border bordered" data-role="datatable" data-auto-width="false"
+                            <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 13px;" class="dataTable border bordered" data-role="datatable" data-auto-width="false"
                                 runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Item Name">
@@ -216,10 +227,31 @@
             </div>
             <hr class="thin bg-grayLighter">
             <asp:Button runat="server" Text="SUBMIT REQUEST" CssClass="button primary" ID="btnSubmitEntry" OnClick="btnSubmitEntry_Click" />
-             <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
-                 data-hint="Delete|Delete this Request" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
-            <a href="/RequisitionManagementPanel" class="button link">BACK TO LIST</a>
+            <span runat="server" id="btnProcess" class="button warning mif-file-text" onclick="showDialog('dialogProcess')">PROCESS REQUEST</span>
+            <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                data-hint="Delete|Delete this Request" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
+            <a href="/RequisitionManagementPanel" class="button link">
+                <span class="mif-undo">BACK TO LIST</span>
+            </a>
             <hr class="thin bg-grayLighter">
+        </div>
+    </div>
+    <div data-role="dialog" id="dialogProcess" class="padding20" data-close-button="true" data-type="warning" data-overlay="true" data-overlay-color="op-dark">
+        <h3>Process Request </h3>
+        <div class="row">
+            <div class="cell auto-size">
+                <label style="font-weight: 700;">Received Qty:</label>
+                <div class="input-control text">
+                    <asp:TextBox CssClass="text-bold fg-darkRed" runat="server" min="0" Text="1" Type="Number" ID="txtQuantityReceived"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+        <div class="row flex-just-center">
+            <div class="cell">
+                <div class="input-control">
+                    <asp:Button CssClass="button default" runat="server" Text="PROCESS" ID="btnProcessRequest" OnClick="btnProcessRequest_Click" />
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>

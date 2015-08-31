@@ -54,6 +54,10 @@ namespace Web.Dashboard
                               "requisition-detail/{mode}/{id}",
                               "~/RequisitionDetailEntry.aspx");
 
+            routes.MapPageRoute("requisition-process",
+                            "process-request/{id}",
+                            "~/ProcessRequest.aspx");
+
         }
     }
 }
