@@ -158,7 +158,8 @@ namespace Web.Dashboard
                                     IsPosted = false,
                                     IssuanceId = 0,
                                     ItemId = issuanceItem.ItemId,
-                                    Price = issuanceItem.ItemPrice
+                                    Price = issuanceItem.ItemPrice,
+                                    RequisitionId = issuanceItem.RequesitionId
                                 };
                                 issuanceDetails.Add(issuanceDetail);
                             }
@@ -195,7 +196,8 @@ namespace Web.Dashboard
                     ReferenceNumber = txtReferenceNumber.Text.Trim(),
                     RequisitionId = 0,
                     TotalAmount = decimal.Parse(txtTotalAmount.Text),
-                    Unid = Guid.NewGuid()
+                    Unid = Guid.NewGuid(),
+                    RequisitionReferenceNumber = txtRISNumber.Text
                 };
                 _issuanceManager.Save(issuance);
                 var identity = _issuanceManager.Identity;

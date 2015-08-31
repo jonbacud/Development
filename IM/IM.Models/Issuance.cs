@@ -38,5 +38,8 @@ namespace IM.Models
         [MapField("uid")]
         public Guid Unid { get; set; }
 
+        [MapField("ris_reference_number")]
+        public string RequisitionReferenceNumber { get; set; } // added for relationsip
+
     }
 }

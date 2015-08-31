@@ -83,32 +83,34 @@
                                 <asp:GridView GridLines="None" Font-Size="12px" ID="gvCategories"
                                     class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
-                                    runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceReceiving" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="receiving_id" PageSize="5" CellPadding="4" ForeColor="#333333">
+                                    runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceIssuance" AllowPaging="True"
+                                    AllowSorting="True" DataKeyNames="issuance_id" PageSize="5" CellPadding="4" ForeColor="#333333">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
-                                        <asp:BoundField DataField="receiving_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="receiving_id"></asp:BoundField>
-                                        <asp:BoundField DataField="reference_no" HeaderText="Ref. No." SortExpression="reference_no"></asp:BoundField>
-                                        <asp:BoundField DataField="po_number" HeaderText="P.O. No." SortExpression="po_number"></asp:BoundField>
-                                        <asp:BoundField DataField="invoice_no" HeaderText="Invoice No." SortExpression="invoice_no"></asp:BoundField>
-                                        <asp:BoundField DataField="pr_number" HeaderText="P.R. No." SortExpression="pr_number" />
-                                        <asp:BoundField DataField="receiving_date" HeaderText="Received Date" SortExpression="receiving_date" DataFormatString="{0:MMM dd, yyyy}" />
-                                        <asp:BoundField DataField="alobs_number" HeaderText="ALOBS No." SortExpression="alobs_number" />
-                                        <asp:BoundField DataField="mode_procurement" HeaderText="Procurement" SortExpression="mode_procurement" />
-                                        <asp:BoundField DataField="amount" HeaderText="Amount" SortExpression="amount" DataFormatString="{0:##,##0.00}" />
-                                        <asp:BoundField DataField="selling_amount" HeaderText="Selling Amt." SortExpression="selling_amount" DataFormatString="{0:##,##0.00}" />
-                                        <asp:BoundField DataField="supplier_name" HeaderText="Supplier" SortExpression="supplier_name" />
-                                        <asp:BoundField DataField="category_desc" HeaderText="Category" SortExpression="category_desc" />
-                                        <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc" />
-                                        <asp:TemplateField>
+                                        <asp:BoundField DataField="issuance_id" HeaderText="Id" InsertVisible="False"
+                                            ReadOnly="True" SortExpression="issuance_id"></asp:BoundField>
+                                        <asp:BoundField DataField="reference_number" HeaderText="Ref. Number" SortExpression="reference_number">
+                                        <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="issuance_date" HeaderText="Date Issued" SortExpression="issuance_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
+                                        <asp:BoundField DataField="issued_to" HeaderText="Issued To" SortExpression="issued_to"></asp:BoundField>
+                                        <asp:BoundField DataField="total_amount" HeaderText="Total Amount" SortExpression="total_amount" DataFormatString="{0:##,##0.00}" >
+                                        <ItemStyle HorizontalAlign="Right" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="ris_reference_number" HeaderText="Request Ref. No." SortExpression="ris_reference_number" >
+                                        <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="Status" SortExpression="isPosted">
                                             <ItemTemplate>
-                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Receiving Item Details" data-hint-position="left" NavigateUrl='<%# "~/receiving-details/0/"+Eval("receiving_id") %>'>
-                                                    <span class="mif-pencil"></span>
-                                                </asp:HyperLink>
+                                                  <span  data-hint-color="fg-white"  data-role="hint" data-hint-background="bg-lightBlue"
+                data-hint='<%# bool.Parse(Eval("isPosted").ToString()) ? "Posted" : "Not Posted" %>'  data-hint-position="top" class='<%# bool.Parse(Eval("isPosted").ToString()) ? "mif-checkmark fg-green" 
+                                                : "mif-stop fg-red" %>'></span>
                                             </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                            <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
+                                        <asp:BoundField DataField="datecreated" HeaderText="Date Created" SortExpression="datecreated" >
+                                        <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -125,6 +127,7 @@
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSourceIssuance" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_issuance_header.*, ref_department.department_desc FROM trn_issuance_header INNER JOIN ref_department ON trn_issuance_header.dep_id = ref_department.department_id"></asp:SqlDataSource>
                                 <asp:SqlDataSource ID="SqlDataSourceReceiving" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT trn_receivingHeader.*, ref_supplier.supplier_name, ref_category.category_desc, ref_department.department_desc FROM trn_receivingHeader INNER JOIN ref_supplier ON trn_receivingHeader.supplier_id = ref_supplier.supplier_id INNER JOIN ref_category ON trn_receivingHeader.category_id = ref_category.category_id INNER JOIN ref_department ON trn_receivingHeader.dep_id = ref_department.department_id"></asp:SqlDataSource>
                             </div>
                         </div>

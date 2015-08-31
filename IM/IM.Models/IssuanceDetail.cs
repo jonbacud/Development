@@ -34,5 +34,8 @@ namespace IM.Models
 
         [MapField("uid")]
         public Guid Uid { get; set; }
+
+        [MapField("ris_id")]
+        public int RequisitionId { get; set; }
     }
 }
