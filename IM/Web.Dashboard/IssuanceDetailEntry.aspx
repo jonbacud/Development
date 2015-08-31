@@ -166,7 +166,6 @@
                     <div class="cell colspan4  margin5">
                         <label style="font-weight: 700;">Request Quantity</label>
                         <div class="input-control text full-size ">
-                            <span class="mif-barcode prepend-icon"></span>
                             <asp:TextBox ReadOnly="True" runat="server" ID="txtRequestQuantity"></asp:TextBox>
                         </div>
                     </div>
@@ -181,7 +180,7 @@
             </div>
 
             <hr class="thin bg-grayLighter">
-            <asp:Button ID="btnSubmitIssuance" Enabled="False" runat="server" Text="SUBMIT ISSUANCE"
+            <asp:Button ID="btnSubmitIssuance" runat="server" Text="SUBMIT ISSUANCE"
                 CssClass="button primary" OnClick="btnSubmitIssuance_Click" />
             <a runat="server" id="hpLnkBack" href="/IssuanceManagementPanel" class="button link">
                 <span class="mif-undo">BACK TO LIST</span>

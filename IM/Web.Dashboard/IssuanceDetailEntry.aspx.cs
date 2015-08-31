@@ -75,36 +75,13 @@ namespace Web.Dashboard
 
         protected void btnSubmitIssuance_Click(object sender, EventArgs e)
         {
-            //bool hasError = false;
-            //var issuanceDetails = IssuanceDetails(ref hasError);
-            //if (!hasError)
-            //{
-            //    var issuance = new Issuance
-            //    {
-            //        DateCreated = DateTime.Now,
-            //        DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-            //        IsPosted = false,
-            //        IssuanceDate = DateTime.Parse(txtIssuanceDate.Text),
-            //        IssuedTo = DDLDepartments.SelectedItem.Text,
-            //        ReferenceNumber = txtReferenceNumber.Text.Trim(),
-            //        RequisitionId = 0,
-            //        TotalAmount = decimal.Parse(txtTotalAmount.Text),
-            //        Unid = Guid.NewGuid(),
-            //        RequisitionReferenceNumber = txtRISNumber.Text
-            //    };
-            //    _issuanceManager.Save(issuance);
-            //    var identity = _issuanceManager.Identity;
-            //    foreach (var issuanceDetail in issuanceDetails)
-            //    {
-            //        issuanceDetail.IssuanceId = identity;
-            //    }
-            //    _issuanceDetailManager.Save(issuanceDetails);
-            //    divMessageBox.Visible = true;
-            //    divMessageBox.Attributes.Add("class", "notify info");
-            //    ltrlMessageHeader.Text = "Submit Successful!";
-            //    ltrlMessage.Text = "New Issuance data has been saved!";
-            //    btnSubmitIssuance.Enabled = false;
-           // }
+            var issuance = IssuanceDetail;
+
+            divMessageBox.Visible = true;
+            divMessageBox.Attributes.Add("class", "notify info");
+            ltrlMessageHeader.Text = "Submit Successful!";
+            ltrlMessage.Text = "New Issuance data has been saved!";
+            btnSubmitIssuance.Enabled = false;
         }
 
        
