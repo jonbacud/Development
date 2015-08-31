@@ -58,6 +58,11 @@ namespace Web.Dashboard
                             "issuance/{mode}/{id}",
                             "~/ItemIssuanceEntry.aspx");
 
+            //issuance details  map route
+            routes.MapPageRoute("issuance-details",
+                            "issuance-details/{id}",
+                            "~/IssuanceDetails.aspx");
+
         }
     }
 }

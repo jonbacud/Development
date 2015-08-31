@@ -39,14 +39,17 @@ namespace IM.BusinessLogic.DataManager
             }
         }
 
-        public void Delete(IssuanceDetail model)
+        public void Delete(IssuanceDetail issuanceDetail)
         {
-            throw new NotImplementedException();
+            Accessor.Query.Delete(issuanceDetail);
         }
 
-        public void Delete(List<IssuanceDetail> collection)
+        public void Delete(List<IssuanceDetail> issuanceDetails)
         {
-            throw new NotImplementedException();
+            foreach (var issuanceDetail in issuanceDetails)
+            {
+                Delete(issuanceDetail);
+            }
         }
 
         public List<IssuanceDetail> FetchAll()
@@ -58,6 +61,14 @@ namespace IM.BusinessLogic.DataManager
         {
             return Accessor.Query.SelectByKey<IssuanceDetail>(key) ?? new IssuanceDetail();
         }
+
+        public List<IssuanceDetail> FetchAll(int issuanceId)
+        {
+            return Accessor.Query.SelectAll<IssuanceDetail>()
+                .Where(iss=>iss.IssuanceId.Equals(issuanceId))
+                .ToList();
+        }
+
 
         #region Accessor
         IssuanceDetailAccessor Accessor

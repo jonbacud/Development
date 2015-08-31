@@ -90,26 +90,26 @@
                                     <Columns>
                                         <asp:BoundField DataField="issuance_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="issuance_id">
-                                        <ItemStyle CssClass="text-bold" HorizontalAlign="Center" />
+                                            <ItemStyle CssClass="text-bold" HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="reference_number" HeaderText="Ref. Number" SortExpression="reference_number">
                                             <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="issuance_date" HeaderText="Date Issued" 
+                                        <asp:BoundField DataField="issuance_date" HeaderText="Date Issued"
                                             SortExpression="issuance_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
                                         <asp:BoundField DataField="issued_to" HeaderText="Issued To" SortExpression="issued_to"></asp:BoundField>
-                                        <asp:BoundField DataField="total_amount" HeaderText="Total Amount" 
+                                        <asp:BoundField DataField="total_amount" HeaderText="Total Amount"
                                             SortExpression="total_amount" DataFormatString="{0:##,##0.00}">
                                             <ItemStyle HorizontalAlign="Right" CssClass="text-bold fg-darkRed" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="ris_reference_number" 
+                                        <asp:BoundField DataField="ris_reference_number"
                                             HeaderText="Request Ref. No." SortExpression="ris_reference_number">
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <asp:TemplateField HeaderText="Status" SortExpression="isPosted">
                                             <ItemTemplate>
                                                 <span data-hint-color="fg-white" data-role="hint" data-hint-background="bg-lightBlue"
-                                                    data-hint='<%# bool.Parse(Eval("isPosted").ToString()) ? "Posted" : "Not Posted" %>' 
+                                                    data-hint='<%# bool.Parse(Eval("isPosted").ToString()) ? "Posted" : "Not Posted" %>'
                                                     data-hint-position="top" class='<%# bool.Parse(Eval("isPosted").ToString()) 
                                                 ? "mif-checkmark fg-green" : "mif-stop fg-red" %>'></span>
                                             </ItemTemplate>
@@ -118,11 +118,11 @@
                                         <asp:BoundField DataField="datecreated" HeaderText="Date Created" SortExpression="datecreated">
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" data-hint-color="fg-white" runat="server"  data-role="hint" 
+                                                <asp:HyperLink ID="HyperLink1" data-hint-color="fg-white" runat="server" data-role="hint"
                                                     data-hint-background="bg-blue" data-hint="Info.|View Issuance Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/issuance/0/"+Eval("issuance_id")%>'>
+                                                    NavigateUrl='<%# "~/issuance-details/"+Eval("issuance_id")%>'>
                                                              <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>
