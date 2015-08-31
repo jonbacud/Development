@@ -10,6 +10,12 @@
                 dialog.close();
             }
         }
+        $(document).ready(function () {
+            $('#btnClose').click(function () {
+                $('#divMessageBox').hide('slow');
+            });
+        });
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -74,7 +80,21 @@
                 <li><a href="#">New Requestion</a></li>
             </ul>
             <h4 class="text-italic">New Requestion Entry<span class="mif-file-text place-right"></span></h4>
-               <hr class="thin bg-grayLighter">
+            <hr class="thin bg-grayLighter">
+            <div class="flex-grid">
+                <div class="row flex-just-center">
+                    <div class="cell">
+                        <div runat="server" style="width: 500px;" Visible="False" clientidmode="Static" id="divMessageBox">
+                            <span id="btnClose" class="notify-closer"></span>
+                            <span class="notify-title">Submit Successful!</span>
+                            <span class="notify-text">
+                                <asp:Literal runat="server" ID="ltrlMessage"></asp:Literal>
+                            </span>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="cell colspan6 margin5">
                     <label style="font-weight: 700;">Reference Number</label>

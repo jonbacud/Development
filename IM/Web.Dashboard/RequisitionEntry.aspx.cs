@@ -205,6 +205,7 @@ namespace Web.Dashboard
 
         protected void lnkButtonAdd_Click(object sender, EventArgs e)
         {
+            
             var items = RequestItems();
             var item = new RequestItem
             {
@@ -262,6 +263,9 @@ namespace Web.Dashboard
                     UnitId = int.Parse(DDLUnits.SelectedValue)
                 };
                 _requisitionManager.Save(request);
+                divMessageBox.Attributes.Add("class", "notify success");
+                divMessageBox.Visible = true;
+                ltrlMessage.Text = "Requisition entry has been updated!";
             }
             else
             {
@@ -284,13 +288,28 @@ namespace Web.Dashboard
                     QuantityReceived = 0,
                 }));
                 _requisitionManager.Save(requests);
+                divMessageBox.Attributes.Add("class", "notify success");
+                divMessageBox.Visible = true;
+                ltrlMessage.Text = "New Requisition/s entry has been saved!";
             }
-            Response.Redirect("/RequisitionManagementPanel");
+            btnSubmitEntry.Enabled = false;
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-
+            var requestToDelete = new Requisition
+            {
+                Id = RequestId
+            };
+            _requisitionManager.Delete(requestToDelete);
+            divMessageBox.Attributes.Add("class", "notify warning");
+            divMessageBox.Visible = true;
+            btnDelete.Visible = false;
+            btnSubmitEntry.Visible = false;
+            lnkButtonAdd.Visible = false;
+            btnProcess.Visible = false;
+            lnkButtonAdd.Visible = false;
+            ltrlMessage.Text = "Requisition entry has been deleted!";
         }
 
         protected void btnProcessRequest_Click(object sender, EventArgs e)
@@ -302,6 +321,9 @@ namespace Web.Dashboard
                 ? Transaction.TransactionStatus.Completed.ToString()
                 : Transaction.TransactionStatus.Partial.ToString();
             _requisitionManager.Save(requestProcess);
+            divMessageBox.Attributes.Add("class", "notify success");
+            divMessageBox.Visible = true;
+            ltrlMessage.Text = "Requisition entry has been Processed!";
         }
     }
 }
