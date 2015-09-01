@@ -49,6 +49,7 @@
       <HintPath>..\packages\BLToolkit.4.3.0\lib\net40\BLToolkit.4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -570,6 +571,7 @@
     <Compile Include="RequisitionManagementPanel.aspx.designer.cs">
       <DependentUpon>RequisitionManagementPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Shared\TransactionMode.cs" />
     <Compile Include="ShelfEntry.aspx.cs">
       <DependentUpon>ShelfEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

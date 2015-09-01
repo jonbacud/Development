@@ -18,12 +18,12 @@ namespace Web.Dashboard
         private readonly PurchaseRequestManager _purchaseRequestManager = new PurchaseRequestManager();
         private readonly UnitManager _unitManager = new UnitManager();
         #endregion
-        public List<PurchaseRequest> RequestItems()
+        public List<PurchaseRequestItem> RequestItems()
         {
-           var items = new List<PurchaseRequest>();
+            var items = new List<PurchaseRequestItem>();
             if (Session["PURCHASE_ITEMS"] != null)
             {
-                items = (List<PurchaseRequest>)Session["PURCHASE_ITEMS"];
+                items = (List<PurchaseRequestItem>)Session["PURCHASE_ITEMS"];
             }
             else
             {
@@ -79,18 +79,18 @@ namespace Web.Dashboard
             {
                 requests.AddRange(RequestItems().Select(item => new PurchaseRequest
                 {
-                    AlobsNmber = item.AlobsNmber,
-                    BaseDepartmentId = item.BaseDepartmentId, 
-                    ItemCode = item.ItemCode, 
-                    PrId = item.PrId.ToString(), 
-                    PurcahaseRequestDate = item.PurcahaseRequestDate, 
-                    ReceiveBy = item.ReceiveBy, 
-                    RequestBy = item.RequestBy, 
-                    RequestQuantity = item.RequestQuantity, 
-                    RequisitionNumber = item.RequisitionNumber, 
-                    SaiNumber = item.SaiNumber, 
-                    Status = "Submmited", 
-                    StockNumber = item.StockNumber, 
+                    AlobsNmber = item.AlobsNumber,
+                    BaseDepartmentId = item.DepartmentId,
+                    ItemCode = item.ItemCode,
+                    PrId = item.ItemNumber.ToString(),
+                    PurcahaseRequestDate = item.DateRequest,
+                    ReceiveBy = item.ReceiveBy,
+                    RequestBy = item.RequestBy,
+                    RequestQuantity = item.Quantity,
+                    RequisitionNumber = item.RequestNumber,
+                    SaiNumber = item.SaiNumber,
+                    Status = "Submmited",
+                    StockNumber = item.StockNumber,
                     UnitCode = item.UnitCode,
                     uid = Guid.NewGuid()
                 }));
@@ -105,34 +105,34 @@ namespace Web.Dashboard
 
         protected void lnkButtonAdd_Click(object sender, EventArgs e)
         {
-            //var itemDetails = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
-            //var items = RequestItems();
-            //var unit = _unitManager.FetchById(int.Parse(DDLUnits.SelectedValue));
-            //var item = new PurchaseRequestItem
-            //{
-            //    ItemName = DDLItems.SelectedItem.Text,
-            //    UnitId = int.Parse(DDLUnits.SelectedValue),
-            //    UnitName = DDLUnits.SelectedItem.Text,
-            //    Uid = Guid.NewGuid(),
-            //    UnitCost = itemDetails.LastPurchasePrice,
-            //    EstimatedCost = (itemDetails.LastPurchasePrice*int.Parse(txtQuantity.Text)),
-            //    ItemNumber = int.Parse(DDLItems.SelectedValue),
-            //    Quantity = int.Parse(txtQuantity.Text),
-            //    RequestNumber = txtReferenceNumber.Text,
-            //    StockNumber = txtStockNumber.Text,
-            //    AlobsNumber = txtALOBSNumber.Text,
-            //    SaiNumber = txtSAINumber.Text,
-            //    DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-            //    ItemCode = itemDetails.ItemCode,
-            //    DateRequest = DateTime.Parse(txtRequestDate.Text),
-            //    ReceiveBy = DDLDepartments.SelectedItem.Text,
-            //    RequestBy = DDLFromDepartments.SelectedItem.Text, //todo: to be replace by log in user
-            //    UnitCode = unit.Code
-            //};
-           
-            //items.Add(item);
-            //gvSelectedItems.DataSource = items;
-            //gvSelectedItems.DataBind();
+            var itemDetails = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            var items = RequestItems();
+            var unit = _unitManager.FetchById(int.Parse(DDLUnits.SelectedValue));
+            var item = new PurchaseRequestItem
+            {
+                ItemName = DDLItems.SelectedItem.Text,
+                UnitId = int.Parse(DDLUnits.SelectedValue),
+                UnitName = DDLUnits.SelectedItem.Text,
+                Uid = Guid.NewGuid(),
+                UnitCost = itemDetails.LastPurchasePrice,
+                EstimatedCost = (itemDetails.LastPurchasePrice * int.Parse(txtQuantity.Text)),
+                ItemNumber = int.Parse(DDLItems.SelectedValue),
+                Quantity = int.Parse(txtQuantity.Text),
+                RequestNumber = txtReferenceNumber.Text,
+                StockNumber = txtStockNumber.Text,
+                AlobsNumber = txtALOBSNumber.Text,
+                SaiNumber = txtSAINumber.Text,
+                DepartmentId = int.Parse(DDLDepartments.SelectedValue),
+                ItemCode = itemDetails.ItemCode,
+                DateRequest = DateTime.Parse(txtRequestDate.Text),
+                ReceiveBy = DDLDepartments.SelectedItem.Text,
+                RequestBy = DDLFromDepartments.SelectedItem.Text, //todo: to be replace by log in user
+                UnitCode = unit.Code
+            };
+
+            items.Add(item);
+            gvSelectedItems.DataSource = items;
+            gvSelectedItems.DataBind();
         }
 
         protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -141,7 +141,7 @@ namespace Web.Dashboard
             var row = gvSelectedItems.Rows[e.RowIndex];
             var hfId = (HiddenField)row.FindControl("hfUniqueId");
             var uid = Guid.Parse(hfId.Value);
-            list.RemoveAll(o => o.uid == uid);
+            list.RemoveAll(o => o.Uid == uid);
 
             gvSelectedItems.DataSource = RequestItems();
             gvSelectedItems.DataBind();

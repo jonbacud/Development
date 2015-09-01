@@ -62,6 +62,9 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectAll<Receiving>().FirstOrDefault(r => r.Uid.Equals(key)) ?? new Receiving();
         }
 
+
+
+
         #region Accessor
         ReceivingDataAccessor Accessor
         {
