@@ -100,6 +100,11 @@ namespace Web.Dashboard
                     btnProcess.Visible = false;
                     break;
                 case Transaction.TransactionMode.ViewDetail:
+                     btnDelete.Enabled = false;
+                    btnSubmitEntry.Visible = false;
+                    lnkButtonAdd.Visible = false;
+                    gvSelectedItems.Visible = false;
+                    btnProcess.Visible = false;
                     break;
                 default:
                     btnDelete.Enabled = false;

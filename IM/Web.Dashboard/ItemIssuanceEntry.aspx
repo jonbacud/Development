@@ -181,7 +181,7 @@
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
                                         <asp:HyperLink Target="_blank" ToolTip="Viwe Details" runat="server"
-                                            NavigateUrl='<%# "~/Items/ItemDetails.aspx?id="+Eval("ItemId") %>'>
+                                            NavigateUrl='<%# "requisition/2/"+Eval("RequesitionId") %>'>
                                             <span class="icon mif-file-text"></span>
                                         </asp:HyperLink>
                                     </ItemTemplate>

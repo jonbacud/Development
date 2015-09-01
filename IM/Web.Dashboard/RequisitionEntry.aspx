@@ -220,7 +220,7 @@
                                             <asp:HiddenField runat="server" ID="hfUniqueId" Value='<%# Bind("Uid") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="CalssificationName" HeaderText="Calssification" />
+                                    <asp:BoundField DataField="ClassificationName" HeaderText="Classification" />
                                     <asp:BoundField DataField="DepartmentName" HeaderText="Department" />
                                     <asp:BoundField DataField="TypeName" HeaderText="Type" />
                                     <asp:BoundField DataField="UnitName" HeaderText="Unit" />
