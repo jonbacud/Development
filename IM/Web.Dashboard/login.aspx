@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Web.Dashboard.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Web.Dashboard.Login" %>
 
 <!DOCTYPE html>
 <html>
@@ -90,7 +90,7 @@
             <br />
             <br />
             <div class="form-actions">
-                <asp:Button runat="server" Text="Login to..." ID="btnLogIn" class="button primary"/>
+                <asp:Button runat="server" Text="Login to..." ID="btnLogIn" class="button primary" OnClick="btnLogIn_Click"/>
                 <button type="button" class="button link">Cancel</button>
             </div>
         </form>
