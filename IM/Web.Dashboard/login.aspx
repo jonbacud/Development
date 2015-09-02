@@ -66,36 +66,52 @@
                 "-webkit-transition": ".5s",
                 "transition": ".5s"
             });
+            $("#btnClose").click(function () {
+                $("#mssg").fadeOut("2000");
+            });
         });
     </script>
 </head>
 <body class="bg-lightBlue">
-    <div class="login-form padding20 block-shadow">
-        <form runat="server" id="form1">
+
+    <form runat="server" id="form1">
+        <div id="mssg" runat="server" class="flex-grid demo-grid">
+            <div class="row flex-just-center">
+                <div class="cell full-size">
+                    <div class="notify alert shadow">
+                        <span class="notify-icon mif-vpn-publ"></span>
+                        <span id="btnClose" class="notify-closer"></span>
+                        <span class="notify-title">Shadow</span>
+                        <span class="notify-text">Notify with shadow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login-form padding20 block-shadow">
             <h1 class="text-light">Login to VS MMC</h1>
             <hr class="thin" />
             <br />
             <div class="input-control text full-size" data-role="input">
-                <label for="user_login">User name:</label>
-                <asp:TextBox name="user_login" runat="server" ID="txtUserName"></asp:TextBox>
+                <label for="txtUserName">User name:</label>
+                <asp:TextBox ClientIDMode="Static" name="user_login" runat="server" ID="txtUserName"></asp:TextBox>
                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
             </div>
             <br />
             <br />
             <div class="input-control password full-size" data-role="input">
-                <label for="user_password">User password:</label>
-                <input type="password" name="user_password" id="user_password">
+                <label for="txtPassword">User password:</label>
+                <asp:TextBox type="password" runat="server" ClientIDMode="Static" ID="txtPassword"></asp:TextBox>
                 <button class="button helper-button reveal"><span class="mif-looks"></span></button>
             </div>
             <br />
             <br />
             <div class="form-actions">
-                <asp:Button runat="server" Text="Login to..." ID="btnLogIn" class="button primary" OnClick="btnLogIn_Click"/>
+                <asp:Button runat="server" Text="Login to..." ID="btnLogIn" class="button primary" OnClick="btnLogIn_Click" />
                 <button type="button" class="button link">Cancel</button>
             </div>
-        </form>
-    </div>
 
+        </div>
+    </form>
     <!-- hit.ua -->
     <a href='http://hit.ua/?x=136046' target='_blank'>
         <script language="javascript" type="text/javascript"><!--
