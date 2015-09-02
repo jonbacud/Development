@@ -112,7 +112,7 @@
                         <li><a href="/ShelveManagementPanel">Shelve</a></li>
                         <li><a href="/BinManagementPanel">Bin</a></li>
                         <li class="divider"></li>
-                        <li><a href="">End User</a></li>
+                        <li><a href="/UserAccountManagementPanel">End User</a></li>
                     </ul>
                 </li>
                 <li>

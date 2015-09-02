@@ -57,6 +57,12 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectByKey<UserAccount>(key) ?? new UserAccount();
         }
 
+        public UserAccount FetchByUserNameAndPassword(string userName, string password)
+        {
+           return  Accessor.Query.SelectAll<UserAccount>()
+                .FirstOrDefault(ua=>ua.UserName.Equals(userName) &&ua.Password.Equals(password) && ua.IsActive.Equals(true));
+        }
+
         #region Accessor
         UserAccountAccessor Accessor
         {
