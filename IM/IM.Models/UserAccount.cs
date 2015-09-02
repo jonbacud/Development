@@ -28,7 +28,7 @@ namespace IM.Models
         [MapField("lastname")]
         public string LastName { get; set; }
 
-        [MapField("")]
+        [MapField("isActive")]
         public bool IsActive { get; set; }
     }
 }
