@@ -45,9 +45,13 @@
     <Compile Include="Barcode.cs" />
     <Compile Include="Bin.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="DonationDetail.cs" />
+    <Compile Include="ConsignmentOrder.cs" />
+    <Compile Include="ConsignmentOrderDetail.cs" />
     <Compile Include="Department.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Donation.cs" />
     <Compile Include="Issuance.cs" />
     <Compile Include="IssuanceDetail.cs" />
     <Compile Include="Item.cs" />
