@@ -5,11 +5,22 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IM.Models;
 
 namespace Web.Dashboard
 {
     public partial class SiteMaster : MasterPage
     {
+        public UserAccount UserAccount
+        {
+            get
+            {
+                return (Session["USER_ACCOUNT"] == null)
+                    ? new UserAccount()
+                    : (UserAccount) Session["USER_ACCOUNT"];
+            }
+        }
+
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -50,6 +61,10 @@ namespace Web.Dashboard
         {
             if (!IsPostBack)
             {
+                if (UserAccount.UserId==0)
+                {
+                    Response.Redirect("/Login");
+                }
                 // Set Anti-XSRF token
                 ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
                 ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;
@@ -69,7 +84,7 @@ namespace Web.Dashboard
         {
             if (!IsPostBack)
             {
-                
+                ltrlUserName.Text = UserAccount.FistName + " " + UserAccount.LastName;
             }
         }
     }

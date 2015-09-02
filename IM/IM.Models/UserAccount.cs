@@ -23,7 +23,7 @@ namespace IM.Models
         public int DeaprtmentId { get; set; }
 
         [MapField("firstname")]
-        public string FishName { get; set; }
+        public string FistName { get; set; }
 
         [MapField("lastname")]
         public string LastName { get; set; }
