@@ -217,6 +217,9 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="IssuanceDetailEntry.aspx" />
+    <Content Include="IssuanceDetails.aspx" />
+    <Content Include="IssuanceManagementPanel.aspx" />
     <Content Include="ItemClassificationEntry.aspx" />
     <Content Include="ItemClassificationPanel.aspx" />
     <Content Include="ItemEntry.aspx" />
@@ -263,6 +266,7 @@
     <Content Include="js\select2.min.js" />
     <Content Include="LocationEntry.aspx" />
     <Content Include="LocationManagementPanel.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="login.html" />
     <Content Include="DepartmentEntry.aspx" />
     <Content Include="news-portal.html" />
@@ -270,6 +274,8 @@
     <Content Include="fonts\metro.eot" />
     <Content Include="fonts\metro.ttf" />
     <Content Include="fonts\metro.woff" />
+    <Content Include="ProcessRequest.aspx" />
+    <Content Include="UserAccountManagementPanel.aspx" />
     <Content Include="WRIreports\recevingreport.aspx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="PrintDepartments.aspx" />
@@ -291,7 +297,6 @@
     <Content Include="ShelfEntry.aspx" />
     <Content Include="ShelveManagementPanel.aspx" />
     <Content Include="start-screen.html" />
-    <Content Include="supplier.aspx" />
     <Content Include="SupplierEntry.aspx" />
     <Content Include="SupplierLists.aspx" />
     <Content Include="SupplierManagementPanel.aspx" />
@@ -419,6 +424,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IssuanceDetailEntry.aspx.cs">
+      <DependentUpon>IssuanceDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssuanceDetailEntry.aspx.designer.cs">
+      <DependentUpon>IssuanceDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssuanceDetails.aspx.cs">
+      <DependentUpon>IssuanceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssuanceDetails.aspx.designer.cs">
+      <DependentUpon>IssuanceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssuanceManagementPanel.aspx.cs">
+      <DependentUpon>IssuanceManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssuanceManagementPanel.aspx.designer.cs">
+      <DependentUpon>IssuanceManagementPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ItemClassificationEntry.aspx.cs">
       <DependentUpon>ItemClassificationEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,6 +505,12 @@
     <Compile Include="LocationManagementPanel.aspx.designer.cs">
       <DependentUpon>LocationManagementPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModelViews\PurchaseRequestItem.cs" />
     <Compile Include="ModelViews\ReceivingItem.cs" />
     <Compile Include="ModelViews\RequestItem.cs" />
@@ -498,6 +527,12 @@
     </Compile>
     <Compile Include="PrintDepartments.aspx.designer.cs">
       <DependentUpon>PrintDepartments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessRequest.aspx.cs">
+      <DependentUpon>ProcessRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessRequest.aspx.designer.cs">
+      <DependentUpon>ProcessRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseRequestEntry.aspx.cs">
@@ -570,6 +605,7 @@
     <Compile Include="RequisitionManagementPanel.aspx.designer.cs">
       <DependentUpon>RequisitionManagementPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Shared\TransactionMode.cs" />
     <Compile Include="ShelfEntry.aspx.cs">
       <DependentUpon>ShelfEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -597,13 +633,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="supplier.aspx.cs">
-      <DependentUpon>supplier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="supplier.aspx.designer.cs">
-      <DependentUpon>supplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="SupplierEntry.aspx.cs">
       <DependentUpon>SupplierEntry.aspx</DependentUpon>
@@ -639,6 +668,12 @@
     </Compile>
     <Compile Include="UnitManagementPanel.aspx.designer.cs">
       <DependentUpon>UnitManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountManagementPanel.aspx.cs">
+      <DependentUpon>UserAccountManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountManagementPanel.aspx.designer.cs">
+      <DependentUpon>UserAccountManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

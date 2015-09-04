@@ -9,5 +9,8 @@ namespace IM.BusinessLogic.DataAccess
     public abstract class ReceivingDetailAccessor : AccessorBase<ReceivingDetailAccessor.DB, ReceivingDetailAccessor>
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
+
+        
+
     }
 }

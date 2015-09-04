@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
+
 
 namespace IM.BusinessLogic.DataManager
 {
@@ -60,6 +62,11 @@ namespace IM.BusinessLogic.DataManager
         public Receiving FetchById(Guid key)
         {
             return Accessor.Query.SelectAll<Receiving>().FirstOrDefault(r => r.Uid.Equals(key)) ?? new Receiving();
+        }
+
+        public void ReceivingReport(string datefrom, string dateto, int itemclassid, string itemdesc, int supplierid, string suppliercode, string barcode, SqlDataSource datasource)
+        {
+            Accessor.ReceivingReport(datefrom,dateto,itemclassid,itemdesc,supplierid,suppliercode,barcode, datasource);
         }
 
         #region Accessor
