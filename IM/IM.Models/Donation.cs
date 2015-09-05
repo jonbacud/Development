@@ -50,5 +50,8 @@ namespace IM.Models
 
         [MapField("uid")]
         public Guid Uid { get; set; }
+
+        [MapField("supplier_id")]
+        public int SupplierId { get; set; }
     }
 }

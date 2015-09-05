@@ -20,7 +20,8 @@ namespace Web.Dashboard.Shared
           ISS, // Issuance
           RCV,  //Receiving
           RRCV, // Return Receiving
-          RISS // Return Issuance
+          RISS, // Return Issuance
+          DON  // Donation
         }
 
         public enum TransactionStatus
