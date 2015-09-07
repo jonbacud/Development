@@ -101,6 +101,7 @@
                 </div>
                 <div class="cell colspan3 margin5">
                     <label style="font-weight: 600;">Issuance Date</label>
+                    
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
                         <asp:TextBox runat="server" ID="txtIssuanceDate"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>

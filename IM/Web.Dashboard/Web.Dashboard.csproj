@@ -49,6 +49,7 @@
       <HintPath>..\packages\BLToolkit.4.3.0\lib\net40\BLToolkit.4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -119,6 +120,7 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.0\lib\net40\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=8.2.14.1204, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -426,18 +428,21 @@
     </Compile>
     <Compile Include="IssuanceDetailEntry.aspx.cs">
       <DependentUpon>IssuanceDetailEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IssuanceDetailEntry.aspx.designer.cs">
       <DependentUpon>IssuanceDetailEntry.aspx</DependentUpon>
     </Compile>
     <Compile Include="IssuanceDetails.aspx.cs">
       <DependentUpon>IssuanceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IssuanceDetails.aspx.designer.cs">
       <DependentUpon>IssuanceDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="IssuanceManagementPanel.aspx.cs">
       <DependentUpon>IssuanceManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IssuanceManagementPanel.aspx.designer.cs">
       <DependentUpon>IssuanceManagementPanel.aspx</DependentUpon>
@@ -507,6 +512,7 @@
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -530,6 +536,7 @@
     </Compile>
     <Compile Include="ProcessRequest.aspx.cs">
       <DependentUpon>ProcessRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProcessRequest.aspx.designer.cs">
       <DependentUpon>ProcessRequest.aspx</DependentUpon>
@@ -671,6 +678,7 @@
     </Compile>
     <Compile Include="UserAccountManagementPanel.aspx.cs">
       <DependentUpon>UserAccountManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserAccountManagementPanel.aspx.designer.cs">
       <DependentUpon>UserAccountManagementPanel.aspx</DependentUpon>
