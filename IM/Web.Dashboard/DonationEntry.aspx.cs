@@ -14,10 +14,11 @@ namespace Web.Dashboard
     public partial class DonationEntry : Page
     {
         readonly DonationManager _donationManager = new DonationManager();
-        DepartmentManager _departmentManager = new DepartmentManager();
-        UnitManager _unitManager = new UnitManager();
-        SupplierManager _supplierManager = new SupplierManager();
-        ItemManager _itemManager = new ItemManager();
+        readonly DonationDetailsManager _donationDetailsManager = new DonationDetailsManager();
+        readonly DepartmentManager _departmentManager = new DepartmentManager();
+        readonly UnitManager _unitManager = new UnitManager();
+        readonly SupplierManager _supplierManager = new SupplierManager();
+        readonly ItemManager _itemManager = new ItemManager();
 
         public UserAccount UserAccount
         {
@@ -78,6 +79,9 @@ namespace Web.Dashboard
             DDLItems.DataValueField = "Id";
             DDLItems.DataTextField = "ItemName";
             DDLItems.DataBind();
+
+            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            txtBarcode.Text = selectedItem.BarCode;
         }
 
         private void InitUnits()
@@ -118,6 +122,15 @@ namespace Web.Dashboard
 
         protected void lnkButtonAdd_Click(object sender, EventArgs e)
         {
+            divMessageBox.Visible = false;
+            if (string.IsNullOrEmpty(txtPrice.Text) || string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                divMessageBox.Visible = true;
+                divMessageBox.Attributes.Add("class", "notify warning");
+                ltrlMessageHeader.Text = "Warning!";
+                ltrlMessage.Text = "Price is Required";
+                return;
+            }
             var items = DonationDetailItems();
             var donationItem = new DonationDetailItem
             {
@@ -134,12 +147,90 @@ namespace Web.Dashboard
             gvSelectedItems.DataSource = items;
             gvSelectedItems.DataBind();
 
+            txtTotalQuantity.Text = items.Sum(i => i.Quantity).ToString();
+
         }
 
         protected void DDLDonatedTo_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitItems();
             InitUnits();
+        }
+
+        protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var list = DonationDetailItems();
+            var row = gvSelectedItems.Rows[e.RowIndex];
+            var hfId = (HiddenField)row.FindControl("hfUniqueId");
+            var uid = Guid.Parse(hfId.Value);
+            list.RemoveAll(o => o.Uid == uid);
+
+            txtTotalQuantity.Text = list.Sum(i => i.Quantity).ToString();
+            gvSelectedItems.DataSource = DonationDetailItems();
+            gvSelectedItems.DataBind();
+        }
+
+        protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            txtBarcode.Text = selectedItem.BarCode;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtReceivedBy.Text) || string.IsNullOrWhiteSpace(txtReceivedBy.Text))
+            {
+                divMessageBox.Visible = true;
+                divMessageBox.Attributes.Add("class", "notify warning");
+                ltrlMessageHeader.Text = "Warning!";
+                ltrlMessage.Text = "Received by is Required";
+                return;    
+            }
+
+            var donationDetails = DonationDetailItems();
+            if (donationDetails.Count>0)
+            {
+                var donation = new Donation
+                {
+                    DonatedBy = DDLDonatedBy.SelectedItem.Text,
+                    SupplierId = int.Parse(DDLDonatedBy.SelectedValue),
+                    DonatedTo = DDLDonatedTo.SelectedItem.Text,
+                    DepartmentId = int.Parse(DDLDonatedTo.SelectedValue),
+                    DonationDate = DateTime.Parse(txtDonationDate.Text),
+                    DonationId = txtReferenceNumber.Text,
+                    ItemCode = "",
+                    ReceivedBy = txtReceivedBy.Text,
+                    RequisitionNumber = txtRISNumber.Text,
+                    Status = Transaction.TransactionStatus.Posted.ToString(),
+                    TotalQuantity = int.Parse(txtTotalQuantity.Text),
+                    Uid = Guid.NewGuid(),
+                    UnitCode =""
+                };
+                _donationManager.Save(donation);
+                int donationIdentity = _donationManager.Identity;
+                var  details = donationDetails.Select(donationDetail => new DonationDetail
+                {
+                    Barcode = donationDetail.Barcode, 
+                    DonationId = donationIdentity, 
+                    ItemId = donationDetail.ItemId, 
+                    Price = donationDetail.Price, 
+                    Quantity = donationDetail.Quantity, 
+                    Uid = donationDetail.Uid, 
+                    UnitId = donationDetail.UnitId
+                }).ToList();
+                _donationDetailsManager.Save(details);
+
+                btnSave.Enabled = false;
+                lnkButtonAdd.Enabled = false;
+                divMessageBox.Visible = true;
+                divMessageBox.Attributes.Add("class", "notify info");
+                ltrlMessageHeader.Text = "Saved Sucessful!";
+                ltrlMessage.Text = "New Donation Entry has been saved!";
+            }
+            else
+            {
+                
+            }
         }
     }
 }

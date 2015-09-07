@@ -20,10 +20,22 @@ namespace Web.Dashboard
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
             var userAccount = _userAccountManager.FetchByUserNameAndPassword(txtUserName.Text, txtPassword.Text);
-            if (userAccount == null) return;
-            if (userAccount.UserId <= 0) return;
-            Session["USER_ACCOUNT"] = userAccount;
-            Response.Redirect("/Default");
+            if (userAccount != null)
+            {
+                if (userAccount.UserId > 0)
+                {
+                    Session["USER_ACCOUNT"] = userAccount;
+                    Response.Redirect("/Default");
+                }
+                else
+                {
+                    divNotification.Visible = true;
+                }
+            }
+            else
+            {
+                divNotification.Visible = true;
+            }
         }
     }
 }

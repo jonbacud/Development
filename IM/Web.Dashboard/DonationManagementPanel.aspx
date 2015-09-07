@@ -83,29 +83,24 @@
                                 <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="department_id" PageSize="5" CellPadding="4" ForeColor="#333333" >
+                                    AllowSorting="True" DataKeyNames="id" PageSize="5" CellPadding="4" ForeColor="#333333" >
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <label class="input-control checkbox small-check no-margin">
-                                                    <input type="checkbox">
-                                                    <span class="check"></span>
-                                                </label>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="20px" />
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="department_id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="department_id">
-                                            <ItemStyle HorizontalAlign="Center" Width="20px" />
+                                        <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False"
+                                            ReadOnly="True" SortExpression="id">
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="department_desc" HeaderText="Description" SortExpression="department_desc"></asp:BoundField>
-                                        <asp:BoundField DataField="department_type" HeaderText="Type" SortExpression="department_type"></asp:BoundField>
-                                        <asp:BoundField DataField="department_code" HeaderText="Code" SortExpression="department_code"></asp:BoundField>
-                                        <asp:TemplateField>
+                                        <asp:BoundField DataField="df_id" HeaderText="Reference No." SortExpression="df_id"></asp:BoundField>
+                                        <asp:BoundField DataField="df_date" HeaderText="Donation Date" SortExpression="df_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
+                                        <asp:BoundField DataField="received_by" HeaderText="Received By" SortExpression="received_by" />
+                                        <asp:BoundField DataField="donated_by" HeaderText="Donated By" SortExpression="donated_by" />
+                                        <asp:BoundField DataField="donated_to" HeaderText="Donated To" SortExpression="donated_to" />
+                                        <asp:BoundField DataField="df_quantity" HeaderText="Quantity" SortExpression="df_quantity" />
+                                        <asp:BoundField DataField="df_status" HeaderText="Status" SortExpression="df_status" />
+                                        <asp:BoundField DataField="requisition_no" HeaderText="Requisition No." SortExpression="requisition_no" />
+                                          <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Department Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/department/0/"+Eval("department_id")%>'>
+                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Donation Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/donation-detail/0/"+Eval("id")%>'>
                                                              <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>
@@ -129,7 +124,7 @@
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSourceDepartments" runat="server"
                                     ConnectionString="<%$ ConnectionStrings:IMConnectionString %>"
-                                    SelectCommand="SELECT * FROM [ref_department] order by department_id desc"></asp:SqlDataSource>
+                                    SelectCommand="SELECT id, df_id, df_date, item_code, received_by, donated_by, donated_to, df_quantity, df_status, requisition_no FROM donation_forms order by id desc"></asp:SqlDataSource>
                             </div>
                         </div>
 

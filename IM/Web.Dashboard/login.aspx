@@ -67,7 +67,7 @@
                 "transition": ".5s"
             });
             $("#btnClose").click(function () {
-                $("#mssg").fadeOut("2000");
+                $("#divNotification").fadeOut("2000");
             });
         });
     </script>
@@ -75,14 +75,14 @@
 <body class="bg-lightBlue">
 
     <form runat="server" id="form1">
-        <div id="mssg" runat="server" class="flex-grid demo-grid">
+        <div runat="server" Visible="False" id="divNotification"  class="flex-grid demo-grid">
             <div class="row flex-just-center">
                 <div class="cell full-size">
                     <div class="notify alert shadow">
-                        <span class="notify-icon mif-vpn-publ"></span>
+                        <span class="notify-icon mif-warning"></span>
                         <span id="btnClose" class="notify-closer"></span>
-                        <span class="notify-title">Shadow</span>
-                        <span class="notify-text">Notify with shadow</span>
+                        <span class="notify-title">Warning</span>
+                        <span class="notify-text">Either user name or password is incorrect!</span>
                     </div>
                 </div>
             </div>
@@ -93,14 +93,14 @@
             <br />
             <div class="input-control text full-size" data-role="input">
                 <label for="txtUserName">User name:</label>
-                <asp:TextBox ClientIDMode="Static" name="user_login" runat="server" ID="txtUserName"></asp:TextBox>
+                <asp:TextBox ClientIDMode="Static" required name="user_login" runat="server" ID="txtUserName"></asp:TextBox>
                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
             </div>
             <br />
             <br />
             <div class="input-control password full-size" data-role="input">
                 <label for="txtPassword">User password:</label>
-                <asp:TextBox type="password" runat="server" ClientIDMode="Static" ID="txtPassword"></asp:TextBox>
+                <asp:TextBox type="password" required runat="server" ClientIDMode="Static" ID="txtPassword"></asp:TextBox>
                 <button class="button helper-button reveal"><span class="mif-looks"></span></button>
             </div>
             <br />

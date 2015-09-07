@@ -30,9 +30,9 @@ namespace IM.Models
         public decimal Price { get; set; }
 
         [MapField("barcode")]
-        public string Baraode { get; set; }
+        public string Barcode { get; set; }
 
         [MapField("uid")]
-        public Guid Unid { get; set; }
+        public Guid Uid { get; set; }
     }
 }

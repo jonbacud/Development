@@ -85,7 +85,6 @@
                             <span class="notify-text">
                                 <asp:Literal runat="server" ID="ltrlMessage"></asp:Literal>
                             </span>
-
                         </div>
                     </div>
                 </div>
@@ -124,7 +123,7 @@
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 700;">Total Quantity</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" Style="text-align: center;" CssClass="text-bold fg-darkRed"
+                            <asp:TextBox runat="server" required Text="0" Style="text-align: center;" CssClass="text-bold fg-darkRed"
                                 ID="txtTotalQuantity" ReadOnly="True" type="Number" ></asp:TextBox>
                         </div>
                     </div>
@@ -141,7 +140,7 @@
                      <div class="cell auto-size margin5">
                         <label style="font-weight: 700;">Recived By</label>
                         <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" ID="txtReceivedBy"></asp:TextBox>
+                            <asp:TextBox required runat="server" ID="txtReceivedBy"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -152,7 +151,7 @@
                     <div class="cell colspan4 margin5">
                         <label style="font-weight: 700;">Item</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLItems" />
+                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" OnSelectedIndexChanged="DDLItems_SelectedIndexChanged" />
                         </div>
                     </div>
                      <div class="cell colspan2 margin5">
@@ -164,19 +163,19 @@
                     <div class="cell margin5">
                         <label style="font-weight: 700;">Quantity</label>
                         <div class="input-control text full-size ">
-                          <asp:TextBox runat="server" ID="txtItemQuantity" type="Number" min="1"></asp:TextBox>
+                          <asp:TextBox runat="server" required ID="txtItemQuantity" Text="1" type="Number" min="1"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 700;">Price</label>
                         <div class="input-control text full-size ">
-                          <asp:TextBox runat="server" ID="txtPrice" ></asp:TextBox>
+                          <asp:TextBox runat="server" required Text="0.00" ID="txtPrice" ></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 700;">Barcode</label>
                         <div class="input-control text full-size ">
-                          <asp:TextBox runat="server" ID="txtBarcode"></asp:TextBox>
+                          <asp:TextBox ReadOnly="True" runat="server" ID="txtBarcode"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -197,7 +196,7 @@
                     <div class="cell auto-size">
                         <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 13px;" class="dataTable border bordered"
                             data-role="datatable" data-auto-width="false"
-                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="Item Name">
                                     <ItemTemplate>
@@ -234,7 +233,7 @@
             </div>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave"  runat="server" Text="SAVE"
-                CssClass="button primary" />
+                CssClass="button primary" OnClick="btnSave_Click" />
             <a href="/DonationManagementPanel" class="button link">
                 <span class="mif-undo">BACK TO LIST</span>
             </a>
