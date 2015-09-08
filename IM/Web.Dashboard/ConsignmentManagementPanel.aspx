@@ -58,7 +58,7 @@
             </ul>
             <h4 class="text-italic">Donation Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="donation/1/0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="consignment/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
