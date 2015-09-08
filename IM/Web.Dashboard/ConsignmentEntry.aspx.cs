@@ -40,12 +40,12 @@ namespace Web.Dashboard
             get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
-        public List<DonationDetailItem> DonationDetailItems()
+        public List<ConsignmentDetailItem> DonationDetailItems()
         {
-            var items = new List<DonationDetailItem>();
+            var items = new List<ConsignmentDetailItem>();
             if (Session["CONSIGNMENT_ITEMS"] != null)
             {
-                items = (List<DonationDetailItem>)Session["CONSIGNMENT_ITEMS"];
+                items = (List<ConsignmentDetailItem>)Session["CONSIGNMENT_ITEMS"];
             }
             else
             {
@@ -132,7 +132,7 @@ namespace Web.Dashboard
                 return;
             }
             var items = DonationDetailItems();
-            var donationItem = new DonationDetailItem
+            var donationItem = new ConsignmentDetailItem
             {
                 Barcode = txtBarcode.Text,
                 ItemId = int.Parse(DDLItems.SelectedValue),

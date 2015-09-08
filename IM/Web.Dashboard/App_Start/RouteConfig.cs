@@ -84,7 +84,7 @@ namespace Web.Dashboard
                             "~/DonationDetailEntry.aspx");
 
             routes.MapPageRoute("consignment-entry",
-                         "donation-entry/{mode}/{id}",
+                         "consignment/{mode}/{id}",
                          "~/ConsignmentEntry.aspx");
         }
     }
