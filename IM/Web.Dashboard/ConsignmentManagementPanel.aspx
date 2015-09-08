@@ -54,9 +54,9 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="/ConsignmentManagementPanel"><span class="icon mif-folder-open"></span>Donations</a></li>
+                <li><a href="/ConsignmentManagementPanel"><span class="icon mif-folder-open"></span>Consignments</a></li>
             </ul>
-            <h4 class="text-italic">Donation Management <span class="mif-file-text place-right"></span></h4>
+            <h4 class="text-italic">Consignment Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
             <asp:HyperLink class="button primary" NavigateUrl="consignment/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
@@ -80,29 +80,34 @@
                     <div class="flex-grid">
                         <div class="row">
                             <div class="cell auto-size">
-                                <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
+                                <asp:GridView GridLines="None" Font-Size="12px" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
                                     AllowSorting="True" DataKeyNames="id" PageSize="5" CellPadding="4" ForeColor="#333333">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
-                                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False"
+                                        <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="id"></asp:BoundField>
-                                        <asp:BoundField DataField="co_date" HeaderText="co_date" SortExpression="co_date"></asp:BoundField>
-                                        <asp:BoundField DataField="company_name" HeaderText="company_name" SortExpression="company_name"></asp:BoundField>
-                                        <asp:BoundField DataField="company_address" HeaderText="company_address" SortExpression="company_address" />
-                                        <asp:BoundField DataField="deliver_to" HeaderText="deliver_to" SortExpression="deliver_to" />
-                                        <asp:BoundField DataField="prepared_by" HeaderText="prepared_by" SortExpression="prepared_by" />
-                                        <asp:BoundField DataField="item_code" HeaderText="item_code" SortExpression="item_code" />
-                                        <asp:BoundField DataField="unit_code" HeaderText="unit_code" SortExpression="unit_code" />
-                                        <asp:BoundField DataField="co_quantity" HeaderText="co_quantity" SortExpression="co_quantity" />
-                                        <asp:BoundField DataField="co_id" HeaderText="co_id" SortExpression="co_id" />
-                                        <asp:BoundField DataField="based_dept_id" HeaderText="based_dept_id" SortExpression="based_dept_id" />
-                                        <asp:BoundField DataField="co_status" HeaderText="co_status" SortExpression="co_status" />
-                                        <asp:BoundField DataField="days_deliver" HeaderText="days_deliver" SortExpression="days_deliver" />
-                                        <asp:BoundField DataField="requisition_no" HeaderText="requisition_no" SortExpression="requisition_no" />
-                                        <asp:BoundField DataField="uid" HeaderText="uid" SortExpression="uid" />
-                                        <asp:BoundField DataField="supplier_id" HeaderText="supplier_id" SortExpression="supplier_id" />
+                                        <asp:BoundField DataField="co_date" HeaderText="Con. Date" SortExpression="co_date" 
+                                            DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
+                                        <asp:BoundField DataField="company_name" HeaderText="Company" SortExpression="company_name"></asp:BoundField>
+                                        <asp:BoundField DataField="company_address" HeaderText="Address" SortExpression="company_address" />
+                                        <asp:BoundField DataField="deliver_to" HeaderText="Deliver To" SortExpression="deliver_to" />
+                                        <asp:BoundField DataField="prepared_by" HeaderText="Prepared By" SortExpression="prepared_by" />
+                                        <asp:BoundField DataField="co_quantity" HeaderText="Quantity" SortExpression="co_quantity" />
+                                        <asp:BoundField DataField="co_id" HeaderText="Reference No." SortExpression="co_id" />
+                                        <asp:BoundField DataField="co_status" HeaderText="Status" SortExpression="co_status" />
+                                        <asp:BoundField DataField="days_deliver" HeaderText="Days Deliver" SortExpression="days_deliver" />
+                                        <asp:BoundField DataField="requisition_no" HeaderText="Request No." SortExpression="requisition_no" />
+                                         <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Consignment Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/consignment-detail/0/"+Eval("id")%>'>
+                                                             <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
+                                            </ItemTemplate>
+                                            <ItemStyle Width="50px" HorizontalAlign="Center" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -130,5 +135,4 @@
             </asp:UpdatePanel>
         </div>
     </div>
-    <%-- --%>
 </asp:Content>

@@ -11,7 +11,7 @@ namespace IM.BusinessLogic.DataAccess
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
 
-        [SqlQuery(@"Select top 1 id from consignment_orders order by id desc")]
+        [SqlQuery(@"Select top 1 co_id from consignment_orders order by id desc")]
         public abstract string GetLastReferenceNumber();
     }
 }

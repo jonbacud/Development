@@ -176,7 +176,7 @@ namespace Web.Dashboard
                 divMessageBox.Visible = true;
                 divMessageBox.Attributes.Add("class", "notify warning");
                 ltrlMessageHeader.Text = "Warning!";
-                ltrlMessage.Text = "Received by is Required";
+                ltrlMessage.Text = "Prepared by is Required";
                 return;
             }
 
