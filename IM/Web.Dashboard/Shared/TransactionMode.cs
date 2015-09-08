@@ -17,7 +17,9 @@
           RRCV, // Return Receiving
           RISS, // Return Issuance
           DON,  // Donation
-          CON   // Consignment
+          CON,   // Consignment
+          PO,   //Purchase Request
+          EPO  // Emergency Purchase 
         }
 
         public enum TransactionStatus

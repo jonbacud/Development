@@ -111,7 +111,7 @@ namespace Web.Dashboard
                 switch (Mode)
                 {
                     case Transaction.TransactionMode.NewEntry:
-                        txtReferenceNumber.Text = Transaction.TransactionType.DON + "-" + (_emergencyPurchaseManager.ReferenceNumber + 1);
+                        txtReferenceNumber.Text = Transaction.TransactionType.EPO + "-" + (_emergencyPurchaseManager.ReferenceNumber + 1);
                         txtEmergencyPurchaseDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
                         break;
                     case Transaction.TransactionMode.UpdateEntry:

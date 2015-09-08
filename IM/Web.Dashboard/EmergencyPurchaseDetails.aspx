@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmergencyPurchaseEntry.aspx.cs" Inherits="Web.Dashboard.EmergencyPurchaseEntry" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmergencyPurchaseDetails.aspx.cs" Inherits="Web.Dashboard.EmergencyPurchaseDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
         function showDialog(id) {
@@ -69,10 +69,10 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="/EmergencyPurchaseManagementPanel"><span class="icon mif-folder-open"></span></a></li>
-                <li><a href="#">New Emergency Purchase</a></li>
+                <li><a href="/DonationManagementPanel"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="#">New Donation</a></li>
             </ul>
-            <h4 class="text-italic">New EmergencyPurchase Entry <span class="mif-file-text place-right"></span></h4>
+            <h4 class="text-italic">New Donation Entry <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row flex-just-center">
@@ -100,7 +100,7 @@
                 <div class="cell colspan3 margin5">
                     <label style="font-weight: 600;">Purchase Date</label>
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                        <asp:TextBox runat="server" ID="txtEmergencyPurchaseDate"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtDonationDate"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
                     </div>
                 </div>
@@ -115,9 +115,9 @@
             <div class="flex-grid">
                 <div class="row ">
                     <div class="cell auto-size margin5">
-                        <label style="font-weight: 700;">Department</label>
+                        <label style="font-weight: 700;">Departments</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDepartments" OnSelectedIndexChanged="DDLDonatedTo_SelectedIndexChanged" AutoPostBack="True" />
+                            <asp:DropDownList runat="server" ID="DDLDepartments" />
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
@@ -132,56 +132,21 @@
             <div class="flex-grid">
                 <div class="row ">
                     <div class="cell auto-size margin5">
-                        <label style="font-weight: 700;">Received To</label>
+                        <label style="font-weight: 700;">Received By</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLReceivedBy" />
+                            <asp:DropDownList runat="server" ID="DDlReceivedBy" AutoPostBack="True"  />
                         </div>
                     </div>
                 </div>
             </div>
             <hr class="thin bg-lighterBlue">
             <div class="flex-grid">
-                <div class="row ">
-                    <div class="cell colspan4 margin5">
-                        <label style="font-weight: 700;">Item</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" OnSelectedIndexChanged="DDLItems_SelectedIndexChanged" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 700;">Unit</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLUnits" />
-                        </div>
-                    </div>
-                    <div class="cell margin5">
-                        <label style="font-weight: 700;">Quantity</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" required ID="txtItemQuantity" Text="1" type="Number" min="1"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 700;">Price</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" required Text="0.00" ID="txtPrice"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 700;">Barcode</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox ReadOnly="True" runat="server" ID="txtBarcode"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="flex-grid">
                 <div class="row flex-just-center">
                     <div class="cell">
-                        <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
-                            runat="server" OnClick="lnkButtonAdd_Click">
-                          <span class="mif-arrow-down"></span>Add Purchase Item
-                        </asp:LinkButton>
+                        <asp:HyperLink class="button button-shadow default" Style="width: 230px;"  
+                            NavigateUrl="" runat="server" ID="hpLinkNewDetail">
+                             <span class="mif-arrow-down">Add Purchase Item</span>
+                        </asp:HyperLink>
                     </div>
                 </div>
             </div>
@@ -190,7 +155,7 @@
                     <div class="cell auto-size">
                         <asp:GridView ID="gvSelectedItems" Style="width: 100%; font-size: 13px;" class="dataTable border bordered"
                             data-role="datatable" data-auto-width="false"
-                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnRowDeleting="gvSelectedItems_RowDeleting">
+                            runat="server" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                             <Columns>
                                 <asp:TemplateField HeaderText="Item Name">
                                     <ItemTemplate>
@@ -204,15 +169,16 @@
                                 <asp:BoundField DataField="Quantity" HeaderText="Qtty">
                                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Price" HeaderText="Price" />
+                                <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:###,##0.00}" >
+                                <ItemStyle Font-Bold="True" ForeColor="#990000" HorizontalAlign="Right" />
+                                </asp:BoundField>
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton data-role="hint" data-hint-background="bg-red"
-                                            data-hint="Remove|Remove this Item" data-hint-position="left" ID="btnLinkDelete"
-                                            OnClientClick="return confirm('Are you sure?\n You want to delete this Item?')"
-                                            runat="server" CausesValidation="False" CommandName="Delete" Text="Delete">
-                                            <span class="icon mif-arrow-up"></span>
-                                        </asp:LinkButton>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" 
+                                            data-hint-background="bg-blue" data-hint="Info.|View Donation Item Details" data-hint-position="left"
+                                                    NavigateUrl='<%# "~/donation-detail-entry/0/"+Eval("Id")%>'>
+                                                             <span class="mif-pencil"></span>
+                                                </asp:HyperLink>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" Width="50px" />
                                 </asp:TemplateField>
@@ -221,15 +187,18 @@
                                 Please select item and click add to add in the list.
                             </EmptyDataTemplate>
                         </asp:GridView>
+
                     </div>
                 </div>
             </div>
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE"
                 CssClass="button primary" OnClick="btnSave_Click" />
-            <a href="/EmergencyPurchaseManagementPanel" class="button link">
-                <span class="mif-undo">BACK TO LIST</span>
-            </a>
+              <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                 data-hint="Delete|Delete this Donation" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
+             <asp:HyperLink class="button link" runat="server" ID="hpLinkBack">
+                  <span class="mif-undo">BACK TO LIST</span>
+             </asp:HyperLink>
             <hr class="thin bg-grayLighter">
         </div>
     </div>

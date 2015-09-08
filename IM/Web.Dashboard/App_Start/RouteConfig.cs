@@ -99,6 +99,10 @@ namespace Web.Dashboard
                         "emergencypurchase/{mode}/{id}",
                         "~/EmergencyPurchaseEntry.aspx");
 
+            routes.MapPageRoute("emergencypurchase-detail",
+                 "emergencypurchase-detail/{mode}/{id}",
+                 "~/EmergencyPurchaseDetails.aspx");
+
         }
     }
 }
