@@ -47,6 +47,8 @@
     <Compile Include="DataAccess\BarcodeAccessor.cs" />
     <Compile Include="DataAccess\BinAccessor.cs" />
     <Compile Include="DataAccess\CategoryAccessor.cs" />
+    <Compile Include="DataAccess\ConsignmentOrderAccessor.cs" />
+    <Compile Include="DataAccess\ConsignmentOrderDetailAccessor.cs" />
     <Compile Include="DataAccess\DepartmentAccessor.cs" />
     <Compile Include="DataAccess\DonationAccessor.cs" />
     <Compile Include="DataAccess\DonationDetailAccessor.cs" />
@@ -72,6 +74,8 @@
     <Compile Include="DataManager\BarcodeManager.cs" />
     <Compile Include="DataManager\BinManager.cs" />
     <Compile Include="DataManager\CategoryManager.cs" />
+    <Compile Include="DataManager\ConsignmentOrderDetailManager.cs" />
+    <Compile Include="DataManager\ConsignmentOrderManager.cs" />
     <Compile Include="DataManager\DepartmentManager.cs" />
     <Compile Include="DataManager\DonationDetailsManager.cs" />
     <Compile Include="DataManager\DonationManager.cs" />

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DonationManagementPanel.aspx.cs" Inherits="Web.Dashboard.DonationManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -72,7 +73,7 @@
                     <div class="row">
                         <div class="cell colspan5">
                             <div class="input-control text full-size" data-role="input">
-                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True" ></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtSearch" placeholder="Search..." AutoPostBack="True"></asp:TextBox>
                                 <button class="button"><span class="mif-search"></span></button>
                             </div>
                         </div>
@@ -83,12 +84,11 @@
                                 <asp:GridView GridLines="None" ID="gvDepartments" class="dataTable border bordered" data-role="datatable"
                                     data-auto-width="false"
                                     runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceDepartments" AllowPaging="True"
-                                    AllowSorting="True" DataKeyNames="id" PageSize="5" CellPadding="4" ForeColor="#333333" >
+                                    AllowSorting="True" DataKeyNames="id" PageSize="5" CellPadding="4" ForeColor="#333333">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False"
-                                            ReadOnly="True" SortExpression="id">
-                                        </asp:BoundField>
+                                            ReadOnly="True" SortExpression="id"></asp:BoundField>
                                         <asp:BoundField DataField="df_id" HeaderText="Reference No." SortExpression="df_id"></asp:BoundField>
                                         <asp:BoundField DataField="df_date" HeaderText="Donation Date" SortExpression="df_date" DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
                                         <asp:BoundField DataField="received_by" HeaderText="Received By" SortExpression="received_by" />
@@ -97,7 +97,7 @@
                                         <asp:BoundField DataField="df_quantity" HeaderText="Quantity" SortExpression="df_quantity" />
                                         <asp:BoundField DataField="df_status" HeaderText="Status" SortExpression="df_status" />
                                         <asp:BoundField DataField="requisition_no" HeaderText="Requisition No." SortExpression="requisition_no" />
-                                          <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Donation Details" data-hint-position="left"
                                                     NavigateUrl='<%# "~/donation-detail/0/"+Eval("id")%>'>

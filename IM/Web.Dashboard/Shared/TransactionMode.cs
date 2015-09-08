@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web.Dashboard.Shared
+﻿namespace Web.Dashboard.Shared
 {
     public static class Transaction
     {
@@ -21,7 +16,8 @@ namespace Web.Dashboard.Shared
           RCV,  //Receiving
           RRCV, // Return Receiving
           RISS, // Return Issuance
-          DON  // Donation
+          DON,  // Donation
+          CON   // Consignment
         }
 
         public enum TransactionStatus
