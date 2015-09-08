@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
 using Web.Dashboard.ModelViews;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -38,6 +39,8 @@ namespace Web.Dashboard
             {
                 InitDepartments();
                 InitItems();
+
+                txtReferenceNumber.Text = Transaction.TransactionType.PO + "-" + (_purchaseRequestManager.ReferenceNumber + 1);
                 txtRequestDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
 
                 gvSelectedItems.DataSource = RequestItems();
