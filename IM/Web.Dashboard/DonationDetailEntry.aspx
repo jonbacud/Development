@@ -70,6 +70,7 @@
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
                 <li><a href="/DonationManagementPanel"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="#">Donation</a></li>
                 <li><a href="#">New Donation Detail</a></li>
             </ul>
             <h4 class="text-italic">New Donation Detail Entry<span class="mif-file-text place-right"></span></h4>
