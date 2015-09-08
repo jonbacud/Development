@@ -13,8 +13,9 @@ namespace Web.Dashboard
 {
     public partial class ConsignmentEntry : System.Web.UI.Page
     {
-        readonly DonationManager _donationManager = new DonationManager();
-        readonly DonationDetailsManager _donationDetailsManager = new DonationDetailsManager();
+        readonly ConsignmentOrderManager _consignmentOrderManager = new ConsignmentOrderManager();
+        readonly ConsignmentOrderDetailManager _consignmentOrderDetailManager = new ConsignmentOrderDetailManager();
+
         readonly DepartmentManager _departmentManager = new DepartmentManager();
         readonly UnitManager _unitManager = new UnitManager();
         readonly SupplierManager _supplierManager = new SupplierManager();
@@ -74,14 +75,18 @@ namespace Web.Dashboard
 
         private void InitItems()
         {
+            InitItemList();
+            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            txtBarcode.Text = selectedItem.BarCode;
+        }
+
+        private void InitItemList()
+        {
             var items = _itemManager.FetchAll(int.Parse(DDLDeliverTo.SelectedValue));
             DDLItems.DataSource = items;
             DDLItems.DataValueField = "Id";
             DDLItems.DataTextField = "ItemName";
             DDLItems.DataBind();
-
-            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
-            txtBarcode.Text = selectedItem.BarCode;
         }
 
         private void InitUnits()
@@ -111,7 +116,7 @@ namespace Web.Dashboard
                 switch (Mode)
                 {
                     case Transaction.TransactionMode.NewEntry:
-                        txtReferenceNumber.Text = Transaction.TransactionType.DON + "-" + (_donationManager.ReferenceNumber + 1);
+                        txtReferenceNumber.Text = Transaction.TransactionType.CON + "-" + (_consignmentOrderManager.ReferenceNumber + 1);
                         txtDonationDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
                         break;
                     case Transaction.TransactionMode.UpdateEntry:
@@ -151,12 +156,6 @@ namespace Web.Dashboard
 
         }
 
-        protected void DDLDonatedTo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            InitItems();
-            InitUnits();
-        }
-
         protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             var list = DonationDetailItems();
@@ -168,12 +167,6 @@ namespace Web.Dashboard
             txtTotalQuantity.Text = list.Sum(i => i.Quantity).ToString();
             gvSelectedItems.DataSource = DonationDetailItems();
             gvSelectedItems.DataBind();
-        }
-
-        protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
-            txtBarcode.Text = selectedItem.BarCode;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -190,8 +183,6 @@ namespace Web.Dashboard
             var donationDetails = DonationDetailItems();
             if (donationDetails.Count > 0)
             {
-               
-
                 btnSave.Enabled = false;
                 lnkButtonAdd.Enabled = false;
                 divMessageBox.Visible = true;
@@ -207,6 +198,18 @@ namespace Web.Dashboard
                 ltrlMessageHeader.Text = "Warning!";
                 ltrlMessage.Text = "No Item to be add!";
             }
+        }
+
+        protected void DDLDeliverTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitItemList();
+            InitUnits();
+        }
+
+        protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            txtBarcode.Text = selectedItem.BarCode;
         }
     }
 }

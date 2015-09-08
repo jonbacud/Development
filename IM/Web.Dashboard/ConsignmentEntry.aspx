@@ -118,7 +118,7 @@
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 700;">Deliver To</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDeliverTo" AutoPostBack="True" />
+                            <asp:DropDownList runat="server" ID="DDLDeliverTo" AutoPostBack="True" OnSelectedIndexChanged="DDLDeliverTo_SelectedIndexChanged" />
                         </div>
                     </div>
                     <div class="cell auto-size margin5">
@@ -153,7 +153,7 @@
                     <div class="cell colspan4 margin5">
                         <label style="font-weight: 700;">Item</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" />
+                            <asp:DropDownList runat="server" ID="DDLItems" AutoPostBack="True" OnSelectedIndexChanged="DDLItems_SelectedIndexChanged" />
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
