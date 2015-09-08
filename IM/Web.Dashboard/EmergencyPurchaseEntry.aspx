@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsignmentEntry.aspx.cs" Inherits="Web.Dashboard.ConsignmentEntry" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmergencyPurchaseEntry.aspx.cs" Inherits="Web.Dashboard.EmergencyPurchaseEntry" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
         function showDialog(id) {
@@ -70,10 +69,10 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="/ConsignmentManagementPanel"><span class="icon mif-folder-open"></span></a></li>
-                <li><a href="#">New Consignment</a></li>
+                <li><a href="/EmergencyPurchaseManagementPanel"><span class="icon mif-folder-open"></span></a></li>
+                <li><a href="#">New Emergency Purchase</a></li>
             </ul>
-            <h4 class="text-italic">New Consignment Entry <span class="mif-file-text place-right"></span></h4>
+            <h4 class="text-italic">New EmergencyPurchase Entry <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
             <div class="flex-grid">
                 <div class="row flex-just-center">
@@ -99,9 +98,9 @@
                     </div>
                 </div>
                 <div class="cell colspan3 margin5">
-                    <label style="font-weight: 600;">Consignment Date</label>
+                    <label style="font-weight: 600;">Purchase Date</label>
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                        <asp:TextBox runat="server" ID="txtDonationDate"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtEmergencyPurchaseDate"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
                     </div>
                 </div>
@@ -116,31 +115,9 @@
             <div class="flex-grid">
                 <div class="row ">
                     <div class="cell auto-size margin5">
-                        <label style="font-weight: 700;">Deliver To</label>
+                        <label style="font-weight: 700;">Department</label>
                         <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLDeliverTo" AutoPostBack="True" OnSelectedIndexChanged="DDLDeliverTo_SelectedIndexChanged" />
-                        </div>
-                    </div>
-                    <div class="cell auto-size margin5">
-                        <label style="font-weight: 700;">Prepared By</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox required runat="server" ID="txtPreparedBy"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-grid">
-                <div class="row ">
-                    <div class="cell auto-size margin5">
-                        <label style="font-weight: 700;">Company</label>
-                        <div class="input-control text full-size ">
-                            <asp:DropDownList runat="server" ID="DDLCompanies" />
-                        </div>
-                    </div>
-                    <div class="cell colspan2 margin5">
-                        <label style="font-weight: 700;">Days Deliver</label>
-                        <div class="input-control text full-size ">
-                            <asp:TextBox runat="server" required ID="txtDaysDeliver" Text="1" type="Number" min="1"></asp:TextBox>
+                            <asp:DropDownList runat="server" ID="DDLDepartments" OnSelectedIndexChanged="DDLDonatedTo_SelectedIndexChanged" AutoPostBack="True" />
                         </div>
                     </div>
                     <div class="cell colspan2 margin5">
@@ -152,7 +129,16 @@
                     </div>
                 </div>
             </div>
-
+            <div class="flex-grid">
+                <div class="row ">
+                    <div class="cell auto-size margin5">
+                        <label style="font-weight: 700;">Received To</label>
+                        <div class="input-control text full-size ">
+                            <asp:DropDownList runat="server" ID="DDLReceivedBy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <hr class="thin bg-lighterBlue">
             <div class="flex-grid">
                 <div class="row ">
@@ -168,7 +154,6 @@
                             <asp:DropDownList runat="server" ID="DDLUnits" />
                         </div>
                     </div>
-
                     <div class="cell margin5">
                         <label style="font-weight: 700;">Quantity</label>
                         <div class="input-control text full-size ">
@@ -195,7 +180,7 @@
                     <div class="cell">
                         <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
                             runat="server" OnClick="lnkButtonAdd_Click">
-                          <span class="mif-arrow-down"></span>Add Consignment Item
+                          <span class="mif-arrow-down"></span>Add Donation Item
                         </asp:LinkButton>
                     </div>
                 </div>
@@ -242,7 +227,7 @@
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE"
                 CssClass="button primary" OnClick="btnSave_Click" />
-            <a href="/ConsignmentManagementPanel" class="button link">
+            <a href="/EmergencyPurchaseManagementPanel" class="button link">
                 <span class="mif-undo">BACK TO LIST</span>
             </a>
             <hr class="thin bg-grayLighter">

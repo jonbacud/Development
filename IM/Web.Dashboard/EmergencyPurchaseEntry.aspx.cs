@@ -11,10 +11,10 @@ using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
-    public partial class ConsignmentEntry : System.Web.UI.Page
+    public partial class EmergencyPurchaseEntry : System.Web.UI.Page
     {
-        readonly ConsignmentOrderManager _consignmentOrderManager = new ConsignmentOrderManager();
-        readonly ConsignmentOrderDetailManager _consignmentOrderDetailManager = new ConsignmentOrderDetailManager();
+        readonly EmergencyPurchaseManager _emergencyPurchaseManager = new EmergencyPurchaseManager();
+        readonly EmergencyPurchaseDetailManager _emergencyPurchaseDetailManager = new EmergencyPurchaseDetailManager();
 
         readonly DepartmentManager _departmentManager = new DepartmentManager();
         readonly UnitManager _unitManager = new UnitManager();
@@ -31,7 +31,7 @@ namespace Web.Dashboard
             }
         }
 
-        public int DepartmentId
+        public int EmergencyPurchasetId
         {
             get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
@@ -41,16 +41,16 @@ namespace Web.Dashboard
             get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
-        public List<ConsignmentDetailItem> ConsignmentDetailItems()
+        public List<EmergencyPurchaseDetailItem> DonationDetailItems()
         {
-            var items = new List<ConsignmentDetailItem>();
-            if (Session["CONSIGNMENT_ITEMS"] != null)
+            var items = new List<EmergencyPurchaseDetailItem>();
+            if (Session["EP_ITEMS"] != null)
             {
-                items = (List<ConsignmentDetailItem>)Session["CONSIGNMENT_ITEMS"];
+                items = (List<EmergencyPurchaseDetailItem>)Session["EP_ITEMS"];
             }
             else
             {
-                Session["CONSIGNMENT_ITEMS"] = items;
+                Session["EP_ITEMS"] = items;
             }
             return items;
         }
@@ -58,44 +58,36 @@ namespace Web.Dashboard
         private void InitDepartments()
         {
             var departments = _departmentManager.FetchAll();
-            DDLDeliverTo.DataSource = departments;
-            DDLDeliverTo.DataTextField = "Description";
-            DDLDeliverTo.DataValueField = "Id";
-            DDLDeliverTo.DataBind();
-            DDLDeliverTo.SelectedIndex = 0;
+            DDLReceivedBy.DataSource = departments;
+            DDLReceivedBy.DataTextField = "Description";
+            DDLReceivedBy.DataValueField = "Id";
+            DDLReceivedBy.DataBind();
+            DDLDepartments.DataSource = departments;
+            DDLDepartments.DataTextField = "Description";
+            DDLDepartments.DataValueField = "Id";
+            DDLDepartments.DataBind();
         }
 
-        private void InitSuppliers()
-        {
-            var suppliers = _supplierManager.FetchAll().Where(s => s.DepartmentId.Equals(UserAccount.DeaprtmentId));
-            DDLCompanies.DataSource = suppliers;
-            DDLCompanies.DataTextField = "Name";
-            DDLCompanies.DataValueField = "Id";
-            DDLCompanies.DataBind();
-        }
 
         private void InitItems()
         {
-            InitItemList();
+            InitItemsList();
             var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
             txtBarcode.Text = selectedItem.BarCode;
         }
 
-        private void InitItemList()
+        private void InitItemsList()
         {
-            if (!string.IsNullOrEmpty(DDLDeliverTo.SelectedValue) || !string.IsNullOrWhiteSpace(DDLDeliverTo.SelectedValue))
-            {
-                var items = _itemManager.FetchAll(int.Parse(DDLDeliverTo.SelectedValue));
-                DDLItems.DataSource = items;
-                DDLItems.DataValueField = "Id";
-                DDLItems.DataTextField = "ItemName";
-                DDLItems.DataBind();
-            }
+            var items = _itemManager.FetchAll(int.Parse(DDLDepartments.SelectedValue));
+            DDLItems.DataSource = items;
+            DDLItems.DataValueField = "Id";
+            DDLItems.DataTextField = "ItemName";
+            DDLItems.DataBind();
         }
 
         private void InitUnits()
         {
-            var items = _unitManager.FetchAll(int.Parse(DDLDeliverTo.SelectedValue));
+            var items = _unitManager.FetchAll(int.Parse(DDLDepartments.SelectedValue));
             DDLUnits.DataSource = items;
             DDLUnits.DataValueField = "Id";
             DDLUnits.DataTextField = "Description";
@@ -104,7 +96,6 @@ namespace Web.Dashboard
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            InitSuppliers();
             InitDepartments();
             InitItems();
             InitUnits();
@@ -114,14 +105,14 @@ namespace Web.Dashboard
         {
             if (!IsPostBack)
             {
-                gvSelectedItems.DataSource = ConsignmentDetailItems();
+                gvSelectedItems.DataSource = DonationDetailItems();
                 gvSelectedItems.DataBind();
 
                 switch (Mode)
                 {
                     case Transaction.TransactionMode.NewEntry:
-                        txtReferenceNumber.Text = Transaction.TransactionType.CON + "-" + (_consignmentOrderManager.ReferenceNumber + 1);
-                        txtDonationDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+                        txtReferenceNumber.Text = Transaction.TransactionType.DON + "-" + (_emergencyPurchaseManager.ReferenceNumber + 1);
+                        txtEmergencyPurchaseDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
                         break;
                     case Transaction.TransactionMode.UpdateEntry:
                         break;
@@ -140,8 +131,8 @@ namespace Web.Dashboard
                 ltrlMessage.Text = "Price is Required";
                 return;
             }
-            var items = ConsignmentDetailItems();
-            var donationItem = new ConsignmentDetailItem
+            var items = DonationDetailItems();
+            var donationItem = new EmergencyPurchaseDetailItem
             {
                 Barcode = txtBarcode.Text,
                 ItemId = int.Parse(DDLItems.SelectedValue),
@@ -160,74 +151,71 @@ namespace Web.Dashboard
 
         }
 
+        protected void DDLDonatedTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitItemsList();
+            InitUnits();
+        }
+
         protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            var list = ConsignmentDetailItems();
+            var list = DonationDetailItems();
             var row = gvSelectedItems.Rows[e.RowIndex];
             var hfId = (HiddenField)row.FindControl("hfUniqueId");
             var uid = Guid.Parse(hfId.Value);
             list.RemoveAll(o => o.Uid == uid);
 
             txtTotalQuantity.Text = list.Sum(i => i.Quantity).ToString();
-            gvSelectedItems.DataSource = ConsignmentDetailItems();
+            gvSelectedItems.DataSource = DonationDetailItems();
             gvSelectedItems.DataBind();
+        }
+
+        protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
+            txtBarcode.Text = selectedItem.BarCode;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPreparedBy.Text) || string.IsNullOrWhiteSpace(txtPreparedBy.Text))
-            {
-                divMessageBox.Visible = true;
-                divMessageBox.Attributes.Add("class", "notify warning");
-                ltrlMessageHeader.Text = "Warning!";
-                ltrlMessage.Text = "Prepared by is Required";
-                return;
-            }
 
-            var donationDetails = ConsignmentDetailItems();
-            var supplier = _supplierManager.FetchById(int.Parse(DDLCompanies.SelectedValue));
+            var donationDetails = DonationDetailItems();
             if (donationDetails.Count > 0)
             {
-                var consignment = new ConsignmentOrder
+                var emergencyPurchase = new EmergencyPurchase
                 {
-                    SupplierId = int.Parse(DDLCompanies.SelectedValue),
-                    DepartmentId = int.Parse(DDLDeliverTo.SelectedValue),
-                    ConsignmentDate = DateTime.Parse(txtDonationDate.Text),
+                    DepartmentId = int.Parse(DDLDepartments.SelectedValue),
                     ItemCode = "",
+                    ReceivedBy = DDLReceivedBy.SelectedItem.Text,
                     RequisitionNumber = txtRISNumber.Text,
+                    Status = Transaction.TransactionStatus.Posted.ToString(),
                     TotalQuantity = int.Parse(txtTotalQuantity.Text),
                     Uid = Guid.NewGuid(),
                     UnitCode = "",
-                    CompanyAddress = supplier.Address,
-                    CompanyName = supplier.Name,
-                    ConsignmentId = txtReferenceNumber.Text,
-                    ConsignmentStatus = Transaction.TransactionStatus.Posted.ToString(),
-                    DaysDeliver = int.Parse(txtDaysDeliver.Text),
-                    DeliverTo = DDLDeliverTo.SelectedItem.Text,
-                    PreparedBy = txtPreparedBy.Text
+                    EmergencyPurchaseDate = DateTime.Parse(txtEmergencyPurchaseDate.Text),
+                    EmergencyPurchaseId = txtReferenceNumber.Text
                 };
-                _consignmentOrderManager.Save(consignment);
-                int consignmentIdentity = _consignmentOrderManager.Identity;
-                var details = donationDetails.Select(donationDetail => new ConsignmentOrderDetail
+                _emergencyPurchaseManager.Save(emergencyPurchase);
+                int emergencyPurchaseIdentity = _emergencyPurchaseManager.Identity;
+                var details = donationDetails.Select(donationDetail => new EmergencyPurchaseDetail
                 {
                     Barcode = donationDetail.Barcode,
+                    EmergencyPurchaseId = emergencyPurchaseIdentity,
                     ItemId = donationDetail.ItemId,
                     Price = donationDetail.Price,
                     Quantity = donationDetail.Quantity,
                     Uid = donationDetail.Uid,
-                    UnitId = donationDetail.UnitId,
-                    ConsignmentId = consignmentIdentity
+                    UnitId = donationDetail.UnitId
                 }).ToList();
-
-                _consignmentOrderDetailManager.Save(details);
+                _emergencyPurchaseDetailManager.Save(details);
 
                 btnSave.Enabled = false;
                 lnkButtonAdd.Enabled = false;
                 divMessageBox.Visible = true;
                 divMessageBox.Attributes.Add("class", "notify info");
                 ltrlMessageHeader.Text = "Saved Sucessful!";
-                ltrlMessage.Text = "New Consignment Entry has been saved!";
-                Session.Remove("CONSIGNMENT_ITEMS");
+                ltrlMessage.Text = "New Emergency Purchase has been saved!";
+                Session.Remove("EP_ITEMS");
             }
             else
             {
@@ -235,21 +223,6 @@ namespace Web.Dashboard
                 divMessageBox.Attributes.Add("class", "notify warning");
                 ltrlMessageHeader.Text = "Warning!";
                 ltrlMessage.Text = "No Item to be add!";
-            }
-        }
-
-        protected void DDLDeliverTo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            InitItemList();
-            InitUnits();
-        }
-
-        protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DDLItems.Items.Count>0)
-            {
-                var selectedItem = _itemManager.FetchById(int.Parse(DDLItems.SelectedValue));
-                txtBarcode.Text = selectedItem.BarCode;
             }
         }
     }

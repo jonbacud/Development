@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsignmentManagementPanel.aspx.cs" Inherits="Web.Dashboard.ConsignmentManagementPanel" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmergencyPurchaseManagementPanel.aspx.cs" Inherits="Web.Dashboard.EmergencyPurchaseManagementPanel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -54,11 +54,11 @@
         </div>
         <div class="cell auto-size padding20 bg-white" id="cell-content">
             <ul class="breadcrumbs2 small">
-                <li><a href="/ConsignmentManagementPanel"><span class="icon mif-folder-open"></span>Consignements</a></li>
+                <li><a href="/EmergencyPurchaseManagementPanel"><span class="icon mif-folder-open"></span>Emergency Purchases</a></li>
             </ul>
-            <h4 class="text-italic">Consignment Management <span class="mif-file-text place-right"></span></h4>
+            <h4 class="text-italic">Emergency Purchases Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="consignment/1/0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="emergencypurchase/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -88,21 +88,16 @@
                                     <Columns>
                                         <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="id"></asp:BoundField>
-                                        <asp:BoundField DataField="co_date" HeaderText="Con. Date" SortExpression="co_date" 
-                                            DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
-                                        <asp:BoundField DataField="company_name" HeaderText="Company" SortExpression="company_name"></asp:BoundField>
-                                        <asp:BoundField DataField="company_address" HeaderText="Address" SortExpression="company_address" />
-                                        <asp:BoundField DataField="deliver_to" HeaderText="Deliver To" SortExpression="deliver_to" />
-                                        <asp:BoundField DataField="prepared_by" HeaderText="Prepared By" SortExpression="prepared_by" />
-                                        <asp:BoundField DataField="co_quantity" HeaderText="Quantity" SortExpression="co_quantity" />
-                                        <asp:BoundField DataField="co_id" HeaderText="Reference No." SortExpression="co_id" />
-                                        <asp:BoundField DataField="co_status" HeaderText="Status" SortExpression="co_status" />
-                                        <asp:BoundField DataField="days_deliver" HeaderText="Days Deliver" SortExpression="days_deliver" />
-                                        <asp:BoundField DataField="requisition_no" HeaderText="Request No." SortExpression="requisition_no" />
+                                        <asp:BoundField DataField="ep_id" HeaderText="Reference No." SortExpression="ep_id"></asp:BoundField>
+                                        <asp:BoundField DataField="ep_date" HeaderText="Date" SortExpression="ep_date"></asp:BoundField>
+                                        <asp:BoundField DataField="received_by" HeaderText="Received By" SortExpression="received_by" />
+                                        <asp:BoundField DataField="ep_quantity" HeaderText="Quantity" SortExpression="ep_quantity" />
+                                        <asp:BoundField DataField="ep_status" HeaderText="Status" SortExpression="ep_status" />
+                                        <asp:BoundField DataField="requisition_no" HeaderText="Requisition No." SortExpression="requisition_no" />
                                          <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Consignment Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/consignment-detail/0/"+Eval("id")%>'>
+                                                    NavigateUrl='<%# "~/emergencypurchase-detail/0/"+Eval("id")%>'>
                                                              <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>
@@ -126,7 +121,7 @@
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSourceDepartments" runat="server"
                                     ConnectionString="<%$ ConnectionStrings:IMConnectionString %>"
-                                    SelectCommand="SELECT consignment_orders.* FROM consignment_orders"></asp:SqlDataSource>
+                                    SelectCommand="SELECT emergency_purchases.* FROM emergency_purchases order by id desc"></asp:SqlDataSource>
                             </div>
                         </div>
 

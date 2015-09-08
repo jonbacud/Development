@@ -95,6 +95,10 @@ namespace Web.Dashboard
                           "consignment-detail-entry/{mode}/{id}",
                           "~/ConsignmentDetailEntry.aspx");
 
+            routes.MapPageRoute("emergencypurchase-entry",
+                        "emergencypurchase/{mode}/{id}",
+                        "~/EmergencyPurchaseEntry.aspx");
+
         }
     }
 }
