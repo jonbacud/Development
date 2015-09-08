@@ -90,6 +90,11 @@ namespace Web.Dashboard
             routes.MapPageRoute("consignment-detail",
                       "consignment-detail/{mode}/{id}",
                       "~/ConsignmentDetails.aspx");
+
+            routes.MapPageRoute("consignment-detail-entry",
+                          "consignment-detail-entry/{mode}/{id}",
+                          "~/ConsignmentDetailEntry.aspx");
+
         }
     }
 }

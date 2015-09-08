@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
-using Web.Dashboard.ModelViews;
 using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
-    public partial class DonationDetailEntry : System.Web.UI.Page
+    public partial class ConsignmentDetailEntry : System.Web.UI.Page
     {
-        readonly DonationManager _donationManager = new DonationManager();
-        readonly DonationDetailsManager _donationDetailsManager = new DonationDetailsManager();
+        readonly ConsignmentOrderManager _consignmentOrderManager = new ConsignmentOrderManager();
+        readonly ConsignmentOrderDetailManager _consignmentOrderDetailManager = new ConsignmentOrderDetailManager();
         readonly UnitManager _unitManager = new UnitManager();
         readonly ItemManager _itemManager = new ItemManager();
 
@@ -29,11 +27,11 @@ namespace Web.Dashboard
             }
         }
 
-        public int DonationDetailId
+        public int ConsignmentDetailId
         {
             get
             {
-                if (Mode==Transaction.TransactionMode.NewEntry)
+                if (Mode == Transaction.TransactionMode.NewEntry)
                 {
                     return 0;
                 }
@@ -41,26 +39,26 @@ namespace Web.Dashboard
             }
         }
 
-        public int DonationId
+        public int ConsignmentOrderId
         {
             get
             {
-                if (Mode==Transaction.TransactionMode.NewEntry)
+                if (Mode == Transaction.TransactionMode.NewEntry)
                 {
                     return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString());
                 }
-                return DonationDetail.DonationId;
+                return ConsignmentOrderDetail.ConsignmentId;
             }
         }
 
-        public DonationDetail DonationDetail
+        public ConsignmentOrderDetail ConsignmentOrderDetail
         {
-            get { return _donationDetailsManager.FetchById(DonationDetailId); }
+            get { return _consignmentOrderDetailManager.FetchById(ConsignmentDetailId); }
         }
 
-        public Donation Donation
+        public ConsignmentOrder ConsignmentOrder
         {
-            get { return _donationManager.FetchById(DonationId); }
+            get { return _consignmentOrderManager.FetchById(ConsignmentOrderId); }
         }
 
         public Transaction.TransactionMode Mode
@@ -71,7 +69,7 @@ namespace Web.Dashboard
 
         private void InitItems()
         {
-            var items = _itemManager.FetchAll(Donation.DepartmentId);
+            var items = _itemManager.FetchAll(ConsignmentOrder.DepartmentId);
             DDLItems.DataSource = items;
             DDLItems.DataValueField = "Id";
             DDLItems.DataTextField = "ItemName";
@@ -83,7 +81,7 @@ namespace Web.Dashboard
 
         private void InitUnits()
         {
-            var items = _unitManager.FetchAll(Donation.DepartmentId);
+            var items = _unitManager.FetchAll(ConsignmentOrder.DepartmentId);
             DDLUnits.DataSource = items;
             DDLUnits.DataValueField = "Id";
             DDLUnits.DataTextField = "Description";
@@ -98,26 +96,27 @@ namespace Web.Dashboard
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
-                txtReferenceNumber.Text = Donation.DonationId;
-                txtTotalQuantity.Text = Donation.TotalQuantity.ToString();
-                txtDonationDate.Text = Donation.DonationDate.ToString("MMM dd, yyyy");
-                txtReceivedBy.Text = Donation.ReceivedBy;
-                txtRISNumber.Text = Donation.RequisitionNumber;
-                txtDonatedBy.Text = Donation.DonatedBy;
-                txtDonatedTo.Text = Donation.DonatedTo;
-                hpLinkBack.NavigateUrl = "/donation-detail/0/" + Donation.Id;
+                txtReferenceNumber.Text = ConsignmentOrder.ConsignmentId;
+                txtTotalQuantity.Text = ConsignmentOrder.TotalQuantity.ToString();
+                txtDonationDate.Text = ConsignmentOrder.ConsignmentDate.ToString("MMM dd, yyyy");
+                txtDeliverTo.Text = ConsignmentOrder.DeliverTo;
+                txtRISNumber.Text = ConsignmentOrder.RequisitionNumber;
+                txtCompany.Text = ConsignmentOrder.CompanyName;
+                txtPreparedBy.Text = ConsignmentOrder.PreparedBy;
+                txtDaysDeliver.Text = ConsignmentOrder.DaysDeliver.ToString();
+                hpLinkBack.NavigateUrl = "/consignment-detail/0/" + ConsignmentOrder.Id;
                 switch (Mode)
                 {
                     case Transaction.TransactionMode.NewEntry:
                         break;
                     case Transaction.TransactionMode.UpdateEntry:
-                        DDLItems.SelectedValue = DonationDetail.ItemId.ToString();
-                        DDLUnits.SelectedValue = DonationDetail.UnitId.ToString();
-                        txtBarcode.Text = DonationDetail.Barcode;
-                        txtItemQuantity.Text = DonationDetail.Quantity.ToString();
-                        txtPrice.Text = DonationDetail.Price.ToString("##0.00");
+                        DDLItems.SelectedValue = ConsignmentOrderDetail.ItemId.ToString();
+                        DDLUnits.SelectedValue = ConsignmentOrderDetail.UnitId.ToString();
+                        txtBarcode.Text = ConsignmentOrderDetail.Barcode;
+                        txtItemQuantity.Text = ConsignmentOrderDetail.Quantity.ToString();
+                        txtPrice.Text = ConsignmentOrderDetail.Price.ToString("##0.00");
                         btnDelete.Visible = true;
                         break;
                 }
@@ -138,11 +137,11 @@ namespace Web.Dashboard
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var donationDetail = new DonationDetail
+            var donationDetail = new ConsignmentOrderDetail
             {
                 Barcode = txtBarcode.Text,
-                DonationId = Donation.Id,
-                Id = DonationDetailId,
+                ConsignmentId = ConsignmentOrder.Id,
+                Id = ConsignmentDetailId,
                 ItemId = int.Parse(DDLItems.SelectedValue),
                 Price = decimal.Parse(txtPrice.Text),
                 Quantity = int.Parse(txtItemQuantity.Text),
@@ -150,32 +149,33 @@ namespace Web.Dashboard
                 UnitId = int.Parse(DDLUnits.SelectedValue)
             };
 
-            _donationDetailsManager.Save(donationDetail);
-            var donation = Donation;
-            donation.TotalQuantity = _donationDetailsManager.FetchAll(Donation.Id).Sum(dd=>dd.Quantity);
-            _donationManager.Save(donation);
-            txtTotalQuantity.Text = donation.TotalQuantity.ToString();
+            _consignmentOrderDetailManager.Save(donationDetail);
+            var consignment = ConsignmentOrder;
+            consignment.TotalQuantity = _consignmentOrderDetailManager.FetchAll(ConsignmentOrder.Id).Sum(dd => dd.Quantity);
+            _consignmentOrderManager.Save(consignment);
+            txtTotalQuantity.Text = consignment.TotalQuantity.ToString();
             divMessageBox.Visible = true;
             divMessageBox.Attributes.Add("class", "notify info");
             ltrlMessageHeader.Text = "Saved Sucessful!";
-            ltrlMessage.Text = "Donation Detail Entry has been saved!";
+            ltrlMessage.Text = "Consignment Detail Entry has been saved!";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            var donation = Donation;
-            donation.TotalQuantity = _donationDetailsManager.FetchAll(Donation.Id).Sum(dd => dd.Quantity)-DonationDetail.Quantity;
-            _donationManager.Save(donation);
-            txtTotalQuantity.Text = donation.TotalQuantity.ToString();
-            var donationDetailToDelete = new DonationDetail
+            var consignment = ConsignmentOrder;
+            consignment.TotalQuantity = _consignmentOrderDetailManager.FetchAll(ConsignmentOrder.Id)
+                .Sum(dd => dd.Quantity) - ConsignmentOrderDetail.Quantity;
+            _consignmentOrderManager.Save(consignment);
+            txtTotalQuantity.Text = consignment.TotalQuantity.ToString();
+            var consignementDetailToDelete = new ConsignmentOrderDetail
             {
-                Id = DonationDetailId
+                Id = ConsignmentDetailId
             };
-            _donationDetailsManager.Delete(donationDetailToDelete);
+            _consignmentOrderDetailManager.Delete(consignementDetailToDelete);
             divMessageBox.Visible = true;
             divMessageBox.Attributes.Add("class", "notify warning");
             ltrlMessageHeader.Text = "Saved Sucessful!";
-            ltrlMessage.Text = "Donation Detail Entry has been deleted!";
+            ltrlMessage.Text = "Consigment Detail Entry has been deleted!";
             btnDelete.Enabled = false;
             btnSave.Enabled = false;
         }

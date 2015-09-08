@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-              <div class="flex-grid">
+            <div class="flex-grid">
                 <div class="row ">
                     <div class="cell auto-size margin5">
                         <label style="font-weight: 700;">Deliver To</label>
@@ -137,7 +137,7 @@
                             <asp:DropDownList runat="server" ID="DDLCompanies" />
                         </div>
                     </div>
-                       <div class="cell colspan2 margin5">
+                    <div class="cell colspan2 margin5">
                         <label style="font-weight: 700;">Days Deliver</label>
                         <div class="input-control text full-size ">
                             <asp:TextBox runat="server" required ID="txtDaysDeliver" Text="1" type="Number" min="1"></asp:TextBox>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
             </div>
-          
+
             <hr class="thin bg-lighterBlue">
             <div class="flex-grid">
                 <div class="row ">
@@ -168,7 +168,7 @@
                             <asp:DropDownList runat="server" ID="DDLUnits" />
                         </div>
                     </div>
-                 
+
                     <div class="cell margin5">
                         <label style="font-weight: 700;">Quantity</label>
                         <div class="input-control text full-size ">
@@ -194,7 +194,7 @@
                 <div class="row flex-just-center">
                     <div class="cell">
                         <asp:LinkButton Style="width: 230px;" class="button button-shadow default" ID="lnkButtonAdd"
-                            runat="server" OnClick="lnkButtonAdd_Click" >
+                            runat="server" OnClick="lnkButtonAdd_Click">
                           <span class="mif-arrow-down"></span>Add Donation Item
                         </asp:LinkButton>
                     </div>

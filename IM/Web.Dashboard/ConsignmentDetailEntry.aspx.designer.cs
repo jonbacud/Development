@@ -10,7 +10,7 @@
 namespace Web.Dashboard {
     
     
-    public partial class ConsignmentDetails {
+    public partial class ConsignmentDetailEntry {
         
         /// <summary>
         /// divMessageBox control.
@@ -49,13 +49,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtReferenceNumber;
         
         /// <summary>
-        /// txtConsignmentDate control.
+        /// txtDonationDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConsignmentDate;
+        protected global::System.Web.UI.WebControls.TextBox txtDonationDate;
         
         /// <summary>
         /// txtRISNumber control.
@@ -67,13 +67,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtRISNumber;
         
         /// <summary>
-        /// DDLCompanies control.
+        /// txtCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLCompanies;
+        protected global::System.Web.UI.WebControls.TextBox txtCompany;
         
         /// <summary>
         /// txtDaysDeliver control.
@@ -94,13 +94,13 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtTotalQuantity;
         
         /// <summary>
-        /// DDlDeliverTo control.
+        /// txtDeliverTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDlDeliverTo;
+        protected global::System.Web.UI.WebControls.TextBox txtDeliverTo;
         
         /// <summary>
         /// txtPreparedBy control.
@@ -112,22 +112,49 @@ namespace Web.Dashboard {
         protected global::System.Web.UI.WebControls.TextBox txtPreparedBy;
         
         /// <summary>
-        /// hpLinkNewDetail control.
+        /// DDLItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hpLinkNewDetail;
+        protected global::System.Web.UI.WebControls.DropDownList DDLItems;
         
         /// <summary>
-        /// gvSelectedItems control.
+        /// DDLUnits control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSelectedItems;
+        protected global::System.Web.UI.WebControls.DropDownList DDLUnits;
+        
+        /// <summary>
+        /// txtItemQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
+        
+        /// <summary>
+        /// txtPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        
+        /// <summary>
+        /// txtBarcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBarcode;
         
         /// <summary>
         /// btnSave control.
