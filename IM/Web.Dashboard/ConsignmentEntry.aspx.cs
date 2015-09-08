@@ -41,7 +41,7 @@ namespace Web.Dashboard
             get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
-        public List<ConsignmentDetailItem> DonationDetailItems()
+        public List<ConsignmentDetailItem> ConsignmentDetailItems()
         {
             var items = new List<ConsignmentDetailItem>();
             if (Session["CONSIGNMENT_ITEMS"] != null)
@@ -110,7 +110,7 @@ namespace Web.Dashboard
         {
             if (!IsPostBack)
             {
-                gvSelectedItems.DataSource = DonationDetailItems();
+                gvSelectedItems.DataSource = ConsignmentDetailItems();
                 gvSelectedItems.DataBind();
 
                 switch (Mode)
@@ -136,7 +136,7 @@ namespace Web.Dashboard
                 ltrlMessage.Text = "Price is Required";
                 return;
             }
-            var items = DonationDetailItems();
+            var items = ConsignmentDetailItems();
             var donationItem = new ConsignmentDetailItem
             {
                 Barcode = txtBarcode.Text,
@@ -158,14 +158,14 @@ namespace Web.Dashboard
 
         protected void gvSelectedItems_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            var list = DonationDetailItems();
+            var list = ConsignmentDetailItems();
             var row = gvSelectedItems.Rows[e.RowIndex];
             var hfId = (HiddenField)row.FindControl("hfUniqueId");
             var uid = Guid.Parse(hfId.Value);
             list.RemoveAll(o => o.Uid == uid);
 
             txtTotalQuantity.Text = list.Sum(i => i.Quantity).ToString();
-            gvSelectedItems.DataSource = DonationDetailItems();
+            gvSelectedItems.DataSource = ConsignmentDetailItems();
             gvSelectedItems.DataBind();
         }
 
@@ -180,16 +180,50 @@ namespace Web.Dashboard
                 return;
             }
 
-            var donationDetails = DonationDetailItems();
+            var donationDetails = ConsignmentDetailItems();
+            var supplier = _supplierManager.FetchById(int.Parse(DDLCompanies.SelectedValue));
             if (donationDetails.Count > 0)
             {
+                var consignment = new ConsignmentOrder
+                {
+                    SupplierId = int.Parse(DDLCompanies.SelectedValue),
+                    DepartmentId = int.Parse(DDLDeliverTo.SelectedValue),
+                    ConsignmentDate = DateTime.Parse(txtDonationDate.Text),
+                    ItemCode = "",
+                    RequisitionNumber = txtRISNumber.Text,
+                    TotalQuantity = int.Parse(txtTotalQuantity.Text),
+                    Uid = Guid.NewGuid(),
+                    UnitCode = "",
+                    CompanyAddress = supplier.Address,
+                    CompanyName = supplier.Name,
+                    ConsignmentId = txtReferenceNumber.Text,
+                    ConsignmentStatus = Transaction.TransactionStatus.Posted.ToString(),
+                    DaysDeliver = int.Parse(txtDaysDeliver.Text),
+                    DeliverTo = DDLDeliverTo.SelectedItem.Text,
+                    PreparedBy = txtPreparedBy.Text
+                };
+                _consignmentOrderManager.Save(consignment);
+                int consignmentIdentity = _consignmentOrderManager.Identity;
+                var details = donationDetails.Select(donationDetail => new ConsignmentOrderDetail
+                {
+                    Barcode = donationDetail.Barcode,
+                    ItemId = donationDetail.ItemId,
+                    Price = donationDetail.Price,
+                    Quantity = donationDetail.Quantity,
+                    Uid = donationDetail.Uid,
+                    UnitId = donationDetail.UnitId,
+                    ConsignmentId = consignmentIdentity
+                }).ToList();
+
+                _consignmentOrderDetailManager.Save(details);
+
                 btnSave.Enabled = false;
                 lnkButtonAdd.Enabled = false;
                 divMessageBox.Visible = true;
                 divMessageBox.Attributes.Add("class", "notify info");
                 ltrlMessageHeader.Text = "Saved Sucessful!";
-                ltrlMessage.Text = "New Donation Entry has been saved!";
-                Session.Remove("DONATION_ITEMS");
+                ltrlMessage.Text = "New Consignment Entry has been saved!";
+                Session.Remove("CONSIGNMENT_ITEMS");
             }
             else
             {
