@@ -22,3 +22,11 @@ C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\bin\Debug\IM.Mo
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\bin\Debug\IM.BusinessLogic.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\bin\Debug\BLToolkit.4.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\bin\Debug\IM.Models.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.csprojResolveAssemblyReference.cache
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.BusinessLogic\obj\Debug\IM.BusinessLogic.pdb

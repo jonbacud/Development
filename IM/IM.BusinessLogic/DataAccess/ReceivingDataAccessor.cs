@@ -16,9 +16,11 @@ namespace IM.BusinessLogic.DataAccess
             string mssQL;
             string swhere = "";
             string mstr;
-            mssQL = "SELECT a.receiving_date, a.reference_no,a.po_number,a.invoice_no,i.supplier_name,b.barcode,c.item_name,k.category_desc,a.alobs_number,"
-                 + " l.fullname,a.mode_procurement,b.expirydate,b.recvdQTY,d.unit_desc,b.price,b.Total_amount,e.location_desc,f.rack_desc,h.shelve_desc,"
-                 + " g.bin_desc,a.status,b.remarks FROM trn_receivingHeader a INNER JOIN trn_receiving_detail b ON a.receiving_id = b.receiving_id"
+            mssQL = "SELECT a.receiving_date as ReceivingDate, a.reference_no as ReferenceNo,a.po_number as PO,a.invoice_no as Invoice,i.supplier_name as Supplier,"
+                 + " b.barcode as Barcode,c.item_name as ItemName,k.category_desc as Category,a.alobs_number as Alobs,"
+                 + " l.fullname as EndUser ,a.mode_procurement as ModeProcure,b.expirydate as ExpiryDate,b.recvdQTY as Quantity,d.unit_desc as Unit,"
+                 + " b.price as Price,b.Total_amount as Cost,e.location_desc as ToLocation,f.rack_desc as ToRack,h.shelve_desc,"
+                 + " g.bin_desc as ToBin,a.status as ToStatus,b.remarks as Remarks FROM trn_receivingHeader a INNER JOIN trn_receiving_detail b ON a.receiving_id = b.receiving_id"
                  + " INNER JOIN ref_item c ON b.item_id = c.item_id INNER JOIN ref_unit d ON b.unit_id = d.unit_id"
                  + " INNER JOIN ref_location e ON e.location_id = b.location_id INNER JOIN ref_rack f ON f.rack_id = b.rack_id"
                  + " INNER JOIN ref_bin g ON g.bin_id = b.bin_id INNER JOIN ref_shelve h ON h.shelve_id = b.shelve_id"

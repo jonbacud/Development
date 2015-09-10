@@ -1,9 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="recevingreport.aspx.cs" Inherits="Web.Dashboard.WRIreports.recevingreport" %>
-
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
-
-<%@ Register Assembly="Telerik.ReportViewer.WebForms, Version=8.2.14.1204, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" Namespace="Telerik.ReportViewer.WebForms" TagPrefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+      <script>
+          function showDialog(id) {
+              var dialog = $("#" + id).data('dialog');
+              if (!dialog.element.data('opened')) {
+                  dialog.open();
+              } else {
+                  dialog.close();
+              }
+          }
+          $(document).ready(function () {
+              $('#btnClose').click(function () {
+                  $('#divMessageBox').hide('slow');
+              });
+          });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -70,11 +82,10 @@
             <h4 class="text-italic">&nbsp;Receiving Report <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
             <div class="flex-grid">
-             
                     <div class="cell colspan2 margin5">
                         <label style="font-weight: 800;">Date Start</label>
                         <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
-                            <asp:TextBox runat="server" ID="txtdatefrom"></asp:TextBox>
+                           <asp:TextBox runat="server" ID="txtdatefrom"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
                     </div>
                     </div>
@@ -82,11 +93,11 @@
                         <label style="font-weight: 800;">Date End</label>
                         <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
                             <asp:TextBox runat="server" ID="txtdateto"></asp:TextBox>
-                        <button class="button"><span class="mif-calendar"></span></button>
-                    </div>
+                            <button class="button"><span class="mif-calendar"></span></button>
+                        </div>
+                </div>
                     <div class="cell">
                     </div>
-                </div>
                 <div class="row cells12">
                     <div class="cell colspan5 margin5">
                         <label style="font-weight: 800;">Item Classification</label>
@@ -114,11 +125,26 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="row ">
+                    <div class="cell auto-size margin5">
+                        <label style="font-weight: 800;">Barcode</label>
+                        <div class="input-control text full-size ">
+                          <asp:Button runat="server" Text="Generate" CssClass="button primary" ID="btnGenerate" OnClick="btnGenerate_Click"/>
+                        </div>
+                    </div>
+                </div>
             <hr class="thin bg-grayLighter">
             <div class="row">
-                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" runat="server"></rsweb:ReportViewer>
+                <rsweb:ReportViewer ID="ReportViewer1" Width="100%" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" style="margin-top: 0px">
+                    <LocalReport ReportEmbeddedResource="Web.Dashboard.WRIreports.rpt.receiving.rdlc">
+                        <DataSources>
+                            <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
+                        </DataSources>
+                    </LocalReport>
+                </rsweb:ReportViewer>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="WRIDtsetTableAdapters."></asp:ObjectDataSource>
              </div>
+              <asp:SqlDataSource ID="sqldatasourceRcvRpt" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>"></asp:SqlDataSource>
             </div>
     </div>
 </asp:Content>

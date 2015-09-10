@@ -52,6 +52,8 @@
     <Compile Include="DataAccess\DepartmentAccessor.cs" />
     <Compile Include="DataAccess\DonationAccessor.cs" />
     <Compile Include="DataAccess\DonationDetailAccessor.cs" />
+    <Compile Include="DataAccess\EmergencyPurchaseAccessor.cs" />
+    <Compile Include="DataAccess\EmergencyPurchaseDetailAccessor.cs" />
     <Compile Include="DataAccess\IssuanceAccessor.cs" />
     <Compile Include="DataAccess\IssuanceDetailAccessor.cs" />
     <Compile Include="DataAccess\ItemAccessor.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="DataManager\DepartmentManager.cs" />
     <Compile Include="DataManager\DonationDetailsManager.cs" />
     <Compile Include="DataManager\DonationManager.cs" />
+    <Compile Include="DataManager\EmergencyPurchaseDetailManager.cs" />
+    <Compile Include="DataManager\EmergencyPurchaseManager.cs" />
     <Compile Include="DataManager\IBaseManager.cs" />
     <Compile Include="DataManager\IssuanceDetailManager.cs" />
     <Compile Include="DataManager\IssuanceManager.cs" />

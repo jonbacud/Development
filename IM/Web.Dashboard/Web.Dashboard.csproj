@@ -138,6 +138,10 @@
     <Content Include="BinManagementPanel.aspx" />
     <Content Include="CategoryEntry.aspx" />
     <Content Include="CategoryManagementPanel.aspx" />
+    <Content Include="ConsignmentDetailEntry.aspx" />
+    <Content Include="ConsignmentDetails.aspx" />
+    <Content Include="ConsignmentEntry.aspx" />
+    <Content Include="ConsignmentManagementPanel.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -203,6 +207,14 @@
     <Content Include="css\metro.css" />
     <Content Include="Default.aspx" />
     <Content Include="DepartmentManagementPanel.aspx" />
+    <Content Include="DonationDetailEntry.aspx" />
+    <Content Include="DonationDetails.aspx" />
+    <Content Include="DonationEntry.aspx" />
+    <Content Include="DonationManagementPanel.aspx" />
+    <Content Include="EmergencyPurchaseDetailEntry.aspx" />
+    <Content Include="EmergencyPurchaseDetails.aspx" />
+    <Content Include="EmergencyPurchaseEntry.aspx" />
+    <Content Include="EmergencyPurchaseManagementPanel.aspx" />
     <Content Include="fonts\metro.svg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -402,6 +414,34 @@
     <Compile Include="CategoryManagementPanel.aspx.designer.cs">
       <DependentUpon>CategoryManagementPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsignmentDetailEntry.aspx.cs">
+      <DependentUpon>ConsignmentDetailEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsignmentDetailEntry.aspx.designer.cs">
+      <DependentUpon>ConsignmentDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsignmentDetails.aspx.cs">
+      <DependentUpon>ConsignmentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsignmentDetails.aspx.designer.cs">
+      <DependentUpon>ConsignmentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsignmentEntry.aspx.cs">
+      <DependentUpon>ConsignmentEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsignmentEntry.aspx.designer.cs">
+      <DependentUpon>ConsignmentEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsignmentManagementPanel.aspx.cs">
+      <DependentUpon>ConsignmentManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsignmentManagementPanel.aspx.designer.cs">
+      <DependentUpon>ConsignmentManagementPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -422,6 +462,62 @@
     </Compile>
     <Compile Include="DepartmentManagementPanel.aspx.designer.cs">
       <DependentUpon>DepartmentManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DonationDetailEntry.aspx.cs">
+      <DependentUpon>DonationDetailEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DonationDetailEntry.aspx.designer.cs">
+      <DependentUpon>DonationDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DonationDetails.aspx.cs">
+      <DependentUpon>DonationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DonationDetails.aspx.designer.cs">
+      <DependentUpon>DonationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DonationEntry.aspx.cs">
+      <DependentUpon>DonationEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DonationEntry.aspx.designer.cs">
+      <DependentUpon>DonationEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DonationManagementPanel.aspx.cs">
+      <DependentUpon>DonationManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DonationManagementPanel.aspx.designer.cs">
+      <DependentUpon>DonationManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPurchaseDetailEntry.aspx.cs">
+      <DependentUpon>EmergencyPurchaseDetailEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmergencyPurchaseDetailEntry.aspx.designer.cs">
+      <DependentUpon>EmergencyPurchaseDetailEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPurchaseDetails.aspx.cs">
+      <DependentUpon>EmergencyPurchaseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmergencyPurchaseDetails.aspx.designer.cs">
+      <DependentUpon>EmergencyPurchaseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPurchaseEntry.aspx.cs">
+      <DependentUpon>EmergencyPurchaseEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmergencyPurchaseEntry.aspx.designer.cs">
+      <DependentUpon>EmergencyPurchaseEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPurchaseManagementPanel.aspx.cs">
+      <DependentUpon>EmergencyPurchaseManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmergencyPurchaseManagementPanel.aspx.designer.cs">
+      <DependentUpon>EmergencyPurchaseManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -517,6 +613,9 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModelViews\ConsignmentDetailItem.cs" />
+    <Compile Include="ModelViews\DonationDetailItem.cs" />
+    <Compile Include="ModelViews\EmergencyPurchaseDetailItem.cs" />
     <Compile Include="ModelViews\PurchaseRequestItem.cs" />
     <Compile Include="ModelViews\ReceivingItem.cs" />
     <Compile Include="ModelViews\RequestItem.cs" />

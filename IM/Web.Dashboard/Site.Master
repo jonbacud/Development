@@ -5,17 +5,14 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %>Inventory System Retail and Wholesale</title>
     <%-- <link href="~/Content/Site.css" rel="stylesheet" />--%>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    
     <link href="/css/metro.css" rel="stylesheet">
     <link href="/css/metro-icons.css" rel="stylesheet">
     <link href="/css/metro-responsive.css" rel="stylesheet">
-
     <script src="/js/jquery-2.1.3.min.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>
-
     <script src="/js/metro.js"></script>
     <link href="css/custom.css" rel="stylesheet" />
       <!-- Bootstrap -->
@@ -143,7 +140,6 @@
                     </ul>
                 </li>
             </ul>
-
             <div class="app-bar-element place-right">
                 <span class="dropdown-toggle"><span class="mif-cog"></span>
                     <asp:Literal runat="server" ID="ltrlUserName"></asp:Literal>
@@ -172,6 +168,5 @@
             </div>
         </footer>--%>
     </form>
-    
 </body>
 </html>

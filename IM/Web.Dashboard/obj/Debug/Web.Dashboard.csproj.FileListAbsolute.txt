@@ -197,3 +197,45 @@ D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\Web.Das
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\Web.Dashboard\obj\Debug\RdlCompile.cache
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\Web.Dashboard\obj\Debug\RdlCompile.compiled
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.csprojResolveAssemblyReference.cache
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\obj\Debug\RdlCompile.cache
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\obj\Debug\RdlCompile.compiled
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\obj\Debug\Web.Dashboard.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Web.Dashboard.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Web.Dashboard.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\AjaxControlToolkit.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\BLToolkit.4.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\EntityFramework.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\EntityFramework.SqlServer.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\IM.BusinessLogic.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\IM.Models.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Microsoft.Web.Infrastructure.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Net.Http.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Web.Providers.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\IM.BusinessLogic.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\IM.Models.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Net.Http.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Net.Http.WebRequest.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\EntityFramework.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\EntityFramework.SqlServer.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\System.Web.Providers.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.Core.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\DotNetOpenAuth.AspNet.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\bin\Microsoft.AspNet.FriendlyUrls.xml

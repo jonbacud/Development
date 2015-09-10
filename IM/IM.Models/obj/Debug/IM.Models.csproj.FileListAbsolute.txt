@@ -25,3 +25,9 @@ D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.Mode
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.Models\obj\Debug\IM.Models.pdb
 D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\IM.Models\obj\Debug\IM.Models.csprojResolveAssemblyReference.cache
 C:\Users\marshy\Documents\GitHub\Development\IM\IM.Models\obj\Debug\IM.Models.csprojResolveAssemblyReference.cache
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\bin\Debug\IM.Models.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\bin\Debug\IM.Models.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\bin\Debug\BLToolkit.4.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\obj\Debug\IM.Models.dll
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\obj\Debug\IM.Models.pdb
+F:\Jonathan Personal File\InventorySystem\Development\IM\IM.Models\obj\Debug\IM.Models.csprojResolveAssemblyReference.cache

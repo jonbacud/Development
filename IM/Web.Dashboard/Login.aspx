@@ -53,9 +53,7 @@
 
             ga('create', 'UA-58849249-3', 'auto');
             ga('send', 'pageview');
-
         }
-
 
         $(function () {
             var form = $(".login-form");
@@ -134,7 +132,5 @@
     //--></script>
     </a>
     <!-- / hit.ua -->
-
-
 </body>
 </html>

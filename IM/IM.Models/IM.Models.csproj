@@ -52,6 +52,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Donation.cs" />
+    <Compile Include="EmergencyPurchase.cs" />
+    <Compile Include="EmergencyPurchaseDetail.cs" />
     <Compile Include="Issuance.cs" />
     <Compile Include="IssuanceDetail.cs" />
     <Compile Include="Item.cs" />

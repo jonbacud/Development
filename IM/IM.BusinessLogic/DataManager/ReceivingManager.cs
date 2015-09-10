@@ -69,6 +69,8 @@ namespace IM.BusinessLogic.DataManager
             Accessor.ReceivingReport(datefrom,dateto,itemclassid,itemdesc,supplierid,suppliercode,barcode, datasource);
         }
 
+
+
         #region Accessor
         ReceivingDataAccessor Accessor
         {

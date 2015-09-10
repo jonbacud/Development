@@ -3508,7 +3508,7 @@
         <Top>1.19667in</Top>
         <Left>0.08208in</Left>
         <Height>0.94792in</Height>
-        <Width>15.48611in</Width>
+        <Width>15.4861in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -3770,8 +3770,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WRIDtset</rd:DataSetName>
-        <rd:SchemaPath>D:\Programs\HospitalInventory\InventoryWRIFAI\Development\Development\IM\Web.Dashboard\WRIreports\rpt\WRIDtset.xsd</rd:SchemaPath>
-        <rd:TableName>Receiving Report</rd:TableName>
+        <rd:SchemaPath>F:\Jonathan Personal File\InventorySystem\Development\IM\Web.Dashboard\WRIreports\rpt\WRIDtset.xsd</rd:SchemaPath>
+        <rd:TableName>Receiving_Report</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
