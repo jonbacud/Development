@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\SecurityBO.cs" />
     <Compile Include="DataAccess\AccessorBase.cs" />
     <Compile Include="DataAccess\BarcodeAccessor.cs" />
     <Compile Include="DataAccess\BinAccessor.cs" />

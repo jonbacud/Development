@@ -70,6 +70,15 @@ namespace IM.BusinessLogic.DataManager
         }
 
 
+        public string GetReferenceNumber()
+        {
+            string rtval;
+
+
+
+            return rtval;
+        }
+
 
         #region Accessor
         ReceivingDataAccessor Accessor

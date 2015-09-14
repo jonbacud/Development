@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
-
+using IM.BusinessLogic.common;
 namespace IM.BusinessLogic.DataManager
 {
     public class UserAccountManager:IBaseManager<UserAccount>
     {
+        SecurityBO pwdProtect = new SecurityBO();
         public int Identity
         {
             get; set;
         }
-
         public void Save(UserAccount userAccount)
         {
             if (userAccount.UserId>0)
@@ -59,9 +59,11 @@ namespace IM.BusinessLogic.DataManager
 
         public UserAccount FetchByUserNameAndPassword(string userName, string password)
         {
-           return  Accessor.Query.SelectAll<UserAccount>()
-                .FirstOrDefault(ua=>ua.UserName.Equals(userName) &&ua.Password.Equals(password) && ua.IsActive.Equals(true));
+            string pwdencrypt = pwdProtect.EncrypText(password);
+            return  Accessor.Query.SelectAll<UserAccount>()
+                .FirstOrDefault(ua => ua.UserName.Equals(userName) && ua.Password.Equals(pwdencrypt) && ua.IsActive.Equals(true));
         }
+
 
         #region Accessor
         UserAccountAccessor Accessor

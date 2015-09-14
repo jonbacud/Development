@@ -9,5 +9,6 @@ namespace IM.BusinessLogic.DataAccess
     public abstract class LocationAccessor : AccessorBase<LocationAccessor.DB, LocationAccessor>
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
+
     }
 }

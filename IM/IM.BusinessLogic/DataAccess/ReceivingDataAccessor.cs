@@ -65,6 +65,16 @@ namespace IM.BusinessLogic.DataAccess
             var strCmd = new StringBuilder(mstr);
             datasource.SelectCommand = strCmd.ToString();
             datasource.DataBind();
-        }        
+        }
+
+        public string GenReferenceNumber()
+        { 
+        
+
+
+
+        }
+
+
     }
 }
