@@ -72,7 +72,7 @@ namespace IM.BusinessLogic.DataManager
 
         public string GetReferenceNumber()
         {
-            string rtval;
+            string rtval = string.Empty;
 
 
 

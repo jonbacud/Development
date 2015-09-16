@@ -67,14 +67,10 @@ namespace IM.BusinessLogic.DataAccess
             datasource.DataBind();
         }
 
-        public string GenReferenceNumber()
-        { 
+        //public string GenReferenceNumber()
+        //{ 
         
-
-
-
-        }
-
+        //}
 
     }
 }

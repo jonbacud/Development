@@ -64,7 +64,6 @@ namespace IM.BusinessLogic.DataManager
                 .FirstOrDefault(ua => ua.UserName.Equals(userName) && ua.Password.Equals(pwdencrypt) && ua.IsActive.Equals(true));
         }
 
-
         #region Accessor
         UserAccountAccessor Accessor
         {
