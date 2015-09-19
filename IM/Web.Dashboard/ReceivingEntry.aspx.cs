@@ -8,6 +8,7 @@ using AjaxControlToolkit.HtmlEditor.ToolbarButtons;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
 using Web.Dashboard.ModelViews;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -21,6 +22,11 @@ namespace Web.Dashboard
         private readonly BinManager _binManager = new BinManager();
         private readonly ShelveManager _shelveManager = new ShelveManager();
         private readonly CategoryManager _categoryManager = new CategoryManager();
+        private  readonly ReceivingManager _receivingManager = new ReceivingManager();
+        public Transaction.TransactionMode Mode
+        {
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
+        }
 
         public List<ReceivingItem> ReceivedItems()
         {
@@ -48,6 +54,17 @@ namespace Web.Dashboard
 
             txtExpiryDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
             txtReceivingDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+
+            switch (Mode)
+            {
+                case Transaction.TransactionMode.NewEntry:
+                    txtReferenceNumber.Text = Transaction.TransactionType.RCV + "-" + (_receivingManager.ReferenceNumber + 1);
+                     txtExpiryDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+            txtReceivingDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+                    break;
+                case Transaction.TransactionMode.UpdateEntry:
+                    break;
+            }
         }
 
         private void InitDepartmentData()

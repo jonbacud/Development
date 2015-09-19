@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.UI.WebControls;
 using BLToolkit.Data;
+using BLToolkit.DataAccess;
 
 namespace IM.BusinessLogic.DataAccess
 {
@@ -11,6 +12,9 @@ namespace IM.BusinessLogic.DataAccess
     {
         public class DB : DbManager { public DB() : base("IMConnectionString") { } }
 
+
+        [SqlQuery(@"Select top 1 reference_no from trn_receivingHeader order by receiving_id desc")]
+        public abstract string GetLastReferenceNumber();
         public virtual void ReceivingReport(string datefrom, string dateto, int itemclassid, string itemdesc, int supplierid, string suppliercode,string barcode,  SqlDataSource datasource)
         {
             string mssQL;

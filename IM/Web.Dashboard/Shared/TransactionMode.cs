@@ -19,7 +19,8 @@
           DON,  // Donation
           CON,   // Consignment
           PO,   //Purchase Request
-          EPO  // Emergency Purchase 
+          EPO,  // Emergency Purchase 
+          CAT
         }
 
         public enum TransactionStatus

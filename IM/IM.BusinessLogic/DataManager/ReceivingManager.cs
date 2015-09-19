@@ -70,15 +70,15 @@ namespace IM.BusinessLogic.DataManager
         }
 
 
-        public string GetReferenceNumber()
+        private string LastReferenceNumber
         {
-            string rtval = string.Empty;
-
-
-
-            return rtval;
+            get { return Accessor.GetLastReferenceNumber(); }
         }
 
+        public int ReferenceNumber
+        {
+            get { return string.IsNullOrEmpty(LastReferenceNumber) ? 10000 : int.Parse(LastReferenceNumber.Split('-')[1]); }
+        }
 
         #region Accessor
         ReceivingDataAccessor Accessor

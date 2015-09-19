@@ -71,7 +71,7 @@
                         <label style="font-weight: 800;">Reference Number</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox required runat="server" ID="txtReferenceNumber"></asp:TextBox>
+                            <asp:TextBox CssClass="text-bold" required ReadOnly="True" runat="server" ID="txtReferenceNumber"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan4 margin5">
