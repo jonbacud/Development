@@ -70,7 +70,7 @@
                         <label style="font-weight: 700;">Category Code</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtCategoryCode"></asp:TextBox>
+                            <asp:TextBox ReadOnly="True" runat="server" Text="Auto Generated" ID="txtCategoryCode"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan6 margin5">

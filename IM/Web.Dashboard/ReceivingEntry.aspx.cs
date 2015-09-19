@@ -22,7 +22,7 @@ namespace Web.Dashboard
         private readonly BinManager _binManager = new BinManager();
         private readonly ShelveManager _shelveManager = new ShelveManager();
         private readonly CategoryManager _categoryManager = new CategoryManager();
-        private  readonly ReceivingManager _receivingManager = new ReceivingManager();
+        private readonly ReceivingManager _receivingManager = new ReceivingManager();
         public Transaction.TransactionMode Mode
         {
             get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
@@ -40,7 +40,7 @@ namespace Web.Dashboard
                 Session["RECEIVING_ITEMS"] = items;
             }
             return items;
-        } 
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -52,15 +52,12 @@ namespace Web.Dashboard
 
             InitDepartmentData();
 
-            txtExpiryDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
-            txtReceivingDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
-
             switch (Mode)
             {
                 case Transaction.TransactionMode.NewEntry:
                     txtReferenceNumber.Text = Transaction.TransactionType.RCV + "-" + (_receivingManager.ReferenceNumber + 1);
-                     txtExpiryDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
-            txtReceivingDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+                    txtExpiryDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
+                    txtReceivingDate.Text = DateTime.Now.ToString("MMM dd, yyyy");
                     break;
                 case Transaction.TransactionMode.UpdateEntry:
                     break;
@@ -92,7 +89,7 @@ namespace Web.Dashboard
         {
             if (string.IsNullOrEmpty(DDLDepartments.SelectedValue.Trim()) ||
              string.IsNullOrWhiteSpace((DDLDepartments.SelectedValue.Trim()))) return;
-            DDLSuppliers.DataSource = _supplierManager.FetchAll(departmentId).OrderBy(s=>s.Name);
+            DDLSuppliers.DataSource = _supplierManager.FetchAll(departmentId).OrderBy(s => s.Name);
             DDLSuppliers.DataTextField = "Name";
             DDLSuppliers.DataValueField = "Id";
             DDLSuppliers.DataBind();
@@ -163,22 +160,22 @@ namespace Web.Dashboard
             var receivingDetailManager = new ReceivingDetailManager();
             var newReceiving = new Receiving
             {
-               AloBsNumber = txtAlobsNumber.Text,
-              Amount = decimal.Parse(txtAmount.Text),
-              SellingAmount = decimal.Parse(txtSellingAmount.Text),
-              CategoryId = int.Parse(DDLCategories.SelectedValue),
-              DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-              EndUserId = 0, // todo: to be replace by logged user
-              InvoiceNumber = txtInvoiceNumber.Text,
-              ModeProcurement = txtModeProcurement.Text,
-              PrNumber = txtPRNumber.Text,
-              PurchaseOrderNumber = txtPONumber.Text,
-              ReceivingDate = DateTime.Parse(txtReceivingDate.Text),
-              ReceivingKey = Guid.NewGuid(),
-              ReferenceNumber = txtReferenceNumber.Text,
-              Status = true,
-              SupplierId = int.Parse(DDLSuppliers.SelectedValue),
-              Uid = Guid.NewGuid()
+                AloBsNumber = txtAlobsNumber.Text,
+                Amount = decimal.Parse(txtAmount.Text),
+                SellingAmount = decimal.Parse(txtSellingAmount.Text),
+                CategoryId = int.Parse(DDLCategories.SelectedValue),
+                DepartmentId = int.Parse(DDLDepartments.SelectedValue),
+                EndUserId = 0, // todo: to be replace by logged user
+                InvoiceNumber = txtInvoiceNumber.Text,
+                ModeProcurement = txtModeProcurement.Text,
+                PrNumber = txtPRNumber.Text,
+                PurchaseOrderNumber = txtPONumber.Text,
+                ReceivingDate = DateTime.Parse(txtReceivingDate.Text),
+                ReceivingKey = Guid.NewGuid(),
+                ReferenceNumber = txtReferenceNumber.Text,
+                Status = true,
+                SupplierId = int.Parse(DDLSuppliers.SelectedValue),
+                Uid = Guid.NewGuid()
             };
             receivingManager.Save(newReceiving);
 
@@ -258,7 +255,7 @@ namespace Web.Dashboard
                 ShelveName = DDLShelves.SelectedItem.Text,
                 SupplierId = int.Parse(DDLSuppliers.SelectedValue),
                 SupplierName = DDLSuppliers.SelectedItem.Text,
-                TotalAmount = (int.Parse(txtReceivedQuantity.Text)*decimal.Parse(txtPrice.Text)),
+                TotalAmount = (int.Parse(txtReceivedQuantity.Text) * decimal.Parse(txtPrice.Text)),
                 ReferenceNumber = txtReferenceNumber.Text
             };
 

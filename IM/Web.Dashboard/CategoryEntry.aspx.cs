@@ -35,21 +35,31 @@ namespace Web.Dashboard
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
 
-            if (CategoryId>0)
+            switch (Mode)
             {
-                txtCategoryCode.Text = Category.Code;
-                txtCategoryName.Text = Category.Description;
-                DDLDepartments.SelectedValue = Category.DepartmentId.ToString();
-                btnDelete.Enabled = true;
-                btnDelete.Visible = true;
+                case Transaction.TransactionMode.NewEntry:
+                    break;
+                case Transaction.TransactionMode.UpdateEntry:
+                     txtCategoryCode.Text = Category.Code;
+                    txtCategoryName.Text = Category.Description;
+                    DDLDepartments.SelectedValue =          Category.DepartmentId.ToString();
+                    btnDelete.Enabled = true;
+                    btnDelete.Visible = true;
+                    break;
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            var categoryCode = Category.Code;
+            if (Mode ==Transaction.TransactionMode.NewEntry)
+            {
+                categoryCode = Transaction.
+                    TransactionType.CAT + "-" +_categoryManager.ReferenceNumber+1;
+            }
             var newCategory = new Category
             {
-                Code = txtCategoryCode.Text.Trim(),
+                Code = categoryCode,
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
                 Description = txtCategoryName.Text,
                 UniqueId = Guid.NewGuid(),

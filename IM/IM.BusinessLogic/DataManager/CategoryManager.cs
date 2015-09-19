@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataAccess;
 using IM.Models;
@@ -13,7 +12,7 @@ namespace IM.BusinessLogic.DataManager
         #region Accessor
         CategoryAccessor Accessor
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get { return CategoryAccessor.CreateInstance(); }
         }
         #endregion
@@ -77,6 +76,16 @@ namespace IM.BusinessLogic.DataManager
         public void Search(string searchParameter, SqlDataSource datasource)
         {
            Accessor.SearchCategory(searchParameter, datasource);
+        }
+
+        private string LastReferenceNumber
+        {
+            get { return Accessor.GetLastReferenceNumber(); }
+        }
+
+        public int ReferenceNumber
+        {
+            get { return string.IsNullOrEmpty(LastReferenceNumber) ? 10000 : int.Parse(LastReferenceNumber.Split('-')[1]); }
         }
     }
 }
