@@ -78,6 +78,16 @@ namespace IM.BusinessLogic.DataManager
             Accessor.SearchSupplier(searchParam, datasource);
         }
 
+        private string LastReferenceNumber
+        {
+            get { return Accessor.GetLastReferenceNumber(); }
+        }
+
+        public int ReferenceNumber
+        {
+            get { return string.IsNullOrEmpty(LastReferenceNumber) ? 10000 : int.Parse(LastReferenceNumber.Split('-')[1]); }
+        }
+
         #region Accessor
         SupplierAccessor Accessor
         {

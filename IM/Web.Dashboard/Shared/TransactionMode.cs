@@ -20,7 +20,8 @@
           CON,   // Consignment
           PO,   //Purchase Request
           EPO,  // Emergency Purchase 
-          CAT
+          CAT,  // categoryd
+          SUPP //suppliers
         }
 
         public enum TransactionStatus

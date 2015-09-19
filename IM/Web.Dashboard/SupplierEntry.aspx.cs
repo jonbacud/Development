@@ -13,7 +13,8 @@ namespace Web.Dashboard
     public partial class SupplierEntry : System.Web.UI.Page
     {
         readonly SupplierManager _supplierManager = new SupplierManager();
-        public int SupplierId {
+        public int SupplierId
+        {
             get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
@@ -36,31 +37,41 @@ namespace Web.Dashboard
             DDLDepartments.DataTextField = "Description";
             DDLDepartments.DataValueField = "Id";
             DDLDepartments.DataBind();
-            
-            if (SupplierId>0)
+
+            switch (Mode)
             {
-                txtContactPerson.Text = Supplier.ContactPerson;
-                txtEmailAddress.Text = Supplier.EmailAddress;
-                txtFaxNumber.Text = Supplier.FaxNumber;
-                txtSupplierAddress.Text = Supplier.Address;
-                txtSupplierCode.Text = Supplier.Code;
-                txtSupplierName.Text = Supplier.Name;
-                txtTelephoneNumber.Text = Supplier.TelephoneNumber;
-                btnDelete.Visible = true;
-                DDLDepartments.SelectedValue = Supplier.DepartmentId.ToString();
-                chkIsConsignment.Checked = Supplier.IsConsignment;
+                case Transaction.TransactionMode.UpdateEntry:
+                    txtContactPerson.Text = Supplier.ContactPerson;
+                    txtEmailAddress.Text = Supplier.EmailAddress;
+                    txtFaxNumber.Text = Supplier.FaxNumber;
+                    txtSupplierAddress.Text = Supplier.Address;
+                    txtSupplierCode.Text = Supplier.Code;
+                    txtSupplierName.Text = Supplier.Name;
+                    txtTelephoneNumber.Text = Supplier.TelephoneNumber;
+                    btnDelete.Visible = true;
+                    DDLDepartments.SelectedValue = Supplier.DepartmentId.ToString();
+                    chkIsConsignment.Checked = Supplier.IsConsignment;
+                    break;
+                case Transaction.TransactionMode.NewEntry:
+                    txtSupplierCode.Text = Transaction.TransactionType.SUPP + "-Auto";
+                    break;
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            var code = Supplier.Code;
+            if (Mode ==Transaction.TransactionMode.NewEntry)
+            {
+                code = Transaction.TransactionType.SUPP+"-"+_supplierManager.ReferenceNumber+1;
+            }
             var newSupplier = new Supplier
             {
                 Address = txtSupplierAddress.Text.Trim(),
-                Code = txtSupplierCode.Text.Trim(),
-                ContactPerson= txtContactPerson.Text,
+                Code = code,
+                ContactPerson = txtContactPerson.Text,
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-                EmailAddress= txtEmailAddress.Text,
+                EmailAddress = txtEmailAddress.Text,
                 FaxNumber = txtFaxNumber.Text,
                 IsConsignment = chkIsConsignment.Checked,
                 Name = txtSupplierName.Text,
@@ -69,17 +80,17 @@ namespace Web.Dashboard
                 Id = SupplierId
             };
             _supplierManager.Save(newSupplier);
-            Response.Redirect("SupplierManagementPanel.aspx");
+            Response.Redirect("/SupplierManagementPanel");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             var suplierToDelete = new Supplier
             {
-                 Id = SupplierId
+                Id = SupplierId
             };
             _supplierManager.Delete(suplierToDelete);
-            Response.Redirect("SupplierManagementPanel.aspx");
+            Response.Redirect("/SupplierManagementPanel");
 
         }
     }

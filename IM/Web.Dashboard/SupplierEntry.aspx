@@ -72,7 +72,7 @@
                         <label style="font-weight: 800;">Supplier Code</label>
                         <div class="input-control text full-size ">
                             <span class="mif-tag prepend-icon"></span>
-                            <asp:TextBox runat="server" ID="txtSupplierCode"></asp:TextBox>
+                            <asp:TextBox runat="server" ReadOnly="True" ID="txtSupplierCode"></asp:TextBox>
                         </div>
                     </div>
                     <div class="cell colspan6 margin5">
