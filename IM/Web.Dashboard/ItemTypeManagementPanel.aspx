@@ -6,17 +6,17 @@
     <div class="row" style="height: 100%">
         <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
             <ul class="sidebar" style="height: 100%;">
-                <li class="active"><a href="DepartmentManagementPanel.aspx">
+                <li class="active"><a href="/DepartmentManagementPanel">
                     <span class="mif-users icon"></span>
                     <span class="title">Departments</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
+                <li><a href="/RequisitionManagementPanel">
                     <span class="mif-folder-download icon"></span>
                     <span class="title">Requisitions</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
+                <li><a href="//IssuanceManagementPanel">
                     <span class="mif-folder-minus icon"></span>
                     <span class="title">Items Issuance</span>
                     <span class="counter">2</span>
@@ -26,7 +26,7 @@
                     <span class="title">Receiving Items</span>
                     <span class="counter">0</span>
                 </a></li>
-                <li><a href="Items/Default.aspx">
+                <li><a href="/ItemManagementPanel">
                     <span class="mif-database icon"></span>
                     <span class="title">Items/Products</span>
                     <span class="counter">0</span>
@@ -59,11 +59,11 @@
             </ul>
             <h4 class="text-italic">Item Types Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="ItemTypeEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="/item-type/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
-            <asp:HyperLink class="button alert" NavigateUrl="PrintDepartments.aspx" runat="server" ID="HyperLink2">
+            <asp:HyperLink class="button alert" NavigateUrl="/PrintDepartments" runat="server" ID="HyperLink2">
                 <span class="mif-printer"></span> Print
             </asp:HyperLink>
             <hr class="thin bg-grayLighter">
@@ -107,7 +107,7 @@
                                              SortExpression="department_desc"></asp:BoundField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Type Details" data-hint-position="left" NavigateUrl='<%# "~/ItemTypeEntry.aspx?mode=0&id="+Eval("itemtype_id") %>'>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Type Details" data-hint-position="left" NavigateUrl='<%# "~/item-type/0/"+Eval("itemtype_id") %>'>
                                                     <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>

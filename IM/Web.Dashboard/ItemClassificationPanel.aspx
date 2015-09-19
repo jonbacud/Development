@@ -54,7 +54,7 @@
             </ul>
             <h4 class="text-italic">Item Classification Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="ItemClassificationEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="/item-classification/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -91,7 +91,7 @@
                     <asp:TemplateField>
                         <ItemTemplate>
                                  <asp:HyperLink ID="HyperLink1" runat="server"  data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Item Classification Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/ItemClassificationEntry.aspx?mode=0&id="+Eval("classifcation_id")%>'>
+                                                    NavigateUrl='<%# "~/item-classification/0/"+Eval("classifcation_id")%>'>
                                         <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                         </ItemTemplate>

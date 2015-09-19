@@ -107,6 +107,13 @@ namespace Web.Dashboard
                 "emergencypurchase-detail-entry/{mode}/{id}",
                 "~/EmergencyPurchaseDetailEntry.aspx");
 
+            routes.MapPageRoute("item-classification",
+                "item-classification/{mode}/{id}",
+                "~/ItemClassificationEntry.aspx");
+
+            routes.MapPageRoute("item-type",
+               "item-type/{mode}/{id}",
+               "~/ItemTypeEntry.aspx");
         }
     }
 }

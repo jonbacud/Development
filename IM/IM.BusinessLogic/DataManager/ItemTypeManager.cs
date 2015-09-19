@@ -73,6 +73,17 @@ namespace IM.BusinessLogic.DataManager
             return Accessor.Query.SelectByKey<ItemType>(key) ?? new ItemType();
         }
 
+        private string LastReferenceNumber
+        {
+            get { return Accessor.GetLastReferenceNumber(); }
+        }
+
+        public int ReferenceNumber
+        {
+            get { return string.IsNullOrEmpty(LastReferenceNumber) ? 10000 : int.Parse(LastReferenceNumber.Split('-')[1]); }
+        }
+
+
         #region Accessor
         ItemTypeAccessor Accessor
         {

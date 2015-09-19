@@ -16,12 +16,12 @@ namespace Web.Dashboard
 
         public int ItemTypeId
         {
-            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
         public Transaction.TransactionMode Mode
         {
-            get { return (Transaction.TransactionMode) int.Parse(Request.QueryString["mode"]); }
+            get { return (Transaction.TransactionMode)int.Parse(Page.RouteData.Values["mode"].ToString()); }
         }
 
         public ItemType ItemType
@@ -51,6 +51,9 @@ namespace Web.Dashboard
                     btnDelete.Visible = false;
                     btnSave.Visible = false;
                     break;
+                case Transaction.TransactionMode.NewEntry:
+                    txtItemTypeCode.Text = Transaction.TransactionType.ITTY + "-" + _itemTypeManager.ReferenceNumber + 1;     
+                    break;
             }
         }
 
@@ -65,7 +68,7 @@ namespace Web.Dashboard
                 Id = ItemTypeId
             };
             _itemTypeManager.Save(newItemType);
-            Response.Redirect("ItemTypeManagementPanel.aspx");
+            Response.Redirect("/ItemTypeManagementPanel");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -75,7 +78,7 @@ namespace Web.Dashboard
                 Id = ItemTypeId
             };
             _itemTypeManager.Delete(itemTypeToDelete);
-            Response.Redirect("ItemTypeManagementPanel.aspx");
+            Response.Redirect("/ItemTypeManagementPanel");
         }
     }
 }

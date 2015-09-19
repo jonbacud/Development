@@ -76,5 +76,15 @@ namespace IM.BusinessLogic.DataManager
         {
             return Accessor.Query.SelectByKey<ItemClassification>(key) ?? new ItemClassification();
         }
+
+        private string LastReferenceNumber
+        {
+            get { return Accessor.GetLastReferenceNumber(); }
+        }
+
+        public int ReferenceNumber
+        {
+            get { return string.IsNullOrEmpty(LastReferenceNumber) ? 10000 : int.Parse(LastReferenceNumber.Split('-')[1]); }
+        }
     }
 }

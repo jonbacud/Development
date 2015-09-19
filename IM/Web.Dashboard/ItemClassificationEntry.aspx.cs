@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IM.BusinessLogic.DataManager;
 using IM.Models;
+using Web.Dashboard.Shared;
 
 namespace Web.Dashboard
 {
@@ -15,7 +16,7 @@ namespace Web.Dashboard
 
         public int ItemClassificationId
         {
-            get { return (Request.QueryString["id"] == null) ? 0 : int.Parse(Request.QueryString["id"]); }
+            get { return (Page.RouteData.Values["id"] == null) ? 0 : int.Parse(Page.RouteData.Values["id"].ToString()); }
         }
 
         public ItemClassification ItemClassification
@@ -46,12 +47,13 @@ namespace Web.Dashboard
             var ic = new ItemClassification
             {
                 ClassificationName = txtName.Text,
-                Code = txtItemClassificationCode.Text,
+                Code = txtItemClassificationCode.Text.Trim(),
                 DepartmentId = int.Parse(DDLDepartments.SelectedValue),
-                UniqueId = Guid.NewGuid()
+                UniqueId = Guid.NewGuid(),
+                Id = ItemClassificationId
             };
             _itemClassificationManager.Save(ic);
-            Response.Redirect("ItemClassificationPanel.aspx");
+            Response.Redirect("/ItemClassificationPanel");
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace Web.Dashboard
                Id = ItemClassificationId
             };
             _itemClassificationManager.Delete(itemClassificationToDelete);
-            Response.Redirect("ItemClassificationPanel.aspx");
+            Response.Redirect("/ItemClassificationPanel");
         }
     }
 }

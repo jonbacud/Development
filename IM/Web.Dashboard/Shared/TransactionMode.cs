@@ -21,7 +21,9 @@
           PO,   //Purchase Request
           EPO,  // Emergency Purchase 
           CAT,  // categoryd
-          SUPP //suppliers
+          SUPP, //suppliers
+          CLAS, // Classification
+          ITTY // item types
         }
 
         public enum TransactionStatus
