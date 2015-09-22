@@ -1,59 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UnitManagementPanel.aspx.cs" Inherits="Web.Dashboard.UnitManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      <div class="row" style="height: 100%">
-        <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-            <ul class="sidebar" style="height: 100%;">
-                <li class="active"><a href="DepartmentManagementPanel.aspx">
-                    <span class="mif-users icon"></span>
-                    <span class="title">Departments</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Requisitions</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
-                    <span class="mif-folder-minus icon"></span>
-                    <span class="title">Items Issuance</span>
-                    <span class="counter">2</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Receiving Items</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="Items/Default.aspx">
-                    <span class="mif-database icon"></span>
-                    <span class="title">Items/Products</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Suppliers</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-undo icon"></span>
-                    <span class="title">Returns</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-file-excel icon"></span>
-                    <span class="title">Reports</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-user icon"></span>
-                    <span class="title">User Accounts</span>
-                    <span class="counter">0</span>
-                </a></li>
-            </ul>
-        </div>
+    <div class="row" style="height: 100%">
+        
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <ul class="breadcrumbs2 small">
+            <ul class="breadcrumbs2 no-margin small">
                 <li><a href="#"><span class="icon mif-folder-open"></span>Units</a></li>
             </ul>
             <h4 class="text-italic">Units Management <span class="mif-file-text place-right"></span></h4>
@@ -86,7 +39,7 @@
                                     AllowSorting="True" DataKeyNames="unit_id" PageSize="5" CellPadding="4" ForeColor="#333333">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
                                                 <label class="input-control checkbox small-check no-margin">
                                                     <input runat="server" id="chkUnit" type="checkbox">
@@ -97,19 +50,19 @@
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="unit_id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="unit_id">
-                                         <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                         </asp:BoundField>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:BoundField>
                                         <asp:BoundField DataField="unit_code" HeaderText="Code" SortExpression="unit_code"></asp:BoundField>
                                         <asp:BoundField DataField="unit_desc" HeaderText="Description" SortExpression="unit_desc"></asp:BoundField>
                                         <asp:BoundField DataField="department_desc" HeaderText="Department" SortExpression="department_desc"></asp:BoundField>
-                                         <asp:TemplateField>
-                                             <ItemTemplate>
-                                                  <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Unit Details" data-hint-position="left" NavigateUrl='<%# "~/UnitEntry.aspx?mode=0&id="+Eval("unit_id") %>'>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Unit Details" data-hint-position="left" NavigateUrl='<%# "~/UnitEntry.aspx?mode=0&id="+Eval("unit_id") %>'>
                                                     <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
-                                             </ItemTemplate>
-                                             <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                         </asp:TemplateField>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="50px" />
+                                        </asp:TemplateField>
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataTemplate>
@@ -125,7 +78,7 @@
                                     <SortedAscendingHeaderStyle BackColor="#506C8C" />
                                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                                </asp:GridView>  
+                                </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSourceUnits" runat="server" ConnectionString="<%$ ConnectionStrings:IMConnectionString %>" SelectCommand="SELECT ref_unit.unit_id, ref_unit.unit_code, ref_unit.unit_desc, ref_department.department_desc FROM ref_unit INNER JOIN ref_department ON ref_unit.dep_id = ref_department.department_id order by ref_unit.unit_id desc"></asp:SqlDataSource>
                             </div>
                         </div>

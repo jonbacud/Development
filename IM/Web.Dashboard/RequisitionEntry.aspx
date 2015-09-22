@@ -20,62 +20,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row" style="height: 100%;">
-        <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-            <ul class="sidebar" style="height: 100%;">
-                <li><a href="/DepartmentManagementPanel">
-                    <span class="mif-users icon"></span>
-                    <span class="title">Departments</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li class="active"><a href="RequisitionManagementPanel.aspx">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Requisitions</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="/IssuanceManagementPanel">
-                    <span class="mif-folder-minus icon"></span>
-                    <span class="title">Items Issuance</span>
-                    <span class="counter">2</span>
-                </a></li>
-                <li><a href="/ReceivingManagementPanel">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Receiving Items</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="/ItemManagementPanel">
-                    <span class="mif-database icon"></span>
-                    <span class="title">Items/Products</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="/SupplierManagementPanel">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Suppliers</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-undo icon"></span>
-                    <span class="title">Returns</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-file-excel icon"></span>
-                    <span class="title">Reports</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-apps icon"></span>
-                    <span class="title">Item Storage</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-user icon"></span>
-                    <span class="title">User Accounts</span>
-                    <span class="counter">0</span>
-                </a></li>
-            </ul>
-        </div>
+        
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <ul class="breadcrumbs2 small">
+            <ul class="breadcrumbs2 no-margin small">
                 <li><a href="/RequisitionManagementPanel"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">New Requestion</a></li>
             </ul>
@@ -256,7 +203,7 @@
             <hr class="thin bg-grayLighter">
         </div>
     </div>
-    <div data-role="dialog" id="dialogProcess" class="padding20" data-close-button="true" data-type="warning" 
+    <div data-role="dialog" id="dialogProcess" class="padding20" data-close-button="true" data-type="warning"
         data-overlay="true" data-overlay-color="op-dark">
         <h3>Process Request </h3>
         <div class="row">

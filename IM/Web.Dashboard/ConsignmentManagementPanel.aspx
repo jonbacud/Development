@@ -1,59 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsignmentManagementPanel.aspx.cs" Inherits="Web.Dashboard.ConsignmentManagementPanel" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="row" style="height: 100%">
-        <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-            <ul class="sidebar" style="height: 100%;">
-                <li class="active"><a href="DepartmentManagementPanel.aspx">
-                    <span class="mif-users icon"></span>
-                    <span class="title">Departments</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="RequisitionManagementPanel.aspx">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Requisitions</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="IssuanceManagementPanel.aspx">
-                    <span class="mif-folder-minus icon"></span>
-                    <span class="title">Items Issuance</span>
-                    <span class="counter">2</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Receiving Items</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="Items/Default.aspx">
-                    <span class="mif-database icon"></span>
-                    <span class="title">Items/Products</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Suppliers</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-undo icon"></span>
-                    <span class="title">Returns</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-file-excel icon"></span>
-                    <span class="title">Reports</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-user icon"></span>
-                    <span class="title">User Accounts</span>
-                    <span class="counter">0</span>
-                </a></li>
-            </ul>
-        </div>
+        
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <ul class="breadcrumbs2 small">
+            <ul class="breadcrumbs2 no-margin small">
                 <li><a href="/ConsignmentManagementPanel"><span class="icon mif-folder-open"></span>Consignements</a></li>
             </ul>
             <h4 class="text-italic">Consignment Management <span class="mif-file-text place-right"></span></h4>
@@ -88,7 +41,7 @@
                                     <Columns>
                                         <asp:BoundField DataField="id" HeaderText="Id" InsertVisible="False"
                                             ReadOnly="True" SortExpression="id"></asp:BoundField>
-                                        <asp:BoundField DataField="co_date" HeaderText="Con. Date" SortExpression="co_date" 
+                                        <asp:BoundField DataField="co_date" HeaderText="Con. Date" SortExpression="co_date"
                                             DataFormatString="{0:MMM dd, yyyy}"></asp:BoundField>
                                         <asp:BoundField DataField="company_name" HeaderText="Company" SortExpression="company_name"></asp:BoundField>
                                         <asp:BoundField DataField="company_address" HeaderText="Address" SortExpression="company_address" />
@@ -99,7 +52,7 @@
                                         <asp:BoundField DataField="co_status" HeaderText="Status" SortExpression="co_status" />
                                         <asp:BoundField DataField="days_deliver" HeaderText="Days Deliver" SortExpression="days_deliver" />
                                         <asp:BoundField DataField="requisition_no" HeaderText="Request No." SortExpression="requisition_no" />
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" data-role="hint" data-hint-background="bg-blue" data-hint="Info.|View Consignment Details" data-hint-position="left"
                                                     NavigateUrl='<%# "~/consignment-detail/0/"+Eval("id")%>'>

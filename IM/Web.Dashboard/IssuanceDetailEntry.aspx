@@ -19,57 +19,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row" style="height: 100%;">
-        <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-            <ul class="sidebar" style="height: 100%;">
-                <li><a href="/DepartmentManagementPanel">
-                    <span class="mif-users icon"></span>
-                    <span class="title">Departments</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="/RequisitionManagementPanel">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Requisitions</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li class="active"><a href="/IssuanceManagementPanel">
-                    <span class="mif-folder-minus icon"></span>
-                    <span class="title">Items Issuance</span>
-                    <span class="counter">2</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Receiving Items</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-database icon"></span>
-                    <span class="title">Items/Products</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Suppliers</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-undo icon"></span>
-                    <span class="title">Returns</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-file-excel icon"></span>
-                    <span class="title">Reports</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-user icon"></span>
-                    <span class="title">User Accounts</span>
-                    <span class="counter">0</span>
-                </a></li>
-            </ul>
-        </div>
+        
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <ul class="breadcrumbs2 small">
+            <ul class="breadcrumbs2 no-margin small">
                 <li><a href="/IssuanceManagementPanel"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">New Issuance</a></li>
             </ul>
@@ -101,7 +53,7 @@
                 </div>
                 <div class="cell colspan3 margin5">
                     <label style="font-weight: 600;">Issuance Date</label>
-                    
+
                     <div class="input-control text full-size " data-role="datepicker" data-date="1972-12-21" data-format="mmmm d, yyyy">
                         <asp:TextBox runat="server" ID="txtIssuanceDate"></asp:TextBox>
                         <button class="button"><span class="mif-calendar"></span></button>
@@ -176,7 +128,7 @@
                             <asp:TextBox Type="Number" ReadOnly="True" runat="server" ID="txtReceivedQuantity"></asp:TextBox>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
 

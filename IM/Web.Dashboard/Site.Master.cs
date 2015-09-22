@@ -61,10 +61,10 @@ namespace Web.Dashboard
         {
             if (!IsPostBack)
             {
-                if (UserAccount.UserId==0)
-                {
-                    Response.Redirect("/Login");
-                }
+                //if (UserAccount.UserId==0)
+                //{
+                //    Response.Redirect("/Login");
+                //}
                 // Set Anti-XSRF token
                 ViewState[AntiXsrfTokenKey] = Page.ViewStateUserKey;
                 ViewState[AntiXsrfUserNameKey] = Context.User.Identity.Name ?? String.Empty;

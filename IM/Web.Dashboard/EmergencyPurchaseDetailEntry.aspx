@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmergencyPurchaseDetailEntry.aspx.cs" Inherits="Web.Dashboard.EmergencyPurchaseDetailEntry" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script>
         function showDialog(id) {
@@ -18,57 +19,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row" style="height: 100%;">
-        <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-            <ul class="sidebar" style="height: 100%;">
-                <li><a href="/DepartmentManagementPanel">
-                    <span class="mif-users icon"></span>
-                    <span class="title">Departments</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="/RequisitionManagementPanel">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Requisitions</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li class="active"><a href="/IssuanceManagementPanel">
-                    <span class="mif-folder-minus icon"></span>
-                    <span class="title">Items Issuance</span>
-                    <span class="counter">2</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-folder-download icon"></span>
-                    <span class="title">Receiving Items</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-database icon"></span>
-                    <span class="title">Items/Products</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-drive-eta icon"></span>
-                    <span class="title">Suppliers</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-undo icon"></span>
-                    <span class="title">Returns</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-file-excel icon"></span>
-                    <span class="title">Reports</span>
-                    <span class="counter">0</span>
-                </a></li>
-                <li><a href="#">
-                    <span class="mif-user icon"></span>
-                    <span class="title">User Accounts</span>
-                    <span class="counter">0</span>
-                </a></li>
-            </ul>
-        </div>
+        
         <div class="cell auto-size padding20 bg-white" id="cell-content">
-            <ul class="breadcrumbs2 small">
+            <ul class="breadcrumbs2 no-margin small">
                 <li><a href="/EmergencyPurchaseManagementPanel"><span class="icon mif-folder-open"></span></a></li>
                 <li><a href="#">Emergency Puchases</a></li>
                 <li><a href="#">New Purchase Detail</a></li>
@@ -179,11 +132,11 @@
             <hr class="thin bg-grayLighter">
             <asp:Button ID="btnSave" runat="server" Text="SAVE"
                 CssClass="button primary" OnClick="btnSave_Click" />
-             <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
-                 data-hint="Delete|Delete this Purchase Item" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
-             <asp:HyperLink class="button link" runat="server" ID="hpLinkBack">
+            <asp:Button runat="server" Visible="False" ID="btnDelete" data-role="hint" data-hint-background="bg-red"
+                data-hint="Delete|Delete this Purchase Item" data-hint-position="top" CssClass="button alert" Text="DELETE" OnClick="btnDelete_Click" />
+            <asp:HyperLink class="button link" runat="server" ID="hpLinkBack">
                   <span class="mif-undo">BACK TO LIST</span>
-             </asp:HyperLink>
+            </asp:HyperLink>
             <hr class="thin bg-grayLighter">
         </div>
     </div>
