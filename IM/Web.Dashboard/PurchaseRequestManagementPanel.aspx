@@ -10,7 +10,7 @@
             </ul>
             <h4 class="text-italic">Purchase Reques Management <span class="mif-file-text place-right"></span></h4>
             <hr class="thin bg-grayLighter">
-            <asp:HyperLink class="button primary" NavigateUrl="PurchaseRequestEntry.aspx?mode=1&id=0" runat="server" ID="hpLnkAddNew">
+            <asp:HyperLink class="button primary" NavigateUrl="purchase-request/1/0" runat="server" ID="hpLnkAddNew">
                 <span class="mif-plus"></span> Create...
             </asp:HyperLink>
             <asp:LinkButton ID="lnlBtnReLoad" class="button warning" runat="server"><span class="mif-loop2"></span> Reload</asp:LinkButton>
@@ -53,7 +53,7 @@
                                             <ItemTemplate>
                                                 <asp:HyperLink runat="server" ID="hpLnkInfo" data-role="hint" data-hint-background="bg-blue"
                                                     data-hint="Info.|View Item Details" data-hint-position="left"
-                                                    NavigateUrl='<%# "~/PurchaseRequestEntry.aspx?mode=0&id="+Eval("id") %>'>
+                                                    NavigateUrl='<%# "/purchase-request/0/"+Eval("id") %>'>
                                                     <span class="mif-pencil"></span>
                                                 </asp:HyperLink>
                                             </ItemTemplate>
